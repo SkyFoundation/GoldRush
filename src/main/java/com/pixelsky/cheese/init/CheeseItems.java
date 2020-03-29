@@ -17,7 +17,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod.EventBusSubscriber(modid = "my_mod")
+@Mod.EventBusSubscriber(modid = "dgm")
 public class CheeseItems {
 	//Materials
 	public static ToolMaterial CHEESE_TOOL_MATERIAL;

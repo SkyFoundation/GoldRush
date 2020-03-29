@@ -1,12 +1,16 @@
 package com.pixelsky.cheese.init;
 
-import com.Egietje.degeweldigemod.blocks.*;
 import com.pixelsky.cheese.blocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
+@Mod.EventBusSubscriber(modid = "dgm")
 public class CheeseBlocks {
 	
 	public static Block CHEESE_BLOCK;
@@ -39,7 +43,6 @@ public class CheeseBlocks {
 	
 	public CheeseBlocks() {
 		init();
-		register();
 	}
 	
 	public static void init() {
@@ -98,40 +101,36 @@ public class CheeseBlocks {
 		CheeseUtils.setNames(CHEESE_CHAIR, "cheese_chair");
 		CheeseUtils.setNames(CHEESE_BANK, "cheese_bank");
 		CheeseUtils.setNames(CHEESE_STORE, "cheese_store");
-	}	
-	
-	public void register() {
-		this.registerBlock(CHEESE_ORE);
-		this.registerBlock(CHEESE_ORE_NETHER);
-		this.registerBlock(CHEESE_ORE_END);
-		this.registerBlock(CHEESE_BLOCK);
-		this.registerBlock(QUICK_CHEESE);
-		this.registerBlock(COMPLIMENT_MACHINE);
-		this.registerBlock(BELGIUM_FLAG);
-		this.registerBlock(CHEESE_PLANT);
-		this.registerBlock(CHEESE_FURNACE);
-		this.registerBlock(LIT_CHEESE_FURNACE);
-		this.registerBlock(CHEESE_CRAFTING_TABLE);
-		this.registerBlock(CHEESE_COOKIE_BLOCK);
-		this.registerBlock(CHEESE_BOARD);
-		this.registerBlock(CHEESE_GRASS);
-		this.registerBlock(CHEESE_DIRT);
-		this.registerBlock(CHEESE_GRASS_PATH);
-		this.registerBlock(CHEESE_FARM_LAND);
-		this.registerBlock(CHEESE_STAIRS);
-		this.registerBlock(CHEESE_PORTAL);
-		this.registerBlock(CHEESE_STONE);
-		this.registerBlock(CHEESE_FIRE);
-		this.registerBlock(CHEESE_MIRROR);
-		this.registerBlock(CHEESE_LOG);
-		this.registerBlock(CHEESE_PLANKS);
-		this.registerBlock(CHEESE_CHAIR);
-		this.registerBlock(CHEESE_BANK);
-		this.registerBlock(CHEESE_STORE);
-	}	
-	
-	private void registerBlock(Block block) {
-		GameRegistry.register(block);
-		GameRegistry.register(new ItemBlock(block).setUnlocalizedName(block.getUnlocalizedName()).setRegistryName(block.getRegistryName()));
+	}
+	@SubscribeEvent
+	public static void register(RegistryEvent.Register<Block> event) {
+		
+		event.getRegistry().register(CHEESE_ORE);
+		event.getRegistry().register(CHEESE_ORE_NETHER);
+		event.getRegistry().register(CHEESE_ORE_END);
+		event.getRegistry().register(CHEESE_BLOCK);
+		event.getRegistry().register(QUICK_CHEESE);
+		event.getRegistry().register(COMPLIMENT_MACHINE);
+		event.getRegistry().register(BELGIUM_FLAG);
+		event.getRegistry().register(CHEESE_PLANT);
+		event.getRegistry().register(CHEESE_FURNACE);
+		event.getRegistry().register(LIT_CHEESE_FURNACE);
+		event.getRegistry().register(CHEESE_CRAFTING_TABLE);
+		event.getRegistry().register(CHEESE_COOKIE_BLOCK);
+		event.getRegistry().register(CHEESE_BOARD);
+		event.getRegistry().register(CHEESE_GRASS);
+		event.getRegistry().register(CHEESE_DIRT);
+		event.getRegistry().register(CHEESE_GRASS_PATH);
+		event.getRegistry().register(CHEESE_FARM_LAND);
+		event.getRegistry().register(CHEESE_STAIRS);
+		event.getRegistry().register(CHEESE_PORTAL);
+		event.getRegistry().register(CHEESE_STONE);
+		event.getRegistry().register(CHEESE_FIRE);
+		event.getRegistry().register(CHEESE_MIRROR);
+		event.getRegistry().register(CHEESE_LOG);
+		event.getRegistry().register(CHEESE_PLANKS);
+		event.getRegistry().register(CHEESE_CHAIR);
+		event.getRegistry().register(CHEESE_BANK);
+		event.getRegistry().register(CHEESE_STORE);
 	}
 }
