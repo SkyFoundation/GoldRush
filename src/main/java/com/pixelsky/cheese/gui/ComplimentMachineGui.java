@@ -40,28 +40,28 @@ public class ComplimentMachineGui extends GuiScreen {
 		this.drawWorldBackground(compliment);
 		switch(compliment) {
 		case 0:
-			drawCenteredString(fontRendererObj, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD +" is AWESOME." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
+			drawCenteredString(fontRenderer, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD +" is AWESOME." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
 			break;
 		case 1:
-			drawCenteredString(fontRendererObj, TextFormatting.GOLD + "I love " + TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD +  "." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
+			drawCenteredString(fontRenderer, TextFormatting.GOLD + "I love " + TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD +  "." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
 			break;
 		case 2:
-			drawCenteredString(fontRendererObj, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " is nice." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
+			drawCenteredString(fontRenderer, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " is nice." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
 			break;
 		case 3:
-			drawCenteredString(fontRendererObj, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " is my BFF." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
+			drawCenteredString(fontRenderer, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " is my BFF." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
 			break;
 		case 4:
-			drawCenteredString(fontRendererObj, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " is good at everything." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
+			drawCenteredString(fontRenderer, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " is good at everything." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
 			break;
 		case 5:
-			drawCenteredString(fontRendererObj, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " is perfect." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
+			drawCenteredString(fontRenderer, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " is perfect." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
 			break;
 		case 6:
-			drawCenteredString(fontRendererObj, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " will win every contest." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
+			drawCenteredString(fontRenderer, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " will win every contest." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
 			break;
 		case 7:
-			drawCenteredString(fontRendererObj, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " is strong." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
+			drawCenteredString(fontRenderer, TextFormatting.YELLOW + playerIn.getDisplayNameString() + TextFormatting.GOLD + " is strong." + TextFormatting.RESET, width / 2, height / 2 - 20, 0xFFFF00);
 			break;
 		}
 		super.drawScreen(mouseX, mouseY, partialTicks);

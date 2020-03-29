@@ -16,7 +16,7 @@ public class GuiCheeseOverlay extends GuiIngameForge {
 	}
 
 	public void renderCheese(int width, int height) {
-		mc.mcProfiler.startSection("cheese");
+		mc.profiler.startSection("cheese");
 
 		EntityPlayer player = (EntityPlayer) mc.getRenderViewEntity();
 		GlStateManager.enableBlend();
@@ -44,6 +44,6 @@ public class GuiCheeseOverlay extends GuiIngameForge {
 				drawModalRectWithCustomSizedTexture(x, y, 9, 0, 9, 9, 27, 9);
 		}
 		GlStateManager.disableBlend();
-		mc.mcProfiler.endSection();
+		mc.profiler.endSection();
 	}
 }

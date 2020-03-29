@@ -40,9 +40,9 @@ public class RenderCheeseMirror extends TileEntitySpecialRenderer<TileEntityChee
 		registerMirrors.clear();
 	}
 
+
 	@Override
-	public void renderTileEntityAt(TileEntityCheeseMirror mirror, double posX, double posY, double posZ,
-			float partialTicks, int breakStage) {
+	public void render(TileEntityCheeseMirror mirror, double posX, double posY, double posZ,float partialTicks, int destroyStage, float alpha) {
 
 		if (TileEntityRendererDispatcher.instance.entity instanceof EntityCheeseMirror)
 			return;
@@ -60,7 +60,7 @@ public class RenderCheeseMirror extends TileEntitySpecialRenderer<TileEntityChee
 
 		mirror.getMirror().rendering = true;
 
-		EnumFacing facing = EnumFacing.getHorizontal(mirror.getBlockMetadata());
+		EnumFacing facing = EnumFacing.byHorizontalIndex(mirror.getBlockMetadata());
 		GlStateManager.pushMatrix();
 		{
 			GlStateManager.disableLighting();
@@ -111,7 +111,7 @@ public class RenderCheeseMirror extends TileEntitySpecialRenderer<TileEntityChee
 				if (!mc.player.canEntityBeSeen(entity))
 					continue;
 
-				if (entity.getDistanceToEntity(mc.player) < 25) {
+				if (entity.getDistance(mc.player) < 25) {
 					GameSettings settings = mc.gameSettings;
 					RenderGlobal renderBackup = mc.renderGlobal;
 					Entity entityBackup = mc.getRenderViewEntity();

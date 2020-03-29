@@ -16,10 +16,10 @@ public class BiomeCheeseDimension extends Biome {
 		this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableCaveCreatureList.clear();
-		this.theBiomeDecorator.treesPerChunk = 0;
-		this.theBiomeDecorator.extraTreeChance = 0;
-		this.theBiomeDecorator.flowersPerChunk = 0;
-		this.theBiomeDecorator.grassPerChunk = 0;
+		this.decorator.treesPerChunk = 0;
+		this.decorator.extraTreeChance = 0;
+		this.decorator.flowersPerChunk = 0;
+		this.decorator.grassPerChunk = 0;
 		this.topBlock = CheeseBlocks.CHEESE_STONE.getDefaultState();
 		this.fillerBlock = CheeseBlocks.CHEESE_STONE.getDefaultState();
 	}

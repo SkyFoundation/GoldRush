@@ -197,14 +197,14 @@ public class CheesePortal extends BlockBreakable {
 					player.timeUntilPortal = 10;
 				} else if (player.dimension == 0) {
 					player.timeUntilPortal = 10;
-					MinecraftServer server = player.mcServer;
+					MinecraftServer server = player.server;
 					server.getPlayerList().transferPlayerToDimension(player, CheeseDimensions.CHEESE_DIMENSION_ID,
-							new CheeseTeleporter(server.worldServerForDimension(CheeseDimensions.CHEESE_DIMENSION_ID)));
+							new CheeseTeleporter(server.getWorld(CheeseDimensions.CHEESE_DIMENSION_ID)));
 				} else if (player.dimension == CheeseDimensions.CHEESE_DIMENSION_ID) {
 					player.timeUntilPortal = 10;
-					MinecraftServer server = player.mcServer;
+					MinecraftServer server = player.server;
 					server.getPlayerList().transferPlayerToDimension(player, 0,
-							new CheeseTeleporter(server.worldServerForDimension(0)));
+							new CheeseTeleporter(server.getWorld(0)));
 				}
 			}
 		}

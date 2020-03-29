@@ -28,7 +28,6 @@ public class DeGeweldigeMod {
 		new CheeseBlocks();
 		new CheeseItems();
 		new CheeseEntities();
-		new CheeseAchievements();
 		new CheeseSpawnPlacementRegistry();
 		new CheeseBiomes();
 		new CheeseTabs();
@@ -36,13 +35,12 @@ public class DeGeweldigeMod {
 		new CheeseDimensions();
 		proxy.registerModels();
 		proxy.renderEntities();
-		proxy.setTitle("Minecraft - " + Minecraft.getMinecraft().getVersion().substring(0, 6) + " | DeGeweldigeMod - " + Reference.VERSION);
 	}
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
 		new CheeseCraftingAndSmelting();
-		new CheeseCapabilitys();
+		//new CheeseCapabilitys();
 		proxy.bindTileEntities();
 		proxy.registerClientEventHandler();
 		proxy.registerCommonEventHandler();

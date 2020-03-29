@@ -1,3 +1,4 @@
+/*
 package com.pixelsky.cheese.init;
 
 import com.pixelsky.cheese.capability.cheese.Cheese;
@@ -28,3 +29,4 @@ public class CheeseCapabilitys {
 	}
 	
 }
+*/

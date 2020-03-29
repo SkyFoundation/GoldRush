@@ -3,7 +3,6 @@ package com.pixelsky.cheese.entities.cheeseboss;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.pixelsky.cheese.entities.cheeseball.EntityCheeseBall;
-import com.pixelsky.cheese.init.CheeseAchievements;
 import com.pixelsky.cheese.init.CheeseItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
@@ -86,10 +85,6 @@ public class EntityCheeseBoss extends EntityMob implements IRangedAttackMob {
 			world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ, new ItemStack(Items.DIAMOND, 3)));
 			world.spawnEntity(new EntityItem(world, this.posX, this.posY, this.posZ,
 					new ItemStack(CheeseItems.CHEESE, rand.nextInt(4) + 7)));
-			for (EntityPlayer entityplayer : this.world.getEntitiesWithinAABB(EntityPlayer.class,
-					this.getEntityBoundingBox().expand(50.0D, 100.0D, 50.0D))) {
-				entityplayer.addStat(CheeseAchievements.KILL);
-			}
 		}
 		super.onDeath(cause);
 	}
@@ -164,7 +159,7 @@ public class EntityCheeseBoss extends EntityMob implements IRangedAttackMob {
 			if (k1 > 0) {
 				Entity entity = this.world.getEntityByID(k1);
 
-				if (entity != null && entity.isEntityAlive() && this.getDistanceSqToEntity(entity) <= 900.0D
+				if (entity != null && entity.isEntityAlive() && this.getDistanceSq(entity) <= 900.0D
 						&& this.canEntityBeSeen(entity)) {
 					if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.disableDamage) {
 						this.updateWatchedTargetId(i, 0);
@@ -297,6 +292,11 @@ public class EntityCheeseBoss extends EntityMob implements IRangedAttackMob {
 		this.launchCheeseToEntity(0, target);
 	}
 
+	@Override
+	public void setSwingingArms(boolean swingingArms) {
+
+	}
+
 	public int getWatchedTargetId(int head) {
 		return ((Integer) this.dataManager.get(TARGET)).intValue();
 	}
@@ -308,7 +308,4 @@ public class EntityCheeseBoss extends EntityMob implements IRangedAttackMob {
 	public void addPotionEffect(PotionEffect potioneffectIn) {
 	}
 
-	protected void despawnEntity() {
-		this.entityAge = 0;
-	}
 }

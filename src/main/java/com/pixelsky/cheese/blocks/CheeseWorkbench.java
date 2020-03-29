@@ -61,7 +61,7 @@ public class CheeseWorkbench extends Block {
 		 * username in chat
 		 */
 		public ITextComponent getDisplayName() {
-			return new TextComponentTranslation(CheeseBlocks.CHEESE_CRAFTING_TABLE.getUnlocalizedName() + ".name", new Object[0]);
+			return new TextComponentTranslation(CheeseBlocks.CHEESE_CRAFTING_TABLE.getTranslationKey() + ".name", new Object[0]);
 		}
 
 		public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {

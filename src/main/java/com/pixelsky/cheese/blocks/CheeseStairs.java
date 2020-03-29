@@ -271,7 +271,10 @@ public class CheeseStairs extends Block {
 	public IBlockState getStateFromMeta(int meta) {
 		IBlockState iblockstate = this.getDefaultState().withProperty(HALF,
 				(meta & 4) > 0 ? CheeseStairs.EnumHalf.TOP : CheeseStairs.EnumHalf.BOTTOM);
-		iblockstate = iblockstate.withProperty(FACING, EnumFacing.getFront(5 - (meta & 3)));
+		//this might be wroing as the cheese furnace
+		//////////////////////////////////////////////
+		/////////////////////////////////////////////
+		iblockstate = iblockstate.withProperty(FACING, EnumFacing.byHorizontalIndex(5 - (meta & 3)));
 		return iblockstate;
 	}
 

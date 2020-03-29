@@ -24,21 +24,21 @@ public class GuiButtonWithImage extends GuiButton {
 		if (this.visible) {
 			mc.getTextureManager().bindTexture(BUTTON_TEXTURES);
 			GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-			boolean flag = mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width
-					&& mouseY < this.yPosition + this.height;
+			boolean flag = mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width
+					&& mouseY < this.y + this.height;
 			int i = 0;
 
 			if (flag) {
 				i += this.height;
 			}
 
-			this.drawTexturedModalRect(this.xPosition, this.yPosition, textureOffsetX, i + textureOffsetY, 20,20);
+			this.drawTexturedModalRect(this.x, this.y, textureOffsetX, i + textureOffsetY, 20,20);
 			if (this.type == 0) {
-				this.drawCenteredString(Minecraft.getMinecraft().fontRendererObj, "Sell", this.xPosition + 10,
-						this.yPosition - 10, 0xffffff);
+				this.drawCenteredString(Minecraft.getMinecraft().fontRenderer, "Sell", this.x + 10,
+						this.y - 10, 0xffffff);
 			} else if (this.type == 1) {
-				this.drawCenteredString(Minecraft.getMinecraft().fontRendererObj, "Buy", this.xPosition + 10,
-						this.yPosition - 10, 0xffffff);
+				this.drawCenteredString(Minecraft.getMinecraft().fontRenderer, "Buy", this.x + 10,
+						this.y - 10, 0xffffff);
 			}
 		}
 	}

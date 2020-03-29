@@ -2,9 +2,9 @@ package com.pixelsky.cheese.entities.cheeseball;
 
 import com.pixelsky.cheese.init.CheeseItems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -34,7 +34,7 @@ public class RenderCheeseBall extends Render<EntityCheeseBall> {
 		GlStateManager.scale(this.scale, this.scale, this.scale);
 		TextureAtlasSprite textureatlassprite = Minecraft.getMinecraft().getRenderItem().getItemModelMesher().getParticleIcon(CheeseItems.CHEESE_COOKED);
 		Tessellator tessellator = Tessellator.getInstance();
-		VertexBuffer vertexbuffer = tessellator.getBuffer();
+		BufferBuilder vertexbuffer = tessellator.getBuffer();
 		float f = textureatlassprite.getMinU();
 		float f1 = textureatlassprite.getMaxU();
 		float f2 = textureatlassprite.getMinV();

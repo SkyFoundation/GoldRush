@@ -212,7 +212,7 @@ public class CheeseFire extends Block {
 								int k1 = this.getNeighborEncouragement(worldIn, blockpos);
 
 								if (k1 > 0) {
-									int l1 = (k1 + 40 + worldIn.getDifficulty().getDifficultyId() * 7) / (i + 30);
+									int l1 = (k1 + 40 + worldIn.getDifficulty().getId()* 7) / (i + 30);
 
 									if (flag1) {
 										l1 /= 2;
@@ -282,7 +282,7 @@ public class CheeseFire extends Block {
 			}
 
 			if (iblockstate.getBlock() == Blocks.TNT) {
-				Blocks.TNT.onBlockDestroyedByPlayer(worldIn, pos,
+				Blocks.TNT.onPlayerDestroy(worldIn, pos,
 						iblockstate.withProperty(BlockTNT.EXPLODE, Boolean.valueOf(true)));
 			}
 		}
@@ -331,7 +331,7 @@ public class CheeseFire extends Block {
 	}
 
 	public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-		return worldIn.getBlockState(pos.down()).isFullyOpaque() || this.canNeighborCatchFire(worldIn, pos);
+		return worldIn.getBlockState(pos.down()).isOpaqueCube() || this.canNeighborCatchFire(worldIn, pos);
 	}
 
 	/**
@@ -341,7 +341,7 @@ public class CheeseFire extends Block {
 	 * neighboring solid block, etc.
 	 */
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos p_189540_5_) {
-		if (!worldIn.getBlockState(pos.down()).isFullyOpaque() && !this.canNeighborCatchFire(worldIn, pos)) {
+		if (!worldIn.getBlockState(pos.down()).isOpaqueCube() && !this.canNeighborCatchFire(worldIn, pos)) {
 			worldIn.setBlockToAir(pos);
 		}
 	}
@@ -352,7 +352,7 @@ public class CheeseFire extends Block {
 	 */
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
 		if (worldIn.provider.getDimensionType().getId() == 1 || !CheeseBlocks.CHEESE_PORTAL.trySpawnPortal(worldIn, pos)) {
-			if (!worldIn.getBlockState(pos.down()).isFullyOpaque() && !this.canNeighborCatchFire(worldIn, pos)) {
+			if (!worldIn.getBlockState(pos.down()).isOpaqueCube() && !this.canNeighborCatchFire(worldIn, pos)) {
 				worldIn.setBlockToAir(pos);
 			} else {
 				worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn) + worldIn.rand.nextInt(10));

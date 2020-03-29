@@ -129,7 +129,7 @@ public class CheeseTeleporter extends Teleporter {
 			double d6 = 0;
 			if (entityIn.getLastPortalVec() != null) {
 				d6 = (double) (blockpattern$patternhelper.getFrontTopLeft().getY() + 1)
-					- entityIn.getLastPortalVec().yCoord * (double) blockpattern$patternhelper.getHeight();
+					- entityIn.getLastPortalVec().y * (double) blockpattern$patternhelper.getHeight();
 			} else {
 				d6 = (double) (blockpattern$patternhelper.getFrontTopLeft().getY() + 1)
 					- (double) blockpattern$patternhelper.getHeight();
@@ -140,10 +140,10 @@ public class CheeseTeleporter extends Teleporter {
 
 			if(entityIn.getLastPortalVec() != null) {
 				if (blockpattern$patternhelper.getForwards().getAxis() == EnumFacing.Axis.X) {
-					d7 = d2 + (1.0D - entityIn.getLastPortalVec().xCoord) * (double) blockpattern$patternhelper.getWidth()
+					d7 = d2 + (1.0D - entityIn.getLastPortalVec().x) * (double) blockpattern$patternhelper.getWidth()
 							* (double) blockpattern$patternhelper.getForwards().rotateY().getAxisDirection().getOffset();
 				} else {
-					d5 = d2 + (1.0D - entityIn.getLastPortalVec().xCoord) * (double) blockpattern$patternhelper.getWidth()
+					d5 = d2 + (1.0D - entityIn.getLastPortalVec().x) * (double) blockpattern$patternhelper.getWidth()
 							* (double) blockpattern$patternhelper.getForwards().rotateY().getAxisDirection().getOffset();
 				}
 			} else {

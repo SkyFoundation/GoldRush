@@ -6,6 +6,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -46,8 +47,11 @@ public class ContainerCheeseWorkbench extends Container {
 	 * Callback for when the crafting matrix is changed.
 	 */
 	public void onCraftMatrixChanged(IInventory inventoryIn) {
-		this.craftResult.setInventorySlotContents(0,
-				CraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
+
+		IRecipe recipe=CraftingManager.findMatchingRecipe(this.craftMatrix,this.worldObj);
+		if (recipe==null)
+			return;
+		this.craftResult.setInventorySlotContents(0,recipe.getRecipeOutput());
 	}
 
 	/**

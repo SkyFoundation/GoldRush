@@ -87,7 +87,7 @@ public class CheeseStoreGui extends GuiScreen {
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		IMoney moneyCap = this.mc.player.getCapability(MoneyProvider.MONEY_CAP, null);
-		this.drawCenteredString(fontRendererObj, "Balance: " + moneyCap.get(), this.width / 2, this.height / 2 - 50, 0xffffff);
+		this.drawCenteredString(fontRenderer, "Balance: " + moneyCap.get(), this.width / 2, this.height / 2 - 50, 0xffffff);
 	}
 
 	@Override

@@ -1,46 +1,22 @@
 package com.pixelsky.cheese.handler;
 
-import com.pixelsky.cheese.capability.shouldgiveitems.ShouldGiveItems;
 import com.pixelsky.cheese.entities.tileentities.render.RenderCheeseMirror;
-import com.pixelsky.cheese.gui.GuiCheeseOverlay;
-import com.pixelsky.cheese.init.CheeseAchievements;
 import com.pixelsky.cheese.init.CheeseItems;
 import com.pixelsky.cheese.render.LayerCheeseCape;
 import com.pixelsky.cheese.render.LayerCheeseEars;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiCreateWorld;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.event.FOVUpdateEvent;
-import net.minecraftforge.client.event.GuiScreenEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.lang.reflect.Field;
-import java.util.List;
-
 @SideOnly(Side.CLIENT)
 public class CheeseClientHandler {
-	@SubscribeEvent
-	public void onPlayerJoin(PlayerLoggedInEvent event) {
-		EntityPlayer player = event.player;
-		player.sendMessage(new TextComponentString(TextFormatting.GOLD + "Welcome " + TextFormatting.YELLOW
-				+ player.getDisplayNameString() + TextFormatting.GOLD + ", have fun!" + TextFormatting.RESET));
-		player.addStat(CheeseAchievements.JOIN);
-	}
-
+	/*
 	private boolean air = false;
 	
 	@SubscribeEvent
@@ -51,6 +27,7 @@ public class CheeseClientHandler {
 		if (event.getType() == ElementType.FOOD) {
 			(new GuiCheeseOverlay(Minecraft.getMinecraft())).renderCheese(event.getResolution().getScaledWidth(),
 					event.getResolution().getScaledHeight());
+			GuiCreateWorld
 		}
 	}
 
@@ -153,7 +130,7 @@ public class CheeseClientHandler {
 			}
 		}
 	}
-
+	*/
 	@SubscribeEvent
 	public void onPlayerPreRender(RenderPlayerEvent.Pre event) {
 		RenderPlayer render = event.getRenderer();

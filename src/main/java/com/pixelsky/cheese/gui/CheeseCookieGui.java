@@ -105,7 +105,7 @@ public class CheeseCookieGui extends GuiScreen {
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		this.drawWorldBackground(1);
 		if(slider) {
-			drawCenteredString(fontRendererObj, "Je krijgt " + String.valueOf(cookies.getValueInt()) + " koekjes, dat is " + String.valueOf(cookies.getValueInt() * 3) + " XP levels" , width / 2, height / 4 + 102 + -16, 0xFFFFFF);
+			drawCenteredString(fontRenderer, "Je krijgt " + String.valueOf(cookies.getValueInt()) + " koekjes, dat is " + String.valueOf(cookies.getValueInt() * 3) + " XP levels" , width / 2, height / 4 + 102 + -16, 0xFFFFFF);
 		}
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}

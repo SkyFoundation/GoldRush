@@ -227,8 +227,8 @@ public class CheeseFurnace extends BlockContainer {
 	 * Convert the given metadata into a BlockState for this Block
 	 */
 	public IBlockState getStateFromMeta(int meta) {
-		EnumFacing enumfacing = EnumFacing.getFront(meta);
-
+		EnumFacing enumfacing = EnumFacing.byHorizontalIndex(meta);
+		//this might be wrong
 		if (enumfacing.getAxis() == EnumFacing.Axis.Y) {
 			enumfacing = EnumFacing.NORTH;
 		}

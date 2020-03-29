@@ -81,7 +81,7 @@ public class EntityCheeseMirror extends Entity {
 
 			this.rotationYaw = (float) (-90F + facing * 90F - angleYaw);
 
-			double distance = getDistanceToEntity(mc.player);
+			double distance = getDistance(mc.player);
 			double height = (mc.player.getEyeHeight() + mc.player.posY) - this.posY;
 			double anglePitch = Math.atan2(height, distance) * (180D / Math.PI);
 			if (anglePitch > 45F) {

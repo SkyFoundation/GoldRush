@@ -17,10 +17,10 @@ public class BiomeCheese extends Biome {
 	public BiomeCheese(Biome.BiomeProperties properties) {
 		super(properties);
 		this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityCheeseCow.class, 8, 4, 4));
-		this.theBiomeDecorator.treesPerChunk = 1;
-		this.theBiomeDecorator.extraTreeChance = 0.05F;
-		this.theBiomeDecorator.flowersPerChunk = 5;
-		this.theBiomeDecorator.grassPerChunk = 7;
+		this.decorator.treesPerChunk = 1;
+		this.decorator.extraTreeChance = 0.05F;
+		this.decorator.flowersPerChunk = 5;
+		this.decorator.grassPerChunk = 7;
 		this.topBlock = CheeseBlocks.CHEESE_GRASS.getDefaultState();
 		this.fillerBlock = CheeseBlocks.CHEESE_DIRT.getDefaultState();
 	}
@@ -77,8 +77,8 @@ public class BiomeCheese extends Biome {
             BlockPos blockpos = worldIn.getHeight(pos.add(i, 0, j)).up();
             CHEESE_BOSS_HOUSE_GENERATOR.generate(worldIn, rand, blockpos);
 		}
-		this.theBiomeDecorator.flowersPerChunk = 4;
-		this.theBiomeDecorator.grassPerChunk = 10;
+		this.decorator.flowersPerChunk = 4;
+		this.decorator.grassPerChunk = 10;
 		DOUBLE_PLANT_GENERATOR.setPlantType(BlockDoublePlant.EnumPlantType.GRASS);
 		
 		for (int i = 0; i < 7; ++i) {

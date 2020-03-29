@@ -16,7 +16,6 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -41,7 +40,7 @@ public class ChunkProviderCheese implements IChunkGenerator {
 	private final WorldType terrainType;
 	private final double[] heightMap;
 	private final float[] biomeWeights;
-	private ChunkProviderSettings settings;
+	private ChunkGeneratorSettings settings;
 	private IBlockState oceanBlock = Blocks.WATER.getDefaultState();
 	private double[] depthBuffer = new double[256];
 	private MapGenBase caveGenerator = new MapGenCaves();
@@ -102,7 +101,7 @@ public class ChunkProviderCheese implements IChunkGenerator {
 		}
 
 		if (p_i46668_5_ != null) {
-			this.settings = ChunkProviderSettings.Factory.jsonToFactory(p_i46668_5_).build();
+			this.settings = ChunkGeneratorSettings.Factory.jsonToFactory(p_i46668_5_).build();
 			this.oceanBlock = this.settings.useLavaOceans ? Blocks.LAVA.getDefaultState()
 					: Blocks.WATER.getDefaultState();
 			worldIn.setSeaLevel(this.settings.seaLevel);
@@ -196,8 +195,8 @@ public class ChunkProviderCheese implements IChunkGenerator {
 			}
 		}
 	}
-
-	public Chunk provideChunk(int x, int z) {
+	@Override
+	public Chunk generateChunk(int x, int z) {
 		this.rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
 		ChunkPrimer chunkprimer = new ChunkPrimer();
 		this.setBlocksInChunk(x, z, chunkprimer);
@@ -356,6 +355,12 @@ public class ChunkProviderCheese implements IChunkGenerator {
 		}
 	}
 
+	@Override
+	public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos) {
+	BlockPos pos1=	this.getNearestStructurePos(worldIn, structureName, pos, true);
+		return pos1==null;
+	}
+
 	public void populate(int x, int z) {
 		BlockFalling.fallInstantly = true;
 		int i = x * 16;
@@ -471,36 +476,37 @@ public class ChunkProviderCheese implements IChunkGenerator {
 
 		if (this.mapFeaturesEnabled) {
 			if (creatureType == EnumCreatureType.MONSTER && this.scatteredFeatureGenerator.isSwampHut(pos)) {
-				return this.scatteredFeatureGenerator.getScatteredFeatureSpawnList();
+				return this.scatteredFeatureGenerator.getMonsters();
 			}
 
 			if (creatureType == EnumCreatureType.MONSTER && this.settings.useMonuments
 					&& this.oceanMonumentGenerator.isPositionInStructure(this.worldObj, pos)) {
-				return this.oceanMonumentGenerator.getScatteredFeatureSpawnList();
+				return this.oceanMonumentGenerator.getMonsters();
 			}
 		}
 
 		return biome.getSpawnableList(creatureType);
 	}
 
+	@Override
 	@Nullable
-	public BlockPos getStrongholdGen(World worldIn, String structureName, BlockPos position, boolean p_180513_4_) {
+	public BlockPos  getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean p_180513_4_) {
 		return "Stronghold".equals(structureName) && this.strongholdGenerator != null
-				? this.strongholdGenerator.getClosestStrongholdPos(worldIn, position, p_180513_4_)
+				? this.strongholdGenerator.getNearestStructurePos(worldIn, position, p_180513_4_)
 				: ("Monument".equals(structureName) && this.oceanMonumentGenerator != null
-						? this.oceanMonumentGenerator.getClosestStrongholdPos(worldIn, position, p_180513_4_)
+						? this.oceanMonumentGenerator.getNearestStructurePos(worldIn, position, p_180513_4_)
 						: ("Village".equals(structureName) && this.villageGenerator != null
-								? this.villageGenerator.getClosestStrongholdPos(worldIn, position, p_180513_4_)
+								? this.villageGenerator.getNearestStructurePos(worldIn, position, p_180513_4_)
 								: ("CheeseVillage".equals(structureName) && this.cheeseVillageGenerator != null
 										? this.cheeseVillageGenerator.getClosestStrongholdPos(worldIn, position,
 												p_180513_4_)
 										: ("Mineshaft".equals(structureName) && this.mineshaftGenerator != null
-												? this.mineshaftGenerator.getClosestStrongholdPos(worldIn, position,
+												? this.mineshaftGenerator.getNearestStructurePos(worldIn, position,
 														p_180513_4_)
 												: ("Temple".equals(structureName)
 														&& this.scatteredFeatureGenerator != null
 																? this.scatteredFeatureGenerator
-																		.getClosestStrongholdPos(worldIn, position,
+																		.getNearestStructurePos(worldIn, position,
 																				p_180513_4_)
 																: null)))));
 	}
@@ -529,4 +535,6 @@ public class ChunkProviderCheese implements IChunkGenerator {
 			}
 		}
 	}
+
+
 }

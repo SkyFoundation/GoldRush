@@ -1,6 +1,5 @@
 package com.pixelsky.cheese.items.tools;
 
-import com.pixelsky.cheese.init.CheeseAchievements;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -20,7 +19,6 @@ public class CheeseFlyStick extends Item {
 	public ActionResult<ItemStack> onItemRightClick(World itemStackIn, EntityPlayer worldIn, EnumHand playerIn) {
 		worldIn.jump();
 		worldIn.fallDistance = 0.0F;
-		worldIn.addStat(CheeseAchievements.FLY);
 		worldIn.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 100, 1);
 		worldIn.getHeldItem(playerIn).damageItem(1, worldIn);
 		return super.onItemRightClick(itemStackIn, worldIn, playerIn);
