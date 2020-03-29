@@ -103,9 +103,8 @@ public class EntityCheeseBall extends EntityFireball {
 			}
 
 			EntityAreaEffectCloud cloud = new EntityAreaEffectCloud(world, this.posX, this.posY, this.posZ);
-			PotionEffect potion = new PotionEffect(MobEffects.INSTANT_DAMAGE);
 			cloud.setColor(0x9E881E);
-			cloud.setPotion(new PotionType(potion));
+			cloud.setPotion(PotionType.getPotionTypeForName("minecraft:instant_damage"));
 			cloud.setDuration(100);
 			world.spawnEntity(cloud);
 			this.setDead();
