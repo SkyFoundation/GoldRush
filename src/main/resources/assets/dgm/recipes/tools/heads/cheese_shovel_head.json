@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "dgm:cheese_shovel_head"
+  },
+  "pattern": [
+    " C ",
+    " C ",
+    "   "
+  ],
+  "group": "dgm:tools",
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "dgm:cheese_ingot"
+    }
+  }
+}

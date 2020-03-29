@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "dgm:cheese_chestplate"
+  },
+  "pattern": [
+    "C C",
+    "CCC",
+    "CCC "
+  ],
+  "group": "dgm:armor",
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "dgm:cheese_ingot"
+    }
+  }
+}

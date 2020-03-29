@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "dgm:food",
+  "result": { "item": "dgm:flint_and_cheese", "count": 1 },
+  "ingredients": [
+    { "item": "dgm:cheese_block", "count": 1 },
+    { "item": "minecraft:flint", "count": 1 }
+  ]
+}

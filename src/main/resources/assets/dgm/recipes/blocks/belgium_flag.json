@@ -1,0 +1,32 @@
+{
+"result": {
+"item": "dgm:belgium_flag"
+},
+  "group": "dgm:blocks",
+"pattern": [
+"BYR",
+"S  ",
+"LLL"
+],
+"type": "minecraft:crafting_shaped",
+"key": {
+"L": {
+"item": "minecraft:stone_slab"
+},
+"S": {
+"item": "minecraft:stick"
+},
+"B": {
+"item": "minecraft:dye",
+"data": 0
+},
+"Y": {
+"item": "minecraft:dye",
+"data": 11
+},
+"R": {
+"item": "minecraft:dye",
+"data": 1
+}
+}
+}

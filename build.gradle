@@ -38,6 +38,7 @@ minecraft
 //项目依赖
 dependencies
         {
+            deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
         }
 repositories
         {
@@ -48,6 +49,7 @@ repositories
                         url 'http://dvs1.progwml6.com/files/maven'
                     }
         }
+
 
 
 processResources

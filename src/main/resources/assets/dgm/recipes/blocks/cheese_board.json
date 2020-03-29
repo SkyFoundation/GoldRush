@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "dgm:cheese_board"
+  },
+  "pattern": [
+    "WWW",
+    "CCC",
+    "C"
+  ],
+  "group": "dgm:blocks",
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "dgm:cheese_block"
+    },
+    "W": {
+      "item": "minecraft:planks"
+    }
+  }
+}

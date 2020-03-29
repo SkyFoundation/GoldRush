@@ -1,0 +1,20 @@
+{
+"result": {
+"item": "dgm:cheese_furnace"
+},
+  "group": "dgm:blocks",
+"pattern": [
+"CCC",
+"CFC",
+"CCC"
+],
+"type": "minecraft:crafting_shaped",
+"key": {
+"F": {
+"item": "minecraft:furnace"
+},
+"C": {
+"item": "dgm:cheese_ingot"
+}
+}
+}

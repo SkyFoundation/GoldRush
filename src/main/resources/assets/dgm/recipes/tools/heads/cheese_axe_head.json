@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "dgm:cheese_axe_head"
+  },
+  "pattern": [
+    "CC ",
+    "C  ",
+    "   "
+  ],
+  "group": "dgm:tools",
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "dgm:cheese_ingot"
+    }
+  }
+}

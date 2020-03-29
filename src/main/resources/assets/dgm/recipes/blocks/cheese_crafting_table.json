@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "dgm:blocks",
+  "result": { "item": "dgm:cheese_crafting_table", "count": 1 },
+  "ingredients": [
+    { "item": "dgm:cheese_ingot", "count": 4 }
+  ]
+}

@@ -1,13 +1,13 @@
 [
 {
   "modid": "dgm",
-  "name": "§6De§r§eGeweldige§r§6Mod§r",
-  "description": "Mod voor Robin",
+  "name": "cheesemod",
+  "description": "Cheezy Mod",
   "version": "1.11.2.0",
-  "mcversion": "1.11.2",
+  "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Egietje"],
+  "authorList": ["Egietje","Mr_zhao"],
   "credits": "DeGeweldigeKaas and Ubsje",
   "logoFile": "assets/dgm/textures/logo.png",
   "screenshots": [],

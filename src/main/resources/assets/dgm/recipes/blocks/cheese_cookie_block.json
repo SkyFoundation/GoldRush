@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "dgm:cheese_crafting_table"
+  },
+  "group": "dgm:blocks",
+  "pattern": [
+    "CCC",
+    "CBC",
+    "CCC"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "dgm_cheese_block"
+    },
+    "C": {
+      "item": "item:cookie"
+    }
+  }
+}
