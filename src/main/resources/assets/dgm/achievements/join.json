@@ -1,0 +1,22 @@
+
+{
+  "display": {
+    "icon": {
+      "item": "dgm:cheese"
+    },
+    "title": {
+      "translate": "advancements.join"
+    },
+    "description": {
+      "translate": "advancements.join.desc"
+    },
+    "background": "minecraft:textures/blocks/log_oak.png",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

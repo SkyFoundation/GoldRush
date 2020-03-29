@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "dgm:cheese_sword"
+    },
+    "title": {
+      "translate": "advancements.kill_boss"
+    },
+    "description": {
+      "translate": "advancements.kill_boss.desc"
+    }
+  },
+  "parent": "dgm:fly",
+  "criteria": {
+    "cheese_boss": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "cheese_boss"
+        }
+      }
+    }
+  }
+}

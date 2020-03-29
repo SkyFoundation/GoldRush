@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:cookie"
+    },
+    "title": {
+      "translate": "advancements.cookie"
+    },
+    "description": {
+      "translate": "advancements.cookie.desc"
+    }
+  },
+  "parent": "dgm:join",
+  "criteria": {
+    "get_cookie": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:cookie"
+          }
+        ]
+      }
+    }
+  }
+}

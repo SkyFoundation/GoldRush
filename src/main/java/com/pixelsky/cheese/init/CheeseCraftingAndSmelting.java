@@ -10,6 +10,7 @@ public class CheeseCraftingAndSmelting {
 	}
 
 	private void register() {
+
 		/*
 		// Blocks
 		GameRegistry.addRecipe(new ItemStack(CheeseBlocks.CHEESE_BLOCK),

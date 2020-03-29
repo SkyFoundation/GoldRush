@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "dgm:cheese"
+    },
+    "title": {
+      "translate": "advancements.cookie"
+    },
+    "description": {
+      "translate": "advancements.cookie.desc"
+    }
+  },
+  "parent": "dgm:join",
+  "criteria": {
+    "eat_cheese": {
+      "trigger": "consume_item",
+      "conditions": {
+        "item": {
+          "item": "dgm.cheese"
+        }
+      }
+    }
+  }
+}

@@ -22,7 +22,6 @@ public class CheeseItems {
 	//Materials
 	public static ToolMaterial CHEESE_TOOL_MATERIAL;
 	public static ArmorMaterial CHEESE_ARMOR_MATERIAL;
-	
 	//Tools
 	public static Item CHEESE_SWORD;
 	public static Item CHEESE_PICKAXE;
