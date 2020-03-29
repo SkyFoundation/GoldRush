@@ -1,5 +1,6 @@
 package com.pixelsky.cheese.init;
 
+import com.pixelsky.cheese.Reference;
 import com.pixelsky.cheese.entities.EntityCheeseMountable;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,11 +18,11 @@ public class CheeseUtils {
 		if (obj instanceof Block) {
 			Block block = (Block) obj;
 			block.setTranslationKey(name);
-			block.setRegistryName(name);
+			block.setRegistryName(Reference.MODID,name);
 		} else if (obj instanceof Item) {
 			Item item = (Item) obj;
 			item.setTranslationKey(name);
-			item.setRegistryName(name);
+			item.setRegistryName(Reference.MODID,name);
 		} else {
 			throw new IllegalArgumentException("Item or Block required");
 		}

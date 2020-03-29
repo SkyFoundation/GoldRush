@@ -5,7 +5,7 @@
   "pattern": [
     "C C",
     "CCC",
-    "CCC "
+    "CCC"
   ],
   "group": "dgm:armor",
   "type": "minecraft:crafting_shaped",

@@ -33,9 +33,7 @@ public class GuiCheeseOverlay extends GuiIngameForge {
 		for (int i = 0; i < 10; ++i) {
 			int idx = i * 2 + 1;
 			int x = left - i * 8 - 9;
-
 			background = 0;
-			
 			drawModalRectWithCustomSizedTexture(x, y, 0, 0, 9, 9, 27, 9);
 
 			if (idx < level)

@@ -1,5 +1,6 @@
 package com.pixelsky.cheese.items.tools;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -11,6 +12,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
@@ -44,11 +46,14 @@ public class CheesePotionWand extends Item {
 		}
 		return super.onItemRightClick(worldIn, playerIn, handIn);
 	}
-	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
+	{
+
 		if(desc != null)
-		tooltip.add(TextFormatting.GOLD + desc + TextFormatting.RESET);
+
+			tooltip.add(TextFormatting.GOLD + desc + TextFormatting.RESET);
 	}
+
 
 }

@@ -106,6 +106,7 @@ public class EntityCheeseBall extends EntityFireball {
 			PotionEffect potion = new PotionEffect(MobEffects.INSTANT_DAMAGE);
 			cloud.setColor(0x9E881E);
 			cloud.setPotion(new PotionType(potion));
+			cloud.setDuration(100);
 			world.spawnEntity(cloud);
 			this.setDead();
 		}

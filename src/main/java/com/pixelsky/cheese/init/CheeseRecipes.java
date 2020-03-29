@@ -1,15 +1,21 @@
 package com.pixelsky.cheese.init;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class CheeseCraftingAndSmelting {
+public class CheeseRecipes implements IRegistery{
 
-	public CheeseCraftingAndSmelting() {
+	public CheeseRecipes() {
 		register();
 	}
 
-	private void register() {
+	@Override
+	public void init() {
+
+	}
+
+	public void register() {
 
 		/*
 		// Blocks

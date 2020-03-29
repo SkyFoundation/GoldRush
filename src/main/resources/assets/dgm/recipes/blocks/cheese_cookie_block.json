@@ -11,10 +11,10 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "B": {
-      "item": "dgm_cheese_block"
+      "item": "dgm:cheese_block"
     },
     "C": {
-      "item": "item:cookie"
+      "item": "minecraft:cookie"
     }
   }
 }

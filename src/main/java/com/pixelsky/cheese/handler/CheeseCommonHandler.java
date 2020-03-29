@@ -92,6 +92,8 @@ public class CheeseCommonHandler {
 		}
 	}
 
+	//没吃cheesee饿死?
+	/*
 	@SubscribeEvent
 	public void onPlayerTick(PlayerTickEvent event) {
 		EntityPlayer player = event.player;
@@ -110,7 +112,7 @@ public class CheeseCommonHandler {
 		if (world.getWorldInfo().getDifficulty() == EnumDifficulty.PEACEFUL && random.nextInt(5) == 0) {
 			cheese.add(random.nextInt(2));
 		}
-	}
+	}*/
 
 	@SubscribeEvent
 	public void playerInteract(LeftClickBlock event) {

@@ -5,7 +5,7 @@
   "pattern": [
     "WWW",
     "CCC",
-    "C"
+    "C  "
   ],
   "group": "dgm:blocks",
   "type": "minecraft:crafting_shaped",
@@ -14,7 +14,9 @@
       "item": "dgm:cheese_block"
     },
     "W": {
-      "item": "minecraft:planks"
+      "item": "minecraft:planks",
+      "data": 0,
+      "count": 1
     }
   }
 }

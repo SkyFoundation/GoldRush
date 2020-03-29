@@ -22,10 +22,50 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.lwjgl.opengl.Display;
 
 public class ClientProxy extends CommonProxy {
 
+	public void registerClientEventHandler() {
+		MinecraftForge.EVENT_BUS.register(new CheeseClientHandler());
+	//	MinecraftForge.EVENT_BUS.register(new RenderCheeseMirror());
+	}
+	private void registerRender(){
+		//Rendering
+		RenderingRegistry.registerEntityRenderingHandler(EntityCheeseCow.class, new RenderingHandlerCheeseCow());
+		RenderingRegistry.registerEntityRenderingHandler(EntityCheeseArrow.class, new RenderingHandlerCheeseArrow());
+		RenderingRegistry.registerEntityRenderingHandler(EntityCheeseBoss.class, new RenderingHandlerCheeseBoss());
+		RenderingRegistry.registerEntityRenderingHandler(EntityCheeseBall.class, new RenderingHandlerCheeseBall());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCheeseBoard.class, new RenderCheeseBoard());
+		//ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCheeseMirror.class, new RenderCheeseMirror());
+	}
+
+	@Override
+	public void preInit(FMLPreInitializationEvent event) {
+		super.preInit(event);
+		registerRender();
+		registerClientEventHandler();
+	}
+
+	@Override
+	public void init(FMLInitializationEvent event) {
+		super.init(event);
+	}
+
+	@Override
+	public void postInit(FMLPostInitializationEvent event) {
+		super.postInit(event);
+	}
+
+	@Override
+	public void serverStart(FMLServerStartingEvent event) {
+		super.serverStart(event);
+	}
+	/*
 	public void registerModels() {
 		int meta = 0;
 		
@@ -128,4 +168,5 @@ public class ClientProxy extends CommonProxy {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), meta,
 				new ModelResourceLocation(block.getRegistryName(), "inventory"));
 	}
+	*/
 }

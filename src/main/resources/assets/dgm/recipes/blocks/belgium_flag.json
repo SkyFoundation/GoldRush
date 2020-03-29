@@ -1,6 +1,7 @@
 {
 "result": {
-"item": "dgm:belgium_flag"
+"item": "dgm:belgium_flag",
+  "data": 0
 },
   "group": "dgm:blocks",
 "pattern": [
@@ -11,7 +12,9 @@
 "type": "minecraft:crafting_shaped",
 "key": {
 "L": {
-"item": "minecraft:stone_slab"
+"item": "minecraft:stone_slab",
+  "data": 0,
+  "count": 1
 },
 "S": {
 "item": "minecraft:stick"

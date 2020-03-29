@@ -4,7 +4,7 @@
   },
   "pattern": [
     " C ",
-    " S",
+    " S ",
     " S "
   ],
   "group": "dgm:tools",

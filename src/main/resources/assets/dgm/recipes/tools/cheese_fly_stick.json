@@ -5,7 +5,7 @@
   "pattern": [
     "CCC",
     "CSC",
-    " S"
+    " S "
   ],
   "group": "dgm:tools",
   "type": "minecraft:crafting_shaped",

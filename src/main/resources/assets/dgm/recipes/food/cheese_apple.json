@@ -14,7 +14,9 @@
       "item": "dgm:cheese"
     },
     "G": {
-      "item": "minecraft:golden_apple"
+      "item": "minecraft:golden_apple",
+      "data": 0,
+      "count": 1
     }
   }
 }

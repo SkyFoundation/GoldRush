@@ -1,17 +1,16 @@
 package com.pixelsky.cheese.init;
 
 import com.pixelsky.cheese.blocks.*;
+import com.pixelsky.cheese.entities.tileentities.blocks.TileEntityCheeseBoard;
+import com.pixelsky.cheese.entities.tileentities.blocks.TileEntityCheeseMirror;
+import com.pixelsky.cheese.entities.tileentities.render.RenderCheeseBoard;
+import com.pixelsky.cheese.entities.tileentities.render.RenderCheeseMirror;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 
-@Mod.EventBusSubscriber(modid = "dgm")
-public class CheeseBlocks {
+public class CheeseBlocks implements IRegistery{
 	
 	public static Block CHEESE_BLOCK;
 	public static Block CHEESE_ORE;
@@ -43,9 +42,10 @@ public class CheeseBlocks {
 	
 	public CheeseBlocks() {
 		init();
+		register();
 	}
-	
-	public static void init() {
+
+	public  void init() {
 		CHEESE_ORE = new CheeseOre().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(2F);
 		CHEESE_ORE_NETHER = new CheeseOreNether().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(2F);
 		CHEESE_ORE_END = new CheeseOreEnd().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(2F);
@@ -102,35 +102,38 @@ public class CheeseBlocks {
 		CheeseUtils.setNames(CHEESE_BANK, "cheese_bank");
 		CheeseUtils.setNames(CHEESE_STORE, "cheese_store");
 	}
-	@SubscribeEvent
-	public static void register(RegistryEvent.Register<Block> event) {
-		
-		event.getRegistry().register(CHEESE_ORE);
-		event.getRegistry().register(CHEESE_ORE_NETHER);
-		event.getRegistry().register(CHEESE_ORE_END);
-		event.getRegistry().register(CHEESE_BLOCK);
-		event.getRegistry().register(QUICK_CHEESE);
-		event.getRegistry().register(COMPLIMENT_MACHINE);
-		event.getRegistry().register(BELGIUM_FLAG);
-		event.getRegistry().register(CHEESE_PLANT);
-		event.getRegistry().register(CHEESE_FURNACE);
-		event.getRegistry().register(LIT_CHEESE_FURNACE);
-		event.getRegistry().register(CHEESE_CRAFTING_TABLE);
-		event.getRegistry().register(CHEESE_COOKIE_BLOCK);
-		event.getRegistry().register(CHEESE_BOARD);
-		event.getRegistry().register(CHEESE_GRASS);
-		event.getRegistry().register(CHEESE_DIRT);
-		event.getRegistry().register(CHEESE_GRASS_PATH);
-		event.getRegistry().register(CHEESE_FARM_LAND);
-		event.getRegistry().register(CHEESE_STAIRS);
-		event.getRegistry().register(CHEESE_PORTAL);
-		event.getRegistry().register(CHEESE_STONE);
-		event.getRegistry().register(CHEESE_FIRE);
-		event.getRegistry().register(CHEESE_MIRROR);
-		event.getRegistry().register(CHEESE_LOG);
-		event.getRegistry().register(CHEESE_PLANKS);
-		event.getRegistry().register(CHEESE_CHAIR);
-		event.getRegistry().register(CHEESE_BANK);
-		event.getRegistry().register(CHEESE_STORE);
+	private void regib(Block block){
+		RegistrationHandler.Items.add(new ItemBlock(block).setRegistryName(block.getRegistryName()).setTranslationKey(block.getTranslationKey()));
+		RegistrationHandler.Blocks.add(block);
 	}
+	public  void register() {
+		regib(CHEESE_ORE);
+		regib(CHEESE_ORE_NETHER);
+		regib(CHEESE_ORE_END);
+		regib(CHEESE_BLOCK);
+		regib(QUICK_CHEESE);
+		regib(COMPLIMENT_MACHINE);
+		regib(BELGIUM_FLAG);
+		regib(CHEESE_PLANT);
+		regib(CHEESE_FURNACE);
+		regib(LIT_CHEESE_FURNACE);
+		regib(CHEESE_CRAFTING_TABLE);
+		regib(CHEESE_COOKIE_BLOCK);
+		regib(CHEESE_BOARD);
+		regib(CHEESE_GRASS);
+		regib(CHEESE_DIRT);
+		regib(CHEESE_GRASS_PATH);
+		regib(CHEESE_FARM_LAND);
+		regib(CHEESE_STAIRS);
+		regib(CHEESE_PORTAL);
+		regib(CHEESE_STONE);
+		regib(CHEESE_FIRE);
+		regib(CHEESE_MIRROR);
+		regib(CHEESE_LOG);
+		regib(CHEESE_PLANKS);
+		regib(CHEESE_CHAIR);
+		regib(CHEESE_BANK);
+		regib(CHEESE_STORE);
+	}
+
 }

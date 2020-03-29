@@ -13,12 +13,8 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSeeds;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod.EventBusSubscriber(modid = "dgm")
-public class CheeseItems {
+public class CheeseItems implements IRegistery {
 	//Materials
 	public static ToolMaterial CHEESE_TOOL_MATERIAL;
 	public static ArmorMaterial CHEESE_ARMOR_MATERIAL;
@@ -64,10 +60,10 @@ public class CheeseItems {
 	
 	public CheeseItems() {
 		init();
-		//register();
+		register();
 	}
 	
-	public static void init() {
+	public void init() {
 		//Materials
 		CHEESE_TOOL_MATERIAL = EnumHelper.addToolMaterial("cheese_tool_material", 2, 1265, 7.0F, 2.5F, 17);
 		CHEESE_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("cheese_armor_material", "", 22, new int[] {3, 6, 8, 3}, 17, SoundEvents.BLOCK_SLIME_BREAK, 3);
@@ -153,47 +149,49 @@ public class CheeseItems {
 		CheeseUtils.setNames(CHEESE_LEGGINGS, "cheese_leggings");
 		CheeseUtils.setNames(CHEESE_BOOTS, "cheese_boots");
 	}
-	@SubscribeEvent
-	public static void register(RegistryEvent.Register<Item> event) {
+	public void register() {
 
 		//Tools
-		event.getRegistry().register(CHEESE_SWORD);
-		event.getRegistry().register(CHEESE_PICKAXE);
-		event.getRegistry().register(CHEESE_AXE);
-		event.getRegistry().register(CHEESE_SHOVEL);
-		event.getRegistry().register(CHEESE_HOE);
-		event.getRegistry().register(CHEESE_FLY_STICK);
-		event.getRegistry().register(CHEESE_BOW);
-		event.getRegistry().register(CHEESE_MULTITOOL);
-		event.getRegistry().register(FLINT_AND_CHEESE);
-		event.getRegistry().register(CHEESE_SLOW_WAND);
-		event.getRegistry().register(CHEESE_POISON_WAND);
-		event.getRegistry().register(CHEESE_DAMAGE_WAND);
-		event.getRegistry().register(CHEESE_FIRE_WAND);
-		event.getRegistry().register(CHEESE_WAND);
+		regIm(CHEESE_SWORD);
+		regIm(CHEESE_PICKAXE);
+		regIm(CHEESE_AXE);
+		regIm(CHEESE_SHOVEL);
+		regIm(CHEESE_HOE);
+		regIm(CHEESE_FLY_STICK);
+		regIm(CHEESE_BOW);
+		regIm(CHEESE_MULTITOOL);
+		regIm(FLINT_AND_CHEESE);
+		regIm(CHEESE_SLOW_WAND);
+		regIm(CHEESE_POISON_WAND);
+		regIm(CHEESE_DAMAGE_WAND);
+		regIm(CHEESE_FIRE_WAND);
+		regIm(CHEESE_WAND);
 		
 		//Armor
-		event.getRegistry().register(CHEESE_HELMET);
-		event.getRegistry().register(CHEESE_CHESTPLATE);
-		event.getRegistry().register(CHEESE_LEGGINGS);
-		event.getRegistry().register(CHEESE_BOOTS);
+		regIm(CHEESE_HELMET);
+		regIm(CHEESE_CHESTPLATE);
+		regIm(CHEESE_LEGGINGS);
+		regIm(CHEESE_BOOTS);
 		
 		//Tool heads
-		event.getRegistry().register(CHEESE_PICKAXE_HEAD);
-		event.getRegistry().register(CHEESE_AXE_HEAD);
-		event.getRegistry().register(CHEESE_SHOVEL_HEAD);
+		regIm(CHEESE_PICKAXE_HEAD);
+		regIm(CHEESE_AXE_HEAD);
+		regIm(CHEESE_SHOVEL_HEAD);
 		
 		//Food
-		event.getRegistry().register(CHEESE);
-		event.getRegistry().register(CHEESE_COOKED);
-		event.getRegistry().register(BREAD_CHEESE);
-		event.getRegistry().register(CHEESE_APPLE);
-		event.getRegistry().register(CHEESE_BUCKET);
-		event.getRegistry().register(CHEESE_SEEDS);
+		regIm(CHEESE);
+		regIm(CHEESE_COOKED);
+		regIm(BREAD_CHEESE);
+		regIm(CHEESE_APPLE);
+		regIm(CHEESE_BUCKET);
+		regIm(CHEESE_SEEDS);
 		
 		//Other
-		event.getRegistry().register(CHEESE_INGOT);
-		event.getRegistry().register(CHEESE_ARROW);
-		event.getRegistry().register(CHEESE_MONEY);
+		regIm(CHEESE_INGOT);
+		regIm(CHEESE_ARROW);
+		regIm(CHEESE_MONEY);
+	}
+	private void regIm(Item item){
+		RegistrationHandler.Items.add(item);
 	}
 }

@@ -154,10 +154,12 @@ public class CheeseClientHandler {
 		}
 	}
 
+	/*
 	@SubscribeEvent
 	public void onLoadWorld(WorldEvent.Load event) {
 		if (event.getWorld() instanceof WorldClient) {
 			RenderCheeseMirror.mirrorGlobalRenderer.setWorldAndLoadRenderers((WorldClient) event.getWorld());
 		}
 	}
+	*/
 }
