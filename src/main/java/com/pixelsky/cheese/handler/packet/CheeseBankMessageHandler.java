@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 public class CheeseBankMessageHandler implements IMessageHandler<CheeseBankMessage, IMessage> {
 	@Override
 	public IMessage onMessage(final CheeseBankMessage message, final MessageContext ctx) {
-		final EntityPlayerMP player = ctx.getServerHandler().playerEntity;
+		final EntityPlayerMP player = ctx.getServerHandler().player;
 		IThreadListener mainThread = (WorldServer) player.world;
 		mainThread.addScheduledTask(new Runnable() {
 			@Override

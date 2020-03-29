@@ -15,7 +15,7 @@ public class AdvancedCheeseSword extends ItemSword {
 	public AdvancedCheeseSword(ToolMaterial material, float attackSpeed) {
 		super(material);
 		this.attackSpeed = attackSpeed;
-		this.attackDamage = 3.0F + material.getDamageVsEntity();
+		this.attackDamage = 3.0F + material.getAttackDamage();
 	}
 
 	@Override

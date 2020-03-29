@@ -29,7 +29,7 @@ public class WorldGenCheeseHouse2 extends WorldGenerator {
 		if (!IS_STONE.apply(worldIn.getBlockState(position))) {
 			return false;
 		}
-        Random random = worldIn.getChunkFromChunkCoords(position.getX(), position.getZ()).getRandomWithSeed(987234911L);
+        Random random = worldIn.getChunk(position.getX(), position.getZ()).getRandomWithSeed(987234911L);
         Rotation[] arotation = Rotation.values();
         Rotation rotation = arotation[random.nextInt(arotation.length)];
         ChunkPos chunkpos = new ChunkPos(position);

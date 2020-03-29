@@ -21,7 +21,7 @@ public class CheeseWand extends Item {
 		if (!worldIn.isRemote) {
 			if (worldIn
 					.spawnEntity(new EntityCheeseBall(worldIn, playerIn.posX, playerIn.posY, playerIn.posZ,
-							playerIn.getLookVec().xCoord, playerIn.getLookVec().yCoord, playerIn.getLookVec().zCoord, playerIn))
+							playerIn.getLookVec().x, playerIn.getLookVec().y, playerIn.getLookVec().z, playerIn))
 					&& !playerIn.isCreative()) {
 				stack.damageItem(1, playerIn);
 			}

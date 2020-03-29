@@ -16,15 +16,15 @@ public class AdvancedCheeseAxe extends ItemTool {
 
 	protected AdvancedCheeseAxe(ToolMaterial material, float attackSpeed) {
 		super(material, EFFECTIVE_ON);
-		this.damageVsEntity = material.getDamageVsEntity() + 5.0F;
+		this.attackDamage = material.getAttackDamage() + 5.0F;
 		this.attackSpeed = attackSpeed;
 
 		ObfuscationReflectionHelper.setPrivateValue(ItemTool.class, this, "axe", "toolClass");
 	}
-
-	public float getStrVsBlock(ItemStack stack, IBlockState state) {
+		@Override
+	public float getDestroySpeed(ItemStack stack, IBlockState state) {
 		Material material = state.getMaterial();
 		return material != Material.WOOD && material != Material.PLANTS && material != Material.VINE
-				? super.getStrVsBlock(stack, state) : this.efficiencyOnProperMaterial;
+				? super.getDestroySpeed(stack, state) : this.efficiency;
 	}
 }

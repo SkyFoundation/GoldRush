@@ -10,6 +10,7 @@ import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureStart;
 
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +46,8 @@ public class MapGenCheeseVillage extends MapGenStructure {
 		return "CheeseVillage";
 	}
 
+
+
 	protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
 		int i = chunkX;
 		int j = chunkZ;
@@ -77,11 +80,14 @@ public class MapGenCheeseVillage extends MapGenStructure {
 		return false;
 	}
 
-	public BlockPos getClosestStrongholdPos(World worldIn, BlockPos pos, boolean p_180706_3_) {
+	@Nullable
+	@Override
+	public BlockPos getNearestStructurePos(World worldIn, BlockPos pos, boolean findUnexplored) {
 		this.world = worldIn;
 		return findNearestStructurePosBySpacing(worldIn, this, pos, this.distance, 8, 10387312, false, 100,
-				p_180706_3_);
+				findUnexplored);
 	}
+
 
 	protected StructureStart getStructureStart(int chunkX, int chunkZ) {
 		return new MapGenCheeseVillage.Start(this.world, this.rand, chunkX, chunkZ, this.size);

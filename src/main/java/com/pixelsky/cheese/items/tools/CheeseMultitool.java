@@ -37,14 +37,14 @@ public class CheeseMultitool extends ItemTool {
 
 	public CheeseMultitool(Item.ToolMaterial materialIn, int maxUses) {
 		super(materialIn, effectiveBlocks);
-		this.damageVsEntity = 1.0F;
+		this.attackDamage = 1.0F;
 		this.attackSpeed = -3.0F;
 		this.setMaxDamage(maxUses);
 	}
 
 	public CheeseMultitool(Item.ToolMaterial materialIn, float damage, float speed, int maxUses) {
 		super(materialIn, effectiveBlocks);
-		this.damageVsEntity = damage;
+		this.attackDamage = damage;
 		this.attackSpeed = speed;
 		this.setMaxDamage(maxUses);
 	}
@@ -124,12 +124,15 @@ public class CheeseMultitool extends ItemTool {
 		}
 	}
 
-	public float getStrVsBlock(ItemStack stack, IBlockState state) {
+	@Override
+	public float getDestroySpeed(ItemStack stack, IBlockState state) {
 		Material material = state.getMaterial();
 		return material != Material.WOOD && material != Material.PLANTS && material != Material.VINE
 				&& material != Material.IRON && material != Material.ANVIL && material != Material.ROCK
-						? super.getStrVsBlock(stack, state) : this.efficiencyOnProperMaterial;
+				? super.getDestroySpeed(stack, state) : this.efficiency;
+
 	}
+
 
 	// public CheeseMultitool(ToolMaterial materialIn) {
 	// super(8.0F, -3.0F, materialIn, effectiveBlocks);

@@ -357,6 +357,9 @@ public class ChunkProviderCheese implements IChunkGenerator {
 
 	@Override
 	public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos) {
+		////////////////////////////////////
+		/////////////////////////////////////
+		///////////////////////this might be errors
 	BlockPos pos1=	this.getNearestStructurePos(worldIn, structureName, pos, true);
 		return pos1==null;
 	}
@@ -498,7 +501,7 @@ public class ChunkProviderCheese implements IChunkGenerator {
 						: ("Village".equals(structureName) && this.villageGenerator != null
 								? this.villageGenerator.getNearestStructurePos(worldIn, position, p_180513_4_)
 								: ("CheeseVillage".equals(structureName) && this.cheeseVillageGenerator != null
-										? this.cheeseVillageGenerator.getClosestStrongholdPos(worldIn, position,
+										? this.cheeseVillageGenerator.getNearestStructurePos(worldIn, position,
 												p_180513_4_)
 										: ("Mineshaft".equals(structureName) && this.mineshaftGenerator != null
 												? this.mineshaftGenerator.getNearestStructurePos(worldIn, position,

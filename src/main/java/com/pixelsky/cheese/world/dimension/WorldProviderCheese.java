@@ -8,7 +8,7 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.gen.IChunkGenerator;
 
 public class WorldProviderCheese extends WorldProvider {
 
@@ -20,7 +20,7 @@ public class WorldProviderCheese extends WorldProvider {
 	@Override
 	protected void init() {
 		this.biomeProvider = new BiomeProviderSingle(CheeseBiomes.CHEESE_DIMENSION_BIOME);
-		this.hasNoSky = true;
+		this.hasSkyLight=false;
 	}
 
 	@Override
@@ -42,17 +42,7 @@ public class WorldProviderCheese extends WorldProvider {
 	public boolean isSurfaceWorld() {
 		return false;
 	}
-	
-	@Override
-	public String getWelcomeMessage() {
-		return "Entering Cheese";
-	}
-	
-	@Override
-	public String getDepartMessage() {
-		return "Leaving Cheese";
-	}
-	
+
 	@Override
 	public double getMovementFactor() {
 		return 0.5;
