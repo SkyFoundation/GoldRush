@@ -25,7 +25,7 @@ public class QuickCheese extends Block {
 		super(Material.WEB);
 	}
 
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
 		entityIn.setInWeb();
 	}
 
@@ -42,8 +42,9 @@ public class QuickCheese extends Block {
 	protected boolean canSilkHarvest() {
 		return true;
 	}
-	
-	public BlockRenderLayer getBlockLayer() {
+
+
+	public BlockRenderLayer getRenderLayer() {
 		return BlockRenderLayer.CUTOUT;
 	}
 	

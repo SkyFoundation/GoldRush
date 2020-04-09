@@ -1,9 +1,7 @@
 package com.pixelsky.cheese.blocks;
 
-import com.pixelsky.cheese.entities.tileentities.blocks.TileEntityCheeseMirror;
 import com.pixelsky.cheese.init.CheeseUtils;
 import net.minecraft.block.Block;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -12,7 +10,6 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -22,7 +19,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class CheeseMirror extends Block implements ITileEntityProvider {
+public class CheeseMirror extends Block  {
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
 	public CheeseMirror() {
@@ -88,8 +85,4 @@ public class CheeseMirror extends Block implements ITileEntityProvider {
 		super.addCollisionBoxToList(state, worldIn, pos, entityBox, collidingBoxes, entityIn, p_185477_7_);
 	}
 
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileEntityCheeseMirror();
-	}
 }

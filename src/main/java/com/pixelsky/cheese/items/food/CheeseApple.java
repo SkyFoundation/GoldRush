@@ -1,4 +1,4 @@
-package com.pixelsky.cheese.items;
+package com.pixelsky.cheese.items.food;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;

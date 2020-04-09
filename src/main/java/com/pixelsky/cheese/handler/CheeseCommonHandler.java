@@ -1,7 +1,5 @@
 package com.pixelsky.cheese.handler;
 
-import com.pixelsky.cheese.capability.cheese.CheeseProvider;
-import com.pixelsky.cheese.capability.cheese.ICheese;
 import com.pixelsky.cheese.capability.haditems.HadItemsProvider;
 import com.pixelsky.cheese.capability.haditems.IHadItems;
 import com.pixelsky.cheese.capability.shouldgiveitems.IShouldGiveItems;
@@ -16,11 +14,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.LeftClickBlock;
@@ -29,7 +25,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
-import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 import java.util.Random;
 

@@ -1,0 +1,30 @@
+{
+  "result": {
+    "item": "dgm:cheese_fire_wand"
+  },
+  "pattern": [
+    " S ",
+    " S ",
+    "CXC"
+  ],
+  "group": "dgm:tools",
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "dgm:cheese_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "X": [
+      {
+        "item": "minecraft:coal",
+        "data": 0
+      },
+      {
+        "item": "minecraft:coal",
+        "data": 1
+      }
+    ]
+  }
+}

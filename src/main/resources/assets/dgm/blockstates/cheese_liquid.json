@@ -1,0 +1,11 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "my_fluid": {
+      "model": "forge:fluid",
+      "custom": {
+        "fluid": "dgm:cheese_fluid"
+      }
+    }
+  }
+}

@@ -37,7 +37,10 @@ public class CommonProxy implements IProxy{
 	}
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
+
+	  // new CheeseFluid();
 		RegistrationHandler.init();
+
 		new CheeseSpawnPlacementRegistry();
 		new CheeseTabs();
 		new CheesePacketHandler();

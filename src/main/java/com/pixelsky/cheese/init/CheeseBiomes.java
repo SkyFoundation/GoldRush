@@ -1,21 +1,11 @@
 package com.pixelsky.cheese.init;
 
-import com.pixelsky.cheese.Debug;
 import com.pixelsky.cheese.Reference;
 import com.pixelsky.cheese.world.biome.BiomeCheese;
 import com.pixelsky.cheese.world.biome.BiomeCheeseDimension;
-import net.minecraft.block.Block;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.BiomeProperties;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import net.minecraftforge.common.BiomeManager.BiomeType;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 
 

@@ -20,7 +20,8 @@ public class WorldProviderCheese extends WorldProvider {
 	@Override
 	protected void init() {
 		this.biomeProvider = new BiomeProviderSingle(CheeseBiomes.CHEESE_DIMENSION_BIOME);
-		this.hasSkyLight=false;
+		this.hasSkyLight=true;
+
 	}
 
 	@Override

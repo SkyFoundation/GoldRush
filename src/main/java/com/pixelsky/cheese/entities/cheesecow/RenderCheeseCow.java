@@ -10,13 +10,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderCheeseCow extends RenderLiving<EntityCheeseCow> {
-	private static final ResourceLocation CHEESE_COW_TEXTURES = new ResourceLocation(Reference.MODID + ":textures/entity/cheese_cow.png");
+private static final ResourceLocation CHEESE_COW_TEXTURES = new ResourceLocation(Reference.MODID + ":textures/entity/cheese_cow.png");
 
-	public RenderCheeseCow(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+public RenderCheeseCow(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-	}
+		}
 
-	protected ResourceLocation getEntityTexture(EntityCheeseCow entity) {
+protected ResourceLocation getEntityTexture(EntityCheeseCow entity) {
 		return CHEESE_COW_TEXTURES;
-	}
-}
+		}
+		}

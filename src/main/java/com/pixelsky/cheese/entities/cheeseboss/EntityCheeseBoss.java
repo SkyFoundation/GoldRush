@@ -2,6 +2,7 @@ package com.pixelsky.cheese.entities.cheeseboss;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
+import com.pixelsky.cheese.entities.LootTables;
 import com.pixelsky.cheese.entities.cheeseball.EntityCheeseBall;
 import com.pixelsky.cheese.init.CheeseItems;
 import net.minecraft.block.Block;
@@ -21,6 +22,7 @@ import net.minecraft.pathfinding.PathNavigateGround;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntitySelectors;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -104,7 +106,10 @@ public class EntityCheeseBoss extends EntityMob implements IRangedAttackMob {
 		this.targetTasks.addTask(2,
 				new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, false, false, NOT_UNDEAD));
 	}
-
+	@Nullable
+	protected ResourceLocation getLootTable() {
+		return LootTables.ENTITY_CHEESE_BOSS;
+	}
 	@Override
 	protected void entityInit() {
 		super.entityInit();

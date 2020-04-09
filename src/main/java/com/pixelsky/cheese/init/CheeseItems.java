@@ -2,8 +2,9 @@ package com.pixelsky.cheese.init;
 
 
 import com.pixelsky.cheese.items.*;
+import com.pixelsky.cheese.items.food.Cheese;
+import com.pixelsky.cheese.items.food.CheeseApple;
 import com.pixelsky.cheese.items.tools.*;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -11,11 +12,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemSeeds;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class CheeseItems implements IRegistery {
-	//Materials
+    public static Item CHEESE_BALL;
+    //Materials
 	public static ToolMaterial CHEESE_TOOL_MATERIAL;
 	public static ArmorMaterial CHEESE_ARMOR_MATERIAL;
 	//Tools
@@ -84,10 +85,10 @@ public class CheeseItems implements IRegistery {
 		CHEESE_BOW = new CheeseBow().setCreativeTab(CheeseTabs.CHEESE_ITEMS);
 		CHEESE_MULTITOOL = new CheeseMultitool(CHEESE_TOOL_MATERIAL, 4671).setCreativeTab(CheeseTabs.CHEESE_ITEMS);
 		FLINT_AND_CHEESE = new FlintAndCheese().setCreativeTab(CheeseTabs.CHEESE_ITEMS);
-		CHEESE_SLOW_WAND = new CheesePotionWand(MobEffects.SLOWNESS, "Slows all entitys in a 2x2x2 area").setCreativeTab(CheeseTabs.CHEESE_ITEMS);
-		CHEESE_POISON_WAND = new CheesePotionWand(MobEffects.POISON, "Poisons all entitys in a 2x2x2 area").setCreativeTab(CheeseTabs.CHEESE_ITEMS);
-		CHEESE_DAMAGE_WAND = new CheesePotionWand(MobEffects.INSTANT_DAMAGE, "Damages all entitys in a 2x2x2 area").setCreativeTab(CheeseTabs.CHEESE_ITEMS);
-		CHEESE_FIRE_WAND = new CheesePotionWand(null, "Sets all entitys in a 2x2x2 area on fire").setCreativeTab(CheeseTabs.CHEESE_ITEMS);
+		CHEESE_SLOW_WAND = new CheesePotionWand(MobEffects.SLOWNESS, "减速周围的所有生物").setCreativeTab(CheeseTabs.CHEESE_ITEMS);
+		CHEESE_POISON_WAND = new CheesePotionWand(MobEffects.POISON, "让周围所有生物中毒").setCreativeTab(CheeseTabs.CHEESE_ITEMS);
+		CHEESE_DAMAGE_WAND = new CheesePotionWand(MobEffects.INSTANT_DAMAGE, "伤害周围的实体").setCreativeTab(CheeseTabs.CHEESE_ITEMS);
+		CHEESE_FIRE_WAND = new CheesePotionWand(null, "将周围的实体点燃").setCreativeTab(CheeseTabs.CHEESE_ITEMS);
 		CHEESE_WAND = new CheeseWand().setCreativeTab(CheeseTabs.CHEESE_ITEMS);
 		
 		//Tool heads
@@ -101,13 +102,13 @@ public class CheeseItems implements IRegistery {
 		BREAD_CHEESE = new ItemFood(15, 1.7F, true).setCreativeTab(CheeseTabs.CHEESE_ITEMS);
 		CHEESE_APPLE = new CheeseApple().setCreativeTab(CheeseTabs.CHEESE_ITEMS);
 		CHEESE_BUCKET = new CheeseBucket().setCreativeTab(CheeseTabs.CHEESE_ITEMS);
-		CHEESE_SEEDS = new ItemSeeds(CheeseBlocks.CHEESE_PLANT, Blocks.FARMLAND).setCreativeTab(CheeseTabs.CHEESE_ITEMS);
+		CHEESE_SEEDS = new CheeseSeeds().setCreativeTab(CheeseTabs.CHEESE_ITEMS);
 		
 		//Other
 		CHEESE_INGOT = new Item().setCreativeTab(CheeseTabs.CHEESE_ITEMS);
 		CHEESE_ARROW = new CheeseArrow().setCreativeTab(CheeseTabs.CHEESE_ITEMS);
 		CHEESE_MONEY = new Item().setCreativeTab(CheeseTabs.CHEESE_ITEMS);
-		
+		CHEESE_BALL=new ItemFood(5,1f,false).setCreativeTab(CheeseTabs.CHEESE_ITEMS);
 		
 		//Food
 		CheeseUtils.setNames(CHEESE, "cheese");
@@ -148,6 +149,7 @@ public class CheeseItems implements IRegistery {
 		CheeseUtils.setNames(CHEESE_CHESTPLATE, "cheese_chestplate");
 		CheeseUtils.setNames(CHEESE_LEGGINGS, "cheese_leggings");
 		CheeseUtils.setNames(CHEESE_BOOTS, "cheese_boots");
+		CheeseUtils.setNames(CHEESE_BALL,"cheese_ball");
 	}
 	public void register() {
 

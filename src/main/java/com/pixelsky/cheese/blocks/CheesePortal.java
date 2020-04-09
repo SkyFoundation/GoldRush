@@ -162,7 +162,8 @@ public class CheesePortal extends BlockBreakable {
 	/**
 	 * Called When an Entity Collided with the Block
 	 */
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+	@Override
+	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
 		if (!entityIn.isRiding() && !entityIn.isBeingRidden() && entityIn.isNonBoss()) {
 			if (entityIn.timeUntilPortal > 0) {
 				entityIn.timeUntilPortal = entityIn.getPortalCooldown();

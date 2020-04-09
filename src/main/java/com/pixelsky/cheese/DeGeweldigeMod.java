@@ -1,10 +1,7 @@
 package com.pixelsky.cheese;
 
-import com.pixelsky.cheese.entities.CheeseSpawnPlacementRegistry;
-import com.pixelsky.cheese.handler.CheesePacketHandler;
-import com.pixelsky.cheese.init.*;
 import com.pixelsky.cheese.proxy.CommonProxy;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -16,7 +13,9 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, acceptedMinecraftVersions = "[1.12.2]")
 public class DeGeweldigeMod {
-	
+ public DeGeweldigeMod(){
+		FluidRegistry.enableUniversalBucket();
+	}
 	@SidedProxy(clientSide = Reference.CLIENTPROXY, serverSide = Reference.COMMONPROXY)
 	public static CommonProxy proxy;
 	

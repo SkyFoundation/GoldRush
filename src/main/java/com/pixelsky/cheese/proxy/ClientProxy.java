@@ -6,19 +6,15 @@ import com.pixelsky.cheese.entities.cheeseball.EntityCheeseBall;
 import com.pixelsky.cheese.entities.cheeseball.RenderingHandlerCheeseBall;
 import com.pixelsky.cheese.entities.cheeseboss.EntityCheeseBoss;
 import com.pixelsky.cheese.entities.cheeseboss.RenderingHandlerCheeseBoss;
+import com.pixelsky.cheese.entities.cheesechicken.EntityCheeseChicken;
+import com.pixelsky.cheese.entities.cheesechicken.RenderingHandlerCheeseChicken;
 import com.pixelsky.cheese.entities.cheesecow.EntityCheeseCow;
 import com.pixelsky.cheese.entities.cheesecow.RenderingHandlerCheeseCow;
+import com.pixelsky.cheese.entities.cheesemouse.EntityCheeseMouse;
+import com.pixelsky.cheese.entities.cheesemouse.RenderHandlerCheeseMouse;
 import com.pixelsky.cheese.entities.tileentities.blocks.TileEntityCheeseBoard;
-import com.pixelsky.cheese.entities.tileentities.blocks.TileEntityCheeseMirror;
 import com.pixelsky.cheese.entities.tileentities.render.RenderCheeseBoard;
-import com.pixelsky.cheese.entities.tileentities.render.RenderCheeseMirror;
 import com.pixelsky.cheese.handler.CheeseClientHandler;
-import com.pixelsky.cheese.init.CheeseBlocks;
-import com.pixelsky.cheese.init.CheeseItems;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.item.Item;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -26,7 +22,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import org.lwjgl.opengl.Display;
 
 public class ClientProxy extends CommonProxy {
 
@@ -36,12 +31,15 @@ public class ClientProxy extends CommonProxy {
 	}
 	private void registerRender(){
 		//Rendering
+
+		RenderingRegistry.registerEntityRenderingHandler(EntityCheeseChicken.class, new RenderingHandlerCheeseChicken());
+		RenderingRegistry.registerEntityRenderingHandler(EntityCheeseCow.class, new RenderingHandlerCheeseCow());
+		RenderingRegistry.registerEntityRenderingHandler(EntityCheeseMouse.class, new RenderHandlerCheeseMouse());
 		RenderingRegistry.registerEntityRenderingHandler(EntityCheeseCow.class, new RenderingHandlerCheeseCow());
 		RenderingRegistry.registerEntityRenderingHandler(EntityCheeseArrow.class, new RenderingHandlerCheeseArrow());
 		RenderingRegistry.registerEntityRenderingHandler(EntityCheeseBoss.class, new RenderingHandlerCheeseBoss());
 		RenderingRegistry.registerEntityRenderingHandler(EntityCheeseBall.class, new RenderingHandlerCheeseBall());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCheeseBoard.class, new RenderCheeseBoard());
-		//ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCheeseMirror.class, new RenderCheeseMirror());
 	}
 
 	@Override

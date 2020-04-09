@@ -1,4 +1,4 @@
-package com.pixelsky.cheese.blocks;
+package com.pixelsky.cheese.blocks.tree;
 
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.SoundType;
@@ -14,26 +14,9 @@ public class CheeseLog extends BlockRotatedPillar {
 	public CheeseLog() {
 		super(Material.WOOD);
 		this.setSoundType(SoundType.WOOD);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y));
 	}
 
-	/**
-	 * Called serverside after this block is replaced with another in Chunk, but
-	 * before the Tile Entity is updated
-	 */
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		int i = 4;
-		int j = 5;
-
-		if (worldIn.isAreaLoaded(pos.add(-5, -5, -5), pos.add(5, 5, 5))) {
-			for (BlockPos blockpos : BlockPos.getAllInBox(pos.add(-4, -4, -4), pos.add(4, 4, 4))) {
-				IBlockState iblockstate = worldIn.getBlockState(blockpos);
-
-				if (iblockstate.getBlock().isLeaves(iblockstate, worldIn, blockpos)) {
-					iblockstate.getBlock().beginLeavesDecay(iblockstate, worldIn, blockpos);
-				}
-			}
-		}
-	}
 
 	/**
 	 * Called by ItemBlocks just before a block is actually set in the world, to

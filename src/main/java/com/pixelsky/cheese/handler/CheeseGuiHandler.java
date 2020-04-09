@@ -1,7 +1,6 @@
 package com.pixelsky.cheese.handler;
 
 import com.pixelsky.cheese.gui.CheeseBankGui;
-import com.pixelsky.cheese.gui.CheeseCookieGui;
 import com.pixelsky.cheese.gui.CheeseStoreGui;
 import com.pixelsky.cheese.gui.ComplimentMachineGui;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,7 +9,6 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 
 public class CheeseGuiHandler implements IGuiHandler {
 
-	public static final int COOKIEGUIID = 0;
 	public static final int COMPLIMENTGUIID = 1;
 	public static final int BANKID = 2;
 	public static final int STOREID = 3;
@@ -22,9 +20,7 @@ public class CheeseGuiHandler implements IGuiHandler {
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		if (ID == COOKIEGUIID) {
-			return new CheeseCookieGui(player);
-		} else if (ID == COMPLIMENTGUIID) {
+ if (ID == COMPLIMENTGUIID) {
 			return new ComplimentMachineGui();
 		} else if (ID == BANKID) {
 			return new CheeseBankGui();

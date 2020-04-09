@@ -52,7 +52,10 @@ public class CheeseGeneration implements IWorldGenerator {
 	}
 	
 	public void generateCheese(World world, Random rand, int x, int z) {
-		generateOre(CheeseBlocks.CHEESE_DIRT, world, rand, x, z, 7, 23, 26, 0, 256, CheeseBlocks.CHEESE_STONE);
+		generateOre(CheeseBlocks.CHEESE_BLOCK, world, rand, x, z, 7, 23, 26, 0, 256, CheeseBlocks.CHEESE_STONE);
+		generateOre(CheeseBlocks.CHEESE_ORE, world, rand, x, z, 7, 23, 26, 0, 256, CheeseBlocks.CHEESE_STONE);
+		generateOre(Blocks.COAL_ORE, world, rand, x, z, 7, 23, 26, 0, 256, CheeseBlocks.CHEESE_STONE);
+
 	}
 
 	public void generateOre(Block block, World world, Random random, int chunkX, int chunkZ, int minVienSize, int maxVienSize, int chance, int minY, int maxY, Block generateIn) {

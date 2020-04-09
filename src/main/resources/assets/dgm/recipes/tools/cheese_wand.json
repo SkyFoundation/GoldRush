@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "dgm:cheese_wand"
+  },
+  "pattern": [
+    "CCC",
+    "CSC",
+    " S "
+  ],
+  "group": "dgm:tools",
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "dgm:cheese_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  }
+}

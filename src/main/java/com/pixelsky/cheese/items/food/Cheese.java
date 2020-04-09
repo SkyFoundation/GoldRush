@@ -1,4 +1,4 @@
-package com.pixelsky.cheese.items;
+package com.pixelsky.cheese.items.food;
 
 import com.pixelsky.cheese.capability.cheese.CheeseProvider;
 import com.pixelsky.cheese.capability.cheese.ICheese;

@@ -3,9 +3,9 @@
     "item": "dgm:cheese_fly_stick"
   },
   "pattern": [
-    "CCC",
-    "CSC",
-    " S "
+    " S ",
+    " S ",
+    "CXC"
   ],
   "group": "dgm:tools",
   "type": "minecraft:crafting_shaped",
@@ -15,6 +15,9 @@
     },
     "S": {
       "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:feather"
     }
   }
 }

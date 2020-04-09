@@ -2,9 +2,7 @@ package com.pixelsky.cheese.world.biome;
 
 import com.pixelsky.cheese.entities.cheesecow.EntityCheeseCow;
 import com.pixelsky.cheese.init.CheeseBlocks;
-import com.pixelsky.cheese.world.gen.WorldGenCheeseBossHouse;
-import com.pixelsky.cheese.world.gen.WorldGenCheeseHouse;
-import net.minecraft.block.BlockDoublePlant;
+import com.pixelsky.cheese.world.gen.WorldGenCheeseHouse2;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -60,32 +58,15 @@ public class BiomeCheese extends Biome {
 			return BlockFlower.EnumFlowerType.DANDELION;
 		}
 	}
-
+	@Override
 	public void decorate(World worldIn, Random rand, BlockPos pos) {
-		double d0 = GRASS_COLOR_NOISE.getValue((double) (pos.getX() + 8) / 200.0D, (double) (pos.getZ() + 8) / 200.0D);
-		final WorldGenCheeseHouse CHEESE_HOUSE_GENERATOR = new WorldGenCheeseHouse();
-		final WorldGenCheeseBossHouse CHEESE_BOSS_HOUSE_GENERATOR = new WorldGenCheeseBossHouse();
-		
+		final WorldGenCheeseHouse2 CHEESE_HOUSE_GENERATOR = new WorldGenCheeseHouse2();
+
 		if (rand.nextInt(100) == 0) {
 			int i = rand.nextInt(16) + 8;
-            int j = rand.nextInt(16) + 8;
-            BlockPos blockpos = worldIn.getHeight(pos.add(i, 0, j)).up();
-            CHEESE_HOUSE_GENERATOR.generate(worldIn, rand, blockpos);
-		} else if (rand.nextInt(999) == 0) {
-			int i = rand.nextInt(16) + 8;
-            int j = rand.nextInt(16) + 8;
-            BlockPos blockpos = worldIn.getHeight(pos.add(i, 0, j)).up();
-            CHEESE_BOSS_HOUSE_GENERATOR.generate(worldIn, rand, blockpos);
-		}
-		this.decorator.flowersPerChunk = 4;
-		this.decorator.grassPerChunk = 10;
-		DOUBLE_PLANT_GENERATOR.setPlantType(BlockDoublePlant.EnumPlantType.GRASS);
-		
-		for (int i = 0; i < 7; ++i) {
 			int j = rand.nextInt(16) + 8;
-			int k = rand.nextInt(16) + 8;
-			int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-			DOUBLE_PLANT_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+			BlockPos blockpos = worldIn.getHeight(pos.add(i, 0, j)).up();
+			CHEESE_HOUSE_GENERATOR.generate(worldIn, rand, blockpos);
 		}
 		super.decorate(worldIn, rand, pos);
 	}

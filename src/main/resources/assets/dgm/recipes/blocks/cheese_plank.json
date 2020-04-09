@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "dgm:blocks",
+  "result": { "item": "dgm:cheese_planks", "count": 1 },
+  "ingredients": [
+    { "item": "dgm:cheese_log", "count": 4 }
+  ]
+}

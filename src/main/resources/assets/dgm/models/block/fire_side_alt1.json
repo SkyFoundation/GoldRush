@@ -1,5 +1,5 @@
 {
-    "parent": "dgm:block/fire_side_alt",
+    "parent": "block/fire_side_alt",
     "textures": {
         "particle": "dgm:blocks/fire_layer_1",
         "fire": "dgm:blocks/fire_layer_1"

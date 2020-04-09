@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "dgm:quick_cheese"
+  },
+  "group": "dgm:blocks",
+  "pattern": [
+    "CCC",
+    "CFC",
+    "CCC"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "item": "minecraft:slime_ball"
+    },
+    "C": {
+      "item": "dgm:cheese_ingot"
+    }
+  }
+}

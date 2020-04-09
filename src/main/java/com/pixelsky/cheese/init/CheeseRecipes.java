@@ -1,7 +1,6 @@
 package com.pixelsky.cheese.init;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CheeseRecipes implements IRegistery{

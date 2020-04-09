@@ -1,17 +1,18 @@
 package com.pixelsky.cheese.init;
 
 import com.pixelsky.cheese.blocks.*;
-import com.pixelsky.cheese.entities.tileentities.blocks.TileEntityCheeseBoard;
-import com.pixelsky.cheese.entities.tileentities.blocks.TileEntityCheeseMirror;
-import com.pixelsky.cheese.entities.tileentities.render.RenderCheeseBoard;
-import com.pixelsky.cheese.entities.tileentities.render.RenderCheeseMirror;
+import com.pixelsky.cheese.blocks.tree.CheeseLeaves;
+import com.pixelsky.cheese.blocks.tree.CheeseLog;
+import com.pixelsky.cheese.blocks.tree.CheesePlanks;
+import com.pixelsky.cheese.blocks.tree.CheeseSapling;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fluids.BlockFluidBase;
 
 public class CheeseBlocks implements IRegistery{
-	
+	public static Block CHEESE_SAPLING;
+	public static Block CHEESE_LEAVES;
 	public static Block CHEESE_BLOCK;
 	public static Block CHEESE_ORE;
 	public static Block CHEESE_ORE_NETHER;
@@ -37,9 +38,7 @@ public class CheeseBlocks implements IRegistery{
 	public static Block CHEESE_LOG;
 	public static Block CHEESE_PLANKS;
 	public static Block CHEESE_CHAIR;
-	public static Block CHEESE_BANK;
-	public static Block CHEESE_STORE;
-	
+//	public static BlockFluidBase CHEESE_LIQUID ;
 	public CheeseBlocks() {
 		init();
 		register();
@@ -50,7 +49,7 @@ public class CheeseBlocks implements IRegistery{
 		CHEESE_ORE_NETHER = new CheeseOreNether().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(2F);
 		CHEESE_ORE_END = new CheeseOreEnd().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(2F);
 		CHEESE_BLOCK = new Block(Material.ROCK).setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(3F);
-		QUICK_CHEESE = new QuickCheese().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(4F);
+		QUICK_CHEESE = new QuickCheese().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(3.3F);
 		COMPLIMENT_MACHINE = new ComplimentMachine().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(3F);
 		BELGIUM_FLAG = new BelgiumFlag().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(2F);
 		CHEESE_PLANT = new CheesePlant();
@@ -71,8 +70,13 @@ public class CheeseBlocks implements IRegistery{
 		CHEESE_LOG = new CheeseLog().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(2.0F);
 		CHEESE_PLANKS = new CheesePlanks().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(1.25F);
 		CHEESE_CHAIR = new CheeseChair().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(1.25F);
-		CHEESE_BANK = new CheeseBank().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(3F);
-		CHEESE_STORE = new CheeseStore().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(3F);
+
+	//	CHEESE_LIQUID=new CheeseLiquid(CheeseFluid.CHEESE_FLUID,Material.WEB);
+
+		CHEESE_SAPLING=new CheeseSapling().setCreativeTab(CheeseTabs.CHEESE_ITEMS);
+		CHEESE_LEAVES=new CheeseLeaves().setCreativeTab(CheeseTabs.CHEESE_BLOCKS);
+	//	CHEESE_BANK = new CheeseBank().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(3F);
+	//	CHEESE_STORE = new CheeseStore().setCreativeTab(CheeseTabs.CHEESE_BLOCKS).setHardness(3F);
 		
 		CheeseUtils.setNames(CHEESE_ORE, "cheese_ore");
 		CheeseUtils.setNames(CHEESE_ORE_NETHER, "cheese_ore_nether");
@@ -99,22 +103,29 @@ public class CheeseBlocks implements IRegistery{
 		CheeseUtils.setNames(CHEESE_LOG, "cheese_log");
 		CheeseUtils.setNames(CHEESE_PLANKS, "cheese_planks");
 		CheeseUtils.setNames(CHEESE_CHAIR, "cheese_chair");
-		CheeseUtils.setNames(CHEESE_BANK, "cheese_bank");
-		CheeseUtils.setNames(CHEESE_STORE, "cheese_store");
+	//	CheeseUtils.setNames(CHEESE_LIQUID,"cheese_liquid");
+		CheeseUtils.setNames(CHEESE_SAPLING,"cheese_sapling");
+		CheeseUtils.setNames(CHEESE_LEAVES,"cheese_leaves");
+//		CheeseUtils.setNames(CHEESE_BANK, "cheese_bank");
+//		CheeseUtils.setNames(CHEESE_STORE, "cheese_store");
 	}
 	private void regib(Block block){
 		RegistrationHandler.Items.add(new ItemBlock(block).setRegistryName(block.getRegistryName()).setTranslationKey(block.getTranslationKey()));
 		RegistrationHandler.Blocks.add(block);
 	}
 	public  void register() {
+
+		regib(CHEESE_SAPLING);
+		regib(CHEESE_LEAVES);
+		//regib(CHEESE_LIQUID);
 		regib(CHEESE_ORE);
 		regib(CHEESE_ORE_NETHER);
 		regib(CHEESE_ORE_END);
 		regib(CHEESE_BLOCK);
 		regib(QUICK_CHEESE);
 		regib(COMPLIMENT_MACHINE);
-		regib(BELGIUM_FLAG);
-		regib(CHEESE_PLANT);
+		//regib(BELGIUM_FLAG);
+		RegistrationHandler.Blocks.add(CHEESE_PLANT);
 		regib(CHEESE_FURNACE);
 		regib(LIT_CHEESE_FURNACE);
 		regib(CHEESE_CRAFTING_TABLE);
@@ -132,8 +143,8 @@ public class CheeseBlocks implements IRegistery{
 		regib(CHEESE_LOG);
 		regib(CHEESE_PLANKS);
 		regib(CHEESE_CHAIR);
-		regib(CHEESE_BANK);
-		regib(CHEESE_STORE);
+//		regib(CHEESE_BANK);
+//		regib(CHEESE_STORE);
 	}
 
 }

@@ -24,7 +24,7 @@ public class CheeseUtils {
 			item.setTranslationKey(name);
 			item.setRegistryName(Reference.MODID,name);
 		} else {
-			throw new IllegalArgumentException("Item or Block required");
+			//throw new IllegalArgumentException("Item or Block required");
 		}
 	}
 	

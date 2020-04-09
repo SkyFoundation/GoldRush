@@ -1,4 +1,4 @@
-package com.pixelsky.cheese.blocks;
+package com.pixelsky.cheese.blocks.tree;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

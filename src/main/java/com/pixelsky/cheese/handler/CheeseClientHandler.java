@@ -1,15 +1,13 @@
 package com.pixelsky.cheese.handler;
 
-import com.pixelsky.cheese.entities.tileentities.render.RenderCheeseMirror;
 import com.pixelsky.cheese.init.CheeseItems;
 import com.pixelsky.cheese.render.LayerCheeseCape;
 import com.pixelsky.cheese.render.LayerCheeseEars;
-import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -133,9 +131,17 @@ public class CheeseClientHandler {
 	*/
 	@SubscribeEvent
 	public void onPlayerPreRender(RenderPlayerEvent.Pre event) {
+
 		RenderPlayer render = event.getRenderer();
-		render.addLayer(new LayerCheeseEars(render));
-		render.addLayer(new LayerCheeseCape(render));
+		for(ItemStack im:event.getEntityPlayer().getArmorInventoryList()){
+			if(im.getItem()==CheeseItems.CHEESE_HELMET){
+				render.addLayer(new LayerCheeseEars(render));
+				continue;
+			}
+			if(im.getItem()==CheeseItems.CHEESE_CHESTPLATE){
+				render.addLayer(new LayerCheeseCape(render));
+			}
+		}
 	}
 
 	@SubscribeEvent

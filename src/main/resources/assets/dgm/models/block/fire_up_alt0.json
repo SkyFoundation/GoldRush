@@ -1,5 +1,5 @@
 {
-    "parent": "dgm:block/fire_up_alt",
+    "parent": "block/fire_up_alt",
     "textures": {
         "particle": "dgm:blocks/fire_layer_0",
         "fire": "dgm:blocks/fire_layer_0"

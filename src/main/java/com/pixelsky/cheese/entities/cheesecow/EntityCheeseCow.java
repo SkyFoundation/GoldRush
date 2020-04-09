@@ -2,26 +2,22 @@ package com.pixelsky.cheese.entities.cheesecow;
 
 import com.pixelsky.cheese.entities.LootTables;
 import com.pixelsky.cheese.init.CheeseItems;
-import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
-import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.datafix.DataFixer;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityCheeseCow extends EntityAnimal {
+public class EntityCheeseCow extends EntityCow {
 	public EntityCheeseCow(World worldIn) {
 		super(worldIn);
 		this.setSize(0.9F, 1.4F);
@@ -46,7 +42,7 @@ public class EntityCheeseCow extends EntityAnimal {
 	public boolean isBreedingItem(@Nullable ItemStack stack) {
         return stack != null && stack.getItem() == CheeseItems.CHEESE;
     }
-
+/*
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10.0D);
@@ -57,7 +53,7 @@ public class EntityCheeseCow extends EntityAnimal {
 		return SoundEvents.ENTITY_COW_AMBIENT;
 	}
 
-	protected SoundEvent getHurtSound() {
+	protected SoundEvent getHurtSound(DamageSource source) {
 		return SoundEvents.ENTITY_COW_HURT;
 	}
 
@@ -72,7 +68,7 @@ public class EntityCheeseCow extends EntityAnimal {
 	protected float getSoundVolume() {
 		return 0.4F;
 	}
-
+*/
 	@Nullable
 	protected ResourceLocation getLootTable() {
 		return LootTables.ENTITIES_CHEESE_COW;
