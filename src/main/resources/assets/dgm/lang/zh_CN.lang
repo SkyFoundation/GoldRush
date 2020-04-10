@@ -38,8 +38,8 @@ itemGroup.cheese_blocks=§e芝士方块§r
 
 container.cheese_furnace=§e芝士铁炉§r
 
-tile.cheese_sapling.name="芝士树苗"
-tile.cheese_leaves.name="芝士树叶"
+tile.cheese_sapling.name=§e芝士树苗§r
+tile.cheese_leaves.name=§e芝士树叶§r
 tile.cheese_ore_end.name=§e芝士矿§r
 tile.cheese_ore_nether.name=§e芝士矿§r
 tile.cheese_ore.name=§e芝士矿§r

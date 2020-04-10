@@ -41,11 +41,11 @@ public class EntityCheeseMouse extends EntityRabbit {
         this.tasks.addTask(1, new EntityAIPanic(this, 2.2D));
         this.tasks.addTask(2, new EntityAIMate(this, 0.8D));
         this.tasks.addTask(3, new EntityAITempt(this, 1.0D, CheeseItems.CHEESE, false));
-        this.tasks.addTask(5, new EntityCheeseMouse.AIRaidBlock(this));
         this.tasks.addTask(4, new EntityAIAvoidEntity<>(this, EntityPlayer.class, 10.0F, 2.2D, 2.2D));
-        this.tasks.addTask(5, new EntityCheeseMouse.AIRaidCrop(this));
+
+        this.tasks.addTask(4, new EntityCheeseMouse.AIRaidBlock(this));
+          this.tasks.addTask(5, new EntityCheeseMouse.AIRaidCrop(this));
         this.tasks.addTask(6, new EntityAIWanderAvoidWater(this, 0.6D));
-        this.tasks.addTask(7, new EntityAILeapAtTarget(this, 0.3F));
         this.tasks.addTask(8, new EntityAIOcelotAttack(this));
         this.tasks.addTask(11, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
         this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityCheeseChicken.class, false));
@@ -67,8 +67,6 @@ public class EntityCheeseMouse extends EntityRabbit {
     static class AIRaidCrop extends EntityAIMoveToBlock
     {
         private final EntityCheeseMouse rabbit;
-        private boolean wantsToRaid;
-        private boolean canRaid;
 
         public AIRaidCrop(EntityCheeseMouse rabbitIn)
         {
@@ -87,20 +85,9 @@ public class EntityCheeseMouse extends EntityRabbit {
                 {
                     return false;
                 }
-
-                this.canRaid = false;
-                this.wantsToRaid = true;
             }
 
             return super.shouldExecute();
-        }
-
-        /**
-         * Returns whether an in-progress EntityAIBase should continue executing
-         */
-        public boolean shouldContinueExecuting()
-        {
-            return this.canRaid && super.shouldContinueExecuting();
         }
 
         /**
@@ -117,18 +104,13 @@ public class EntityCheeseMouse extends EntityRabbit {
                 IBlockState iblockstate = world.getBlockState(blockpos);
                 Block block = iblockstate.getBlock();
 
-                if (this.canRaid && block instanceof BlockCrops)
+                if ( block instanceof BlockCrops)
                 {
-                    Integer integer = (Integer)iblockstate.getValue(BlockCarrot.AGE);
-
-
-                        world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 2);
+                       world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 2);
                         world.destroyBlock(blockpos, true);
 
                     this.rabbit.createEatingParticles();
                 }
-
-                this.canRaid = false;
                 this.runDelay = 10;
             }
         }
@@ -140,7 +122,7 @@ public class EntityCheeseMouse extends EntityRabbit {
         {
             Block block = worldIn.getBlockState(pos).getBlock();
 
-            if (block == Blocks.FARMLAND && this.wantsToRaid && !this.canRaid)
+            if (block == Blocks.FARMLAND)
             {
                 pos = pos.up();
                 IBlockState iblockstate = worldIn.getBlockState(pos);
@@ -148,7 +130,6 @@ public class EntityCheeseMouse extends EntityRabbit {
 
                 if (block instanceof BlockCrops)
                 {
-                    this.canRaid = true;
                     return true;
                 }
             }
@@ -159,8 +140,6 @@ public class EntityCheeseMouse extends EntityRabbit {
     static class AIRaidBlock extends EntityAIMoveToBlock
     {
         private final EntityCheeseMouse rabbit;
-        private boolean wantsToRaid;
-        private boolean canRaid;
 
         public AIRaidBlock(EntityCheeseMouse rabbitIn)
         {
@@ -180,20 +159,11 @@ public class EntityCheeseMouse extends EntityRabbit {
                     return false;
                 }
 
-                this.canRaid = false;
-                this.wantsToRaid = true;
             }
 
             return super.shouldExecute();
         }
 
-        /**
-         * Returns whether an in-progress EntityAIBase should continue executing
-         */
-        public boolean shouldContinueExecuting()
-        {
-            return this.canRaid && super.shouldContinueExecuting();
-        }
 
         /**
          * Keep ticking a continuous task that has already been started
@@ -205,24 +175,16 @@ public class EntityCheeseMouse extends EntityRabbit {
             if (this.getIsAboveDestination())
             {
                 World world = this.rabbit.world;
-                BlockPos blockpos = this.destinationBlock.up();
+                BlockPos blockpos = this.destinationBlock;
                 IBlockState iblockstate = world.getBlockState(blockpos);
                 Block block = iblockstate.getBlock();
-
-                if (this.canRaid && block instanceof BlockCrops)
+               boolean isRaidBlock= block == CheeseBlocks.CHEESE_BLOCK||block == CheeseBlocks.CHEESE_STONE;
+                if ( isRaidBlock)
                 {
-                    Integer integer = (Integer)iblockstate.getValue(BlockCarrot.AGE);
-
-                    if (integer.intValue() == 0)
-                    {
                         world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 2);
                         world.destroyBlock(blockpos, true);
-                    }
-
                     this.rabbit.createEatingParticles();
                 }
-
-                this.canRaid = false;
                 this.runDelay = 10;
             }
         }
@@ -234,19 +196,10 @@ public class EntityCheeseMouse extends EntityRabbit {
         {
             Block block = worldIn.getBlockState(pos).getBlock();
 
-            if(!( this.wantsToRaid && !this.canRaid)){
-                return false;
-            }
+
             if (block == CheeseBlocks.CHEESE_BLOCK||block == CheeseBlocks.CHEESE_STONE )
             {
-                pos = pos.up();
-                IBlockState iblockstate = worldIn.getBlockState(pos);
-                block = iblockstate.getBlock();
-
-                if (block == CheeseBlocks.CHEESE_BLOCK||block == CheeseBlocks.CHEESE_STONE ) {
-                    this.canRaid = true;
-                    return true;
-                }
+               return true;
             }
 
             return false;
