@@ -18,7 +18,7 @@ public class CheeseTabItems extends CreativeTabs {
 
 	@Override
 	public boolean hasSearchBar() {
-		return true;
+		return false;
 	}
 
 

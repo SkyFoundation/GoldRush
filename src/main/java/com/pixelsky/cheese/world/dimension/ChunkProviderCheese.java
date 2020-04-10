@@ -135,11 +135,7 @@ public class ChunkProviderCheese implements IChunkGenerator {
 							double lvt_45_1_ = d10 - d16;
 
 							for (int l2 = 0; l2 < 4; ++l2) {
-								if ((lvt_45_1_ += d16) > 0.0D) {
 									primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, STONE);
-								} else if (i2 * 8 + j2 < this.settings.seaLevel) {
-									primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, this.oceanBlock);
-								}
 							}
 
 							d10 += d12;

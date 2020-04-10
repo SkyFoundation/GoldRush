@@ -33,7 +33,7 @@ public class BiomeCheeseDimension extends Biome {
 	private void addEntities(){
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityCheeseCow.class,1,1,2));
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityCheeseChicken.class,1,1,2));
-		this.spawnableCaveCreatureList.add(new SpawnListEntry(EntityCheeseMouse.class,1,1,2));
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityCheeseMouse.class,1,1,2));
 	}
 	@Override
 	public int getGrassColorAtPos(BlockPos pos) {

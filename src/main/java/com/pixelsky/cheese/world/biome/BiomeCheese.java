@@ -1,6 +1,8 @@
 package com.pixelsky.cheese.world.biome;
 
+import com.pixelsky.cheese.entities.cheesechicken.EntityCheeseChicken;
 import com.pixelsky.cheese.entities.cheesecow.EntityCheeseCow;
+import com.pixelsky.cheese.entities.cheesemouse.EntityCheeseMouse;
 import com.pixelsky.cheese.init.CheeseBlocks;
 import com.pixelsky.cheese.world.gen.WorldGenCheeseHouse2;
 import net.minecraft.block.BlockFlower;
@@ -19,6 +21,9 @@ public class BiomeCheese extends Biome {
 		this.decorator.extraTreeChance = 0.05F;
 		this.decorator.flowersPerChunk = 5;
 		this.decorator.grassPerChunk = 7;
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityCheeseCow.class,1,1,2));
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityCheeseChicken.class,1,1,2));
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityCheeseMouse.class,1,1,2));
 		this.topBlock = CheeseBlocks.CHEESE_GRASS.getDefaultState();
 		this.fillerBlock = CheeseBlocks.CHEESE_DIRT.getDefaultState();
 	}

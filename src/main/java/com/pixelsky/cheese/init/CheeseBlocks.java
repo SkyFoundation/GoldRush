@@ -123,7 +123,7 @@ public class CheeseBlocks implements IRegistery{
 		regib(CHEESE_ORE_END);
 		regib(CHEESE_BLOCK);
 		regib(QUICK_CHEESE);
-		regib(COMPLIMENT_MACHINE);
+		//regib(COMPLIMENT_MACHINE);
 		//regib(BELGIUM_FLAG);
 		RegistrationHandler.Blocks.add(CHEESE_PLANT);
 		regib(CHEESE_FURNACE);
