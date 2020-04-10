@@ -25,7 +25,7 @@ public class CheesePotionWand extends Item {
 		this.setMaxStackSize(1);
 		this.setMaxDamage(52);
 		potion = pot;
-		desc = effect;
+	//	desc = effect;
 	}
 
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {

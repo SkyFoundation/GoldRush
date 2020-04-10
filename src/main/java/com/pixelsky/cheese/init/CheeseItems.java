@@ -152,7 +152,7 @@ public class CheeseItems implements IRegistery {
 		CheeseUtils.setNames(CHEESE_BALL,"cheese_ball");
 	}
 	public void register() {
-
+		regIm(CHEESE_BALL);
 		//Tools
 		regIm(CHEESE_SWORD);
 		regIm(CHEESE_PICKAXE);
