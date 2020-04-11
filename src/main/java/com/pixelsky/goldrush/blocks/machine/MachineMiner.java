@@ -29,10 +29,11 @@ public class MachineMiner extends BlockContainer implements IMachine{
 
     public MachineMiner() {
         super(Material.ROCK);
-        handelScopeUpgrade();
-        handelSpeedUpgrade();
     }
+    @Override
+    public void handelUpgrade() {
 
+    }
     //getters
     public boolean isRunning() {
         return isRunning;
@@ -66,16 +67,7 @@ public class MachineMiner extends BlockContainer implements IMachine{
         this.fortune = fortune;
     }
 
-    //process
-    @Override
-    public void handelScopeUpgrade() {
-        //todo updgrade scope
-    }
 
-    @Override
-    public void handelSpeedUpgrade() {
-        //todo updgrade speed
-    }
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
@@ -90,7 +82,9 @@ public class MachineMiner extends BlockContainer implements IMachine{
         return null;
     }
 
-     //XXX 暂未测试
+
+
+    //XXX 暂未测试
    public class Miner extends TileEntity implements ITickable {
        public ItemStackHandler handler;
        public final int tileX=this.getPos().getX();

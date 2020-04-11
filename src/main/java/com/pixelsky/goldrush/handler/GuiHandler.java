@@ -15,12 +15,16 @@ import javax.annotation.Nullable;
 
 public class GuiHandler implements IGuiHandler {
 public static final int Miner=0;
+public static final int Detector =1;
     @Nullable
     @Override
     public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
         switch (id){
             case 0:
                 return new ContainerMiner(player.inventory, (MachineMiner.Miner) world.getTileEntity(new BlockPos(x,y,z)));
+
+            case 1:
+              //  return new ContainerMiner(player.inventory, (MachineMiner.Miner) world.getTileEntity(new BlockPos(x,y,z)));
         }
 
 

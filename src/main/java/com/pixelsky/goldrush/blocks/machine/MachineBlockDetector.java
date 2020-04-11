@@ -1,6 +1,7 @@
 package com.pixelsky.goldrush.blocks.machine;
 
 import com.pixelsky.goldrush.GoldRush;
+import com.pixelsky.goldrush.entity.EntityBlockMark;
 import com.pixelsky.goldrush.handler.GuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -12,13 +13,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
-import java.util.List;
+import java.util.*;
 
 public class MachineBlockDetector  extends BlockContainer implements IMachine{
     private final String name="machine_blockdetector";
@@ -29,8 +29,6 @@ public class MachineBlockDetector  extends BlockContainer implements IMachine{
 
     public MachineBlockDetector() {
         super(Material.ROCK);
-        handelScopeUpgrade();
-        handelSpeedUpgrade();
     }
 
     //getters
@@ -66,20 +64,10 @@ public class MachineBlockDetector  extends BlockContainer implements IMachine{
         this.fortune = fortune;
     }
 
-    //process
-    @Override
-    public void handelScopeUpgrade() {
-        //todo updgrade scope
-    }
-
-    @Override
-    public void handelSpeedUpgrade() {
-        //todo updgrade speed
-    }
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
-            playerIn.openGui(GoldRush.Instance, GuiHandler.Miner, worldIn, pos.getX(), pos.getY(), pos.getZ());
+            playerIn.openGui(GoldRush.Instance, GuiHandler.Detector, worldIn, pos.getX(), pos.getY(), pos.getZ());
         }
         return true;
     }
@@ -90,106 +78,131 @@ public class MachineBlockDetector  extends BlockContainer implements IMachine{
         return null;
     }
 
+    @Override
+    public void handelUpgrade() {
+
+    }
+
     //XXX 暂未测试
-    public class Miner extends TileEntity implements ITickable {
+    public class Detector extends TileEntity implements ITickable {
+        public final long defaultRefleshTime=1000;
         public ItemStackHandler handler;
         public final int tileX=this.getPos().getX();
         public final int tileY=this.getPos().getY();
         public final int tileZ=this.getPos().getZ();
+        //储存用于发光的实体
+        private ArrayList<EntityBlockMark> blockMarkers=new ArrayList<>();
         //前7个槽用于放置升级
         private NonNullList<ItemStack> containerItems = NonNullList.<ItemStack>withSize(27, ItemStack.EMPTY);
-        private BlockPos currentPos;
         private final int minX=tileX-range;
         private final int minZ=tileZ-range;
         private final int maxX=tileX+range;
         private final int maxZ=tileZ+range;
         private final int minY=tileY-range;
-        private int currentDepth=tileY-1;
+        private final int maxY=tileY+range;
+        private int currentY=minY;
         private int currentX=minX;
         private int currentZ=minZ;
-        private long destroyProgress =0;
-        public Miner(){
+        private long timeToReflesh;
+
+        public Detector(){
             this.handler=new ItemStackHandler();
+
         }
-        //挖矿代码
-        private void getNextBlock(){
-            BlockPos current=new BlockPos(currentX,currentDepth,currentZ);
-            if(!checkNull(current))return;
-            while (currentDepth>minY) {
-                while (currentX < maxX) {
-                    while (currentZ < maxZ) {
-                        if (checkNull(new BlockPos(currentX, currentDepth, currentZ)))
+        //todo 后期设置为Container内设置的矿石
+        private List<Block> getMineList(){
+        return Arrays.asList(Blocks.COAL_ORE,Blocks.CHEST,Blocks.IRON_ORE);
+        }
+        //todo 这个会卡服的
+        private ArrayList<BlockPos> getMineBlocks(){
+
+            ArrayList<BlockPos> posList= new ArrayList<>();
+
+            while (currentY<maxY){
+                while (currentZ<maxZ){
+                    while (currentX<maxX){
+                        BlockPos pos=new BlockPos(currentX,currentY,currentZ);
+                        Block block=world.getBlockState(pos).getBlock();
+                        if(!this.shouldMine(block))
                             continue;
-                        currentPos = new BlockPos(currentX, currentDepth, currentZ);
-                        currentZ++;
+                        posList.add(pos);
+                        currentX++;
                     }
-                    currentX++;
+                    currentZ++;
                 }
-                currentDepth--;
+                currentY++;
             }
+            return  posList;
         }
-        private void damageBlock(){
-            if(destroyProgress>=getDestroyTime())
-            {
-                destroyProgress=0;
-                //消除所有裂痕并破坏掉
-                //于BC的源码有变动
-                world.sendBlockBreakProgress(getCurrentBlock().hashCode(),currentPos,-1);
-                world.playEvent(2001,currentPos, Block.getStateId(getCurrentBlock()));
+        /*
+        private HashMap<Block, ArrayList<BlockPos>> getMineBlocks(){
+            HashMap<Block,List> blockPosMap=new HashMap<>();
 
-                List<ItemStack> itemStackList = getCurrentBlock().getBlock().getDrops(world,currentPos,getCurrentBlock(),getFortune());
-                world.setBlockState(currentPos, Blocks.AIR.getDefaultState(),3);
-
-                for (ItemStack stack : itemStackList)
-                {
-                        EntityItem entityItem = new EntityItem(world,currentX,currentDepth,currentZ,stack);
-                        entityItem.attackEntityFrom(DamageSource.LAVA, -Integer.MAX_VALUE + 10);
-                        world.spawnEntity(entityItem);
-
-
+            while (currentY<maxY){
+                while (currentZ<maxZ){
+                    while (currentX<maxX){
+                            BlockPos pos=new BlockPos(currentX,currentY,currentZ);
+                            Block block=world.getBlockState(pos).getBlock();
+                            if(!this.shouldMine(block))
+                                continue;
+                            ArrayList<BlockPos> posList;
+                        {
+                            if (blockPosMap.get(block) == null)
+                                posList = new ArrayList<>();
+                            else
+                                posList = (ArrayList<BlockPos>) blockPosMap.get(block);
+                        }
+                        posList.add(pos);
+                        currentX++;
+                    }
+                currentZ++;
                 }
-            }else
-            {
-                //修改方块的裂痕进程 最后一个参数范围0-9
-                world.sendBlockBreakProgress(getCurrentBlock().getBlock().hashCode(),currentPos,(int)((destroyProgress*getSpeed())/getDestroyTime()));
+                currentY++;
             }
+        return getMineBlocks();
         }
-        private void floatItem(){
-            AxisAlignedBB AABB = new AxisAlignedBB(minX,minY,minZ,maxX,minY,maxZ);
-            for(EntityItem im:world.getEntitiesWithinAABB(EntityItem.class, AABB)){
-                im.addVelocity(0,1,1);
-            }
+        */
 
-        }
         //更新
         @Override
         public void update()
         {
             //检测是否是工作模式
             if (!check())return;
-            //获取下一个破坏的方块
-            getNextBlock();
-            //破坏方块
-            damageBlock();
-            //漂浮物品
-            floatItem();
+            if (!reflesh())return;
+            for(BlockPos pos:getMineBlocks()){
+            addMarker(pos);
+            }
         }
-        //util
-        private IBlockState getCurrentBlock(){
-            return world.getBlockState(currentPos);
+        private void addMarker(BlockPos pos){
+            EntityBlockMark mark=new EntityBlockMark(world,pos);
+            this.blockMarkers.add(mark);
+            world.spawnEntity(mark);
         }
         private boolean check(){
             return (!this.world.isRemote&&isRunning());
         }
-        private boolean checkNull(BlockPos pos){
-            return world.getBlockState(pos)==Blocks.AIR.getDefaultState();
+        private boolean reflesh(){
+            if(timeToReflesh<0){
+                timeToReflesh=defaultRefleshTime;
+                clearMarks();
+                return true;
+            }
+            timeToReflesh=timeToReflesh-speed;
+            return false;
         }
-        private long getDestroyTime(){
-
-            return (long) Math.floor(16 * 1_000_000L * ((getHardness() + 1) * 2) * 1);
+        private void clearMarks(){
+            Iterator<EntityBlockMark> iterator= this.blockMarkers.iterator();
+            while (iterator.hasNext()){
+                EntityBlockMark entityBlockMark=iterator.next();
+                if(entityBlockMark==null||entityBlockMark.isDead)
+                    continue;
+                entityBlockMark.setDead();
+            }
+            this.blockMarkers.clear();
         }
-        private float getHardness(){
-            return  world.getBlockState(pos).getBlockHardness(world,currentPos);
+        private boolean shouldMine(Block block){
+            return getMineList().contains(block);
         }
 
     }
