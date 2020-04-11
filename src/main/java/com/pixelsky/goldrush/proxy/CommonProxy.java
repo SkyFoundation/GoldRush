@@ -50,7 +50,7 @@ public class CommonProxy implements IProxy{
 	@Override
 	public void init(FMLInitializationEvent event) {
 		new CheeseRecipes();
-	registerHandler(GoldRush.DGMInstance);
+	registerHandler(GoldRush.Instance);
 	registerCommonEventHandler();
 	}
 

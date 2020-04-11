@@ -21,7 +21,7 @@ public class GoldRush {
 	public static CommonProxy proxy;
 	
 	@Instance(Reference.MODID)
-	public static GoldRush DGMInstance;
+	public static GoldRush Instance;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
