@@ -12,6 +12,7 @@ import com.pixelsky.cheese.entities.cheesemouse.EntityCheeseMouse;
 import com.pixelsky.cheese.entities.tileentities.blocks.TileEntityCheeseBoard;
 import com.pixelsky.cheese.entities.tileentities.blocks.TileEntityCheeseFurnace;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -22,7 +23,7 @@ public class CheeseEntities {
 	
 	public CheeseEntities() {
 		register();
-	//	addSpawn();
+		addSpawn();
 	}
 	
 	public void register() {
@@ -42,6 +43,6 @@ public class CheeseEntities {
 	
 	public void addSpawn() {
 		// add to cheese world
-		EntityRegistry.addSpawn(EntityCheeseCow.class, 8, 4, 4, EnumCreatureType.CREATURE, CheeseBiomes.CHEESE_BIOME);
+		EntityRegistry.addSpawn(EntityCheeseMouse.class, 8, 1, 2, EnumCreatureType.CREATURE, Biomes.PLAINS);
 	}
 }

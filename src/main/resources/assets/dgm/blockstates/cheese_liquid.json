@@ -1,11 +1,38 @@
 {
   "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "particle": "blocks/slime",
+      "all": "dgm:cheese_still"
+    },
+    "model": "forge:fluid",
+    "custom": { "fluid": "cheese_hot" },
+    "uvlock": false
+  },
   "variants": {
-    "my_fluid": {
-      "model": "forge:fluid",
-      "custom": {
-        "fluid": "dgm:cheese_fluid"
-      }
+    "normal": [{
+
+    }],
+    "inventory": [{
+
+    }],
+    "level": {
+      "0": { },
+      "1": { },
+      "2": { },
+      "3": { },
+      "4": { },
+      "5": { },
+      "6": { },
+      "7": { },
+      "8": { },
+      "9": { },
+      "10": { },
+      "11": { },
+      "12": { },
+      "13": { },
+      "14": { },
+      "15": { }
     }
   }
 }

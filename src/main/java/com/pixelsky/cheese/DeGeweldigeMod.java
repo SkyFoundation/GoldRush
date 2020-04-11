@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 public class DeGeweldigeMod {
  public DeGeweldigeMod(){
 
- 	///FluidRegistry.enableUniversalBucket();
+ 	 FluidRegistry.enableUniversalBucket();
 	}
 	@SidedProxy(clientSide = Reference.CLIENTPROXY, serverSide = Reference.COMMONPROXY)
 	public static CommonProxy proxy;

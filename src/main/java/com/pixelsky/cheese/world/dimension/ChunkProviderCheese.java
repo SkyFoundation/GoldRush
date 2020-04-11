@@ -40,7 +40,7 @@ public class ChunkProviderCheese implements IChunkGenerator {
 	private final double[] heightMap;
 	private final float[] biomeWeights;
 	private ChunkGeneratorSettings settings;
-	private IBlockState oceanBlock = Blocks.WATER.getDefaultState();
+	private IBlockState oceanBlock = CheeseBlocks.CHEESE_LIQUID.getDefaultState();
 	private double[] depthBuffer = new double[256];
 	private MapGenCheeseVillage cheeseVillageGenerator = new MapGenCheeseVillage();
 	private Biome[] biomesForGeneration;
@@ -78,8 +78,6 @@ public class ChunkProviderCheese implements IChunkGenerator {
 
 		if (p_i46668_5_ != null) {
 			this.settings = ChunkGeneratorSettings.Factory.jsonToFactory(p_i46668_5_).build();
-			this.oceanBlock = this.settings.useLavaOceans ? Blocks.LAVA.getDefaultState()
-					: Blocks.WATER.getDefaultState();
 			worldIn.setSeaLevel(this.settings.seaLevel);
 		}
 
@@ -95,23 +93,25 @@ public class ChunkProviderCheese implements IChunkGenerator {
 		this.depthNoise = ctx.getDepth();
 		this.forestNoise = ctx.getForest();
 	}
-
-	public void setBlocksInChunk(int x, int z, ChunkPrimer primer) {
-		this.biomesForGeneration = this.worldObj.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration,
-				x * 4 - 2, z * 4 - 2, 10, 10);
+	public void setBlocksInChunk(int x, int z, ChunkPrimer primer)
+	{
+		this.biomesForGeneration = this.worldObj.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
 		this.generateHeightmap(x * 4, 0, z * 4);
 
-		for (int i = 0; i < 4; ++i) {
+		for (int i = 0; i < 4; ++i)
+		{
 			int j = i * 5;
 			int k = (i + 1) * 5;
 
-			for (int l = 0; l < 4; ++l) {
+			for (int l = 0; l < 4; ++l)
+			{
 				int i1 = (j + l) * 33;
 				int j1 = (j + l + 1) * 33;
 				int k1 = (k + l) * 33;
 				int l1 = (k + l + 1) * 33;
 
-				for (int i2 = 0; i2 < 32; ++i2) {
+				for (int i2 = 0; i2 < 32; ++i2)
+				{
 					double d0 = 0.125D;
 					double d1 = this.heightMap[i1 + i2];
 					double d2 = this.heightMap[j1 + i2];
@@ -122,20 +122,30 @@ public class ChunkProviderCheese implements IChunkGenerator {
 					double d7 = (this.heightMap[k1 + i2 + 1] - d3) * 0.125D;
 					double d8 = (this.heightMap[l1 + i2 + 1] - d4) * 0.125D;
 
-					for (int j2 = 0; j2 < 8; ++j2) {
+					for (int j2 = 0; j2 < 8; ++j2)
+					{
 						double d9 = 0.25D;
 						double d10 = d1;
 						double d11 = d2;
 						double d12 = (d3 - d1) * 0.25D;
 						double d13 = (d4 - d2) * 0.25D;
 
-						for (int k2 = 0; k2 < 4; ++k2) {
+						for (int k2 = 0; k2 < 4; ++k2)
+						{
 							double d14 = 0.25D;
 							double d16 = (d11 - d10) * 0.25D;
 							double lvt_45_1_ = d10 - d16;
 
-							for (int l2 = 0; l2 < 4; ++l2) {
+							for (int l2 = 0; l2 < 4; ++l2)
+							{
+								if ((lvt_45_1_ += d16) > 0.0D)
+								{
 									primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, STONE);
+								}
+								else if (i2 * 8 + j2 < this.settings.seaLevel)
+								{
+									primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, this.oceanBlock);
+								}
 							}
 
 							d10 += d12;
@@ -152,6 +162,8 @@ public class ChunkProviderCheese implements IChunkGenerator {
 		}
 	}
 
+
+
 	public void replaceBiomeBlocks(int x, int z, ChunkPrimer primer, Biome[] biomesIn) {
 		if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(this, x, z, primer, this.worldObj))
 			return;
@@ -167,6 +179,7 @@ public class ChunkProviderCheese implements IChunkGenerator {
 			}
 		}
 	}
+
 	@Override
 	public Chunk generateChunk(int x, int z) {
 		this.rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
@@ -338,11 +351,11 @@ public class ChunkProviderCheese implements IChunkGenerator {
 			WorldEntitySpawner.performWorldGenSpawning(this.worldObj, biome, i + 8, j + 8, 16, 16, this.rand);
 		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(false, this, this.worldObj, this.rand, x, z, flag);
 	}
-	@Override
-	public boolean generateStructures(Chunk chunkIn, int x, int z) {
+	public boolean generateStructures(Chunk chunkIn, int x, int z)
+	{
 		boolean flag = false;
 
-		return false;
+		return flag;
 	}
 
 	@Override

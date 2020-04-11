@@ -4,7 +4,7 @@ item.bread_cheese.name=§e芝士夹心面包§r
 item.cheese_apple.name=§e芝士苹果§r
 item.cheese_bucket.name=§e芝士牛奶§r
 item.cheese_seeds.name=§e芝士种子§r
-
+fluid.cheese_hot=§e芝士§r
 item.cheese_ingot.name=§e芝士锭§r
 item.cheese_arrow.name=§e芝士箭§r
 item.cheese_money.name=§e芝士货币§r
@@ -29,6 +29,7 @@ item.cheese_damage_wand.name=§e芝士伤害魔杖§r
 item.cheese_fire_wand.name=§e芝士火魔杖§r
 item.cheese_wand.name=§e芝士棒§r
 
+item.cheese_ball.name=§e芝士球§r
 item.cheese_axe_head.name=§e芝士斧§f头§r
 item.cheese_pickaxe_head.name=§e芝士镐§f头§r
 item.cheese_shovel_head.name=§e芝士铲§f头§r
