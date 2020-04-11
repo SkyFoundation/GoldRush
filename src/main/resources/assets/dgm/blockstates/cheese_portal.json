@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "axis=z": { "model": "dgm:portal_ew" },
-        "axis=x": { "model": "dgm:portal_ns" }
-    }
-}

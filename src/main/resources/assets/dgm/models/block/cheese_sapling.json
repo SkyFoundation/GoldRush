@@ -1,6 +1,0 @@
-{
-    "parent": "block/cross",
-    "textures": {
-        "cross": "dgm:blocks/cheese_sapling"
-    }
-}

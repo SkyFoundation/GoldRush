@@ -1,6 +1,0 @@
-{
-    "parent": "block/crop",
-    "textures": {
-        "crop": "dgm:blocks/cheese_plant_stage_0"
-    }
-}

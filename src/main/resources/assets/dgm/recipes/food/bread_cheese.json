@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:crafting_shapeless",
-  "group": "dgm:food",
-  "result": { "item": "dgm:bread_cheese", "count": 1 },
-  "ingredients": [
-    { "item": "dgm:cheese", "count": 1 },
-    { "item": "minecraft:bread", "count": 1 }
-  ]
-}
