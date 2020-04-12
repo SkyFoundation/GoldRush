@@ -7,6 +7,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ITickable;
@@ -14,11 +15,12 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.List;
 
-//XXX 暂未测试
+//todo 修复restore
 public class Miner extends TileEntity implements ITickable {
     private final MachineMiner machineMiner;
     public ItemStackHandler handler;
@@ -106,6 +108,7 @@ public class Miner extends TileEntity implements ITickable {
         timeToReflesh--;
         return false;
     }
+
     //更新
     @Override
     public void update()

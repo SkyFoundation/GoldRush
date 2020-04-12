@@ -26,7 +26,6 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID + ":robot_terminator"), RobotTerminator.class, "RobotTerminator", ID++, GoldRush.Instance, 50, 1, true);
 
 		GameRegistry.registerTileEntity(Miner.class, "MachineMiner");
-
 		GameRegistry.registerTileEntity(Detector.class, "MachineDetector");
 	}
 	

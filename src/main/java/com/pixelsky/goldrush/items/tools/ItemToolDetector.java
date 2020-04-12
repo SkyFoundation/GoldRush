@@ -6,9 +6,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-public class ItemBlockDetector extends Item {
+public class ItemToolDetector extends Item {
     private final String name="robot_destroyer";
-    public ItemBlockDetector(){
+    public ItemToolDetector(){
         super();
         setRegistryName(new ResourceLocation(Reference.MODID,name))
                 .setTranslationKey(name)

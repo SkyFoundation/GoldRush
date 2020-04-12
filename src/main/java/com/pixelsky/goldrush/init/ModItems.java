@@ -1,7 +1,7 @@
 package com.pixelsky.goldrush.init;
 
 
-import com.pixelsky.goldrush.items.tools.ItemRobotDestroyer;
+import com.pixelsky.goldrush.items.robots.ItemRobotDestroyer;
 import net.minecraft.item.Item;
 
 public class ModItems implements IRegistery {
