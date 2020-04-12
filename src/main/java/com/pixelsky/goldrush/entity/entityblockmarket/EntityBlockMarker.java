@@ -13,13 +13,13 @@ public class EntityBlockMarker extends Entity {
     private long time=1000;
     private EntityBlockMarker(World worldIn) {
         super(worldIn);;
-        this.setSize(1,1);
+        this.setSize(0.1f,0.1f);
     }
 
     public EntityBlockMarker(World world, BlockPos pos) {
         super(world);
         this.setPosition(pos.getX()+0.5,pos.getY(),pos.getZ()+0.5);
-        this.setSize(1,1);
+        this.setSize(0.1f,0.1f);
     }
 
     @Override

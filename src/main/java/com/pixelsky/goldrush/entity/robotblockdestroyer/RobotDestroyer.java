@@ -23,9 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
-    private int range_mine =3;
-    private int speed_mine =16;
-    private float speed_walk=2;
+    private int range_mine =1;
+    private int speed_mine =1;
+    private float speed_walk=1;
     private long cooldown_mine =300;
     private EntityPlayer summoner;
     private List<IUpgrade> upgrades;
@@ -57,8 +57,8 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
     protected void initEntityAI() {
         super.initEntityAI();
         this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIPanic(this, 2.2D));
-        this.tasks.addTask(2,new EntityAIFollowOwner(this,2,5,16));
+        this.tasks.addTask(1, new EntityAIPanic(this, speed_walk));
+        this.tasks.addTask(2,new EntityAIFollowOwner(this,speed_walk,5,16));
     }
 
     @Override
@@ -67,6 +67,9 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
             return false;
        ItemStack itemStack= player.getHeldItem(hand);
         addUpgrade(itemStack);
+        if(player.isSneaking()){
+            this.startRiding(player);
+        }
         return super.processInteract(player, hand);
     }
 
@@ -97,7 +100,7 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
     }
     private boolean checkCooldown(){
         if(cooldown_mine <0){
-            cooldown_mine =20;
+            cooldown_mine =400;
         //    Debug.info("处理冷却中"+cooldown_mine);
             return true;
         }
@@ -134,6 +137,11 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
 
 
 
+    }
+
+    @Override
+    public boolean canPassengerSteer() {
+        return true;
     }
 
     @Override

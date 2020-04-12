@@ -2,6 +2,7 @@ package com.pixelsky.goldrush.entity.robotblockdestroyer;
 
 import com.pixelsky.goldrush.Reference;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBat;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -17,7 +18,8 @@ public class RenderHandlerDestoryer implements IRenderFactory {
 
     class RenderDestoryer extends RenderLiving<RobotDestroyer> {
 
-        private final ResourceLocation TEXTURES = new ResourceLocation(Reference.MODID + ":textures/entity/robot_destoryer.png");
+        //todo 修改模型
+      private final ResourceLocation TEXTURES = new ResourceLocation(Reference.MODID + ":textures/entity/robot_destoryer.png");
 
         public RenderDestoryer(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
             super(rendermanagerIn, modelbaseIn, shadowsizeIn);

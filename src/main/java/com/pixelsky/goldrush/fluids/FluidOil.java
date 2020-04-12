@@ -9,7 +9,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 public class FluidOil extends Fluid {
     public FluidOil( ) {
-        super("fluid_oil", new ResourceLocation(Reference.MODID, "fluids/oil_still"),  new ResourceLocation(Reference.MODID, "fluids/oil_flow") ,new ResourceLocation(Reference.MODID, "fluids/oil_overlay"));
+        super("fluid_oil", new ResourceLocation(Reference.MODID, "fluids/oil_still"),  new ResourceLocation(Reference.MODID, "fluids/oil_flow"));
         setRarity(EnumRarity.COMMON);
         setLuminosity(0);
         setDensity(2000);
