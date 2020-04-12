@@ -1,20 +1,23 @@
 {
   "parent": "block/cube",
   "textures": {
-    "1": "goldrush:blocks/machine_detector/top",
-    "particle": "goldrush:blocks/machine_detector/top"
+    "0": "goldrush:blocks/machine_detector/bottom",
+    "1": "goldrush:blocks/machine_detector/side",
+    "2": "goldrush:blocks/machine_detector/top",
+    "3": "goldrush:blocks/machine_detector/front",
+    "particle": "goldrush:blocks/machine_detector/front"
   },
   "elements": [
     {
       "from": [0, 0, 0],
       "to": [16, 16, 16],
       "faces": {
-        "north": {"uv": [0, 0, 16, 16], "texture": "#1"},
+        "north": {"uv": [0, 0, 16, 16], "texture": "#3"},
         "east": {"uv": [0, 0, 16, 16], "texture": "#1"},
         "south": {"uv": [0, 0, 16, 16], "texture": "#1"},
         "west": {"uv": [0, 0, 16, 16], "texture": "#1"},
-        "up": {"uv": [0, 0, 16, 16], "texture": "#1"},
-        "down": {"uv": [0, 0, 16, 16], "texture": "#1"}
+        "up": {"uv": [0, 0, 16, 16], "texture": "#2"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#0"}
       }
     }
   ]
