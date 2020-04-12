@@ -17,14 +17,6 @@ public class ItemChip extends Item
 		setRegistryName(new ResourceLocation(Reference.MODID, name))
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH);
-	        /*
-	
-        setCreativeTab(UCECreativeTab.UCETAB);
-        
-        setTranslationKey("uce.bucket_wheel");
-        
-        setRegistryName(UCEmod.MODID, "bucket_wheel");
-        */
     }
     
 	
