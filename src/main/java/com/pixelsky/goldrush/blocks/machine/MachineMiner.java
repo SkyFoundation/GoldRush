@@ -89,6 +89,8 @@ public class MachineMiner extends BlockContainer implements IMachine{
         private NonNullList<ItemStack> containerItems = NonNullList.<ItemStack>withSize(27, ItemStack.EMPTY);
         private BlockPos currenMinePos;
         private long destroyProgress =0;
+        private int timeToReflesh=10;
+
         public Miner(){
             this.handler=new ItemStackHandler();
         }
@@ -156,10 +158,20 @@ public class MachineMiner extends BlockContainer implements IMachine{
             }
 
         }
+        private boolean reflesh(){
+            if(timeToReflesh<0){
+                timeToReflesh=10;
+                return true;
+            }
+            timeToReflesh--;
+            return false;
+        }
         //更新
         @Override
         public void update()
         {
+            if (!reflesh())return;
+
             //检测是否是工作模式
         if (!check())return;
             Debug.info("工作");

@@ -16,7 +16,7 @@ public class ClientProxy extends CommonProxy {
 	private void registerRender(){
 		//Rendering
 		RenderingRegistry.registerEntityRenderingHandler(RobotDestroyer.class, new RenderHandlerDestoryer());
-		RenderingRegistry.registerEntityRenderingHandler(EntityBlockMarker.class, new RenderHandlerMarker());
+		//RenderingRegistry.registerEntityRenderingHandler(EntityBlockMarker.class, new RenderHandlerMarker());
 
 	}
 

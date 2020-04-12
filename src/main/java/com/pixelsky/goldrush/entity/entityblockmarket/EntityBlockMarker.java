@@ -30,6 +30,7 @@ public class EntityBlockMarker extends Entity {
     @Override
     protected void entityInit() {
     this.setGlowing(true);
+    this.setInvisible(true);
     }
 
     @Override
