@@ -1,16 +1,16 @@
 //构建脚本
 buildscript
-        {
-            repositories
-                    {
-                        jcenter()
-                        maven { url = "http://files.minecraftforge.net/maven/" }
-                    }
-            dependencies
-                    {
-                        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-                    }
-        }
+{
+	repositories
+    {
+    	jcenter()
+    	maven { url = "http://files.minecraftforge.net/maven/" }
+    }
+    dependencies
+    {
+    	classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
 
 
 apply plugin: 'net.minecraftforge.gradle.forge'
@@ -24,45 +24,43 @@ archivesBaseName = "goldrush"
 sourceCompatibility = targetCompatibility = '1.8'
 
 compileJava
-        {
-            sourceCompatibility = targetCompatibility = '1.8'
-        }
+{
+	sourceCompatibility = targetCompatibility = '1.8'
+}
 minecraft
-        {
-            version = minecraft_version + "-" + forge_version
-            runDir = "run"
-            mappings = mcp_mapping
-        }
+{
+	version = minecraft_version + "-" + forge_version
+	runDir = "run"
+	mappings = mcp_mapping
+}
 
 
 //项目依赖
 dependencies
-        {
-            deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
-        }
+{
+	deobfCompile "mezz.jei:jei_${minecraft_version}:${jei_version}"
+}
 repositories
-        {
-            maven
-                    {
-                        // JEI
-                        name 'progwm\'s maven'
-                        url 'http://dvs1.progwml6.com/files/maven'
-                    }
-        }
-
-
+{
+	maven
+	{
+		// JEI
+		name 'progwm\'s maven'
+		url 'http://dvs1.progwml6.com/files/maven'
+	}
+}
 
 processResources
-        {
-            inputs.property "version", project.version
-            inputs.property "mcversion", project.minecraft.version
-            from(sourceSets.main.resources.srcDirs)
-                    {
-                        include 'mcmod.info'
-                        expand 'version':project.version, 'mcversion':project.minecraft.version
-                    }
-            from(sourceSets.main.resources.srcDirs)
-                    {
-                        exclude 'mcmod.info'
-                    }
-        }
+{
+	inputs.property "version", project.version
+	inputs.property "mcversion", project.minecraft.version
+	from(sourceSets.main.resources.srcDirs)
+	{
+		include 'mcmod.info'
+		expand 'version':project.version, 'mcversion':project.minecraft.version
+	}
+	from(sourceSets.main.resources.srcDirs)
+	{
+		exclude 'mcmod.info'
+	}
+}

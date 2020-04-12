@@ -1,0 +1,2 @@
+# GoldRush
+你好
