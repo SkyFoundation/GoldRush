@@ -1,21 +1,17 @@
 package com.pixelsky.goldrush.init;
 
 
+import com.pixelsky.goldrush.items.tools.ItemRobotDestroyer;
 import net.minecraft.item.Item;
 
 public class ModItems implements IRegistery {
-
+public static final ItemRobotDestroyer ITEM_BLOCK_DESTROYER=new ItemRobotDestroyer();
 	
 	public ModItems() {
-		init();
 		register();
 	}
-	
-	public void init() {
-
-	}
 	public void register() {
-
+	regIm(ITEM_BLOCK_DESTROYER);
 	}
 	private void regIm(Item item){
 		RegistrationHandler.Items.add(item);

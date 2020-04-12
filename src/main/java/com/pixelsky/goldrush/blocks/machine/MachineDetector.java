@@ -1,44 +1,44 @@
 package com.pixelsky.goldrush.blocks.machine;
 
+import com.pixelsky.goldrush.Debug;
 import com.pixelsky.goldrush.GoldRush;
-import com.pixelsky.goldrush.entity.EntityBlockMark;
+import com.pixelsky.goldrush.Reference;
+import com.pixelsky.goldrush.entity.entityblockmarket.EntityBlockMarker;
 import com.pixelsky.goldrush.handler.GuiHandler;
+import com.pixelsky.goldrush.init.CreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.items.ItemStackHandler;
 
-import javax.annotation.Nullable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
-public class MachineBlockDetector  extends BlockContainer implements IMachine{
-    private final String name="machine_blockdetector";
-    private boolean isRunning;
+public class MachineDetector extends BlockContainer implements IMachine{
+    private final String name="machine_detector";
     private long speed=5;
-    private int range=1;
+    private int range=8;
     private int fortune=1;
 
-    public MachineBlockDetector() {
+    public MachineDetector() {
         super(Material.ROCK);
+        setRegistryName(new ResourceLocation(Reference.MODID,name))
+                .setTranslationKey(name)
+                .setCreativeTab(CreativeTabs.GOLD_RUSH);
     }
 
     //getters
-    public boolean isRunning() {
-        return isRunning;
-    }
-
-    public void setRunning(boolean running) {
-        isRunning = running;
-    }
 
     public long getSpeed() {
         return speed;
@@ -67,15 +67,14 @@ public class MachineBlockDetector  extends BlockContainer implements IMachine{
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
-            playerIn.openGui(GoldRush.Instance, GuiHandler.Detector, worldIn, pos.getX(), pos.getY(), pos.getZ());
+            playerIn.openGui(GoldRush.Instance, GuiHandler.MACHINE_DETECTOR, worldIn, pos.getX(), pos.getY(), pos.getZ());
         }
         return true;
     }
 
-    @Nullable
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return null;
+        return new Detector();
     }
 
     @Override
@@ -87,22 +86,10 @@ public class MachineBlockDetector  extends BlockContainer implements IMachine{
     public class Detector extends TileEntity implements ITickable {
         public final long defaultRefleshTime=1000;
         public ItemStackHandler handler;
-        public final int tileX=this.getPos().getX();
-        public final int tileY=this.getPos().getY();
-        public final int tileZ=this.getPos().getZ();
         //储存用于发光的实体
-        private ArrayList<EntityBlockMark> blockMarkers=new ArrayList<>();
+        private ArrayList<EntityBlockMarker> blockMarkers=new ArrayList<>();
         //前7个槽用于放置升级
         private NonNullList<ItemStack> containerItems = NonNullList.<ItemStack>withSize(27, ItemStack.EMPTY);
-        private final int minX=tileX-range;
-        private final int minZ=tileZ-range;
-        private final int maxX=tileX+range;
-        private final int maxZ=tileZ+range;
-        private final int minY=tileY-range;
-        private final int maxY=tileY+range;
-        private int currentY=minY;
-        private int currentX=minX;
-        private int currentZ=minZ;
         private long timeToReflesh;
 
         public Detector(){
@@ -111,26 +98,28 @@ public class MachineBlockDetector  extends BlockContainer implements IMachine{
         }
         //todo 后期设置为Container内设置的矿石
         private List<Block> getMineList(){
-        return Arrays.asList(Blocks.COAL_ORE,Blocks.CHEST,Blocks.IRON_ORE);
+        return Arrays.asList(Blocks.COAL_ORE,Blocks.CHEST,Blocks.IRON_ORE,Blocks.DIAMOND_ORE,Blocks.GOLD_ORE);
         }
         //todo 这个会卡服的
         private ArrayList<BlockPos> getMineBlocks(){
 
             ArrayList<BlockPos> posList= new ArrayList<>();
-
-            while (currentY<maxY){
-                while (currentZ<maxZ){
-                    while (currentX<maxX){
-                        BlockPos pos=new BlockPos(currentX,currentY,currentZ);
-                        Block block=world.getBlockState(pos).getBlock();
-                        if(!this.shouldMine(block))
-                            continue;
-                        posList.add(pos);
-                        currentX++;
+            int center_y = MathHelper.floor(this.pos.getY());
+            int center_x = MathHelper.floor(this.pos.getX());
+            int center_z = MathHelper.floor(this.pos.getZ());
+            for (int expand_X = -getRange(); expand_X <= +getRange(); ++expand_X) {
+                for (int expand_z = -getRange(); expand_z <= +getRange(); ++expand_z) {
+                    for (int expend_y = -getRange(); expend_y <= +getRange(); ++expend_y) {
+                        int result_x = center_x + expand_X;
+                        int result_y = center_y + expend_y;
+                        int result_z = center_z + expand_z;
+                        BlockPos blockpos = new BlockPos(result_x, result_y, result_z);
+                        IBlockState iblockstate = this.world.getBlockState(blockpos);
+                        if(shouldMine(iblockstate.getBlock())){
+                            posList.add(blockpos);
+                        }
                     }
-                    currentZ++;
                 }
-                currentY++;
             }
             return  posList;
         }
@@ -169,14 +158,21 @@ public class MachineBlockDetector  extends BlockContainer implements IMachine{
         {
             //检测是否是工作模式
             if (!check())return;
+            Debug.info("工作模式");
             if (!reflesh())return;
+
+            Debug.info("刷新与添加标记");
+
             for(BlockPos pos:getMineBlocks()){
+
             addMarker(pos);
             }
         }
         private void addMarker(BlockPos pos){
-            EntityBlockMark mark=new EntityBlockMark(world,pos);
+            EntityBlockMarker mark=new EntityBlockMarker(world,pos);
             this.blockMarkers.add(mark);
+
+            Debug.info("添加标记于"+mark.getPosition()+"地址"+pos);
             world.spawnEntity(mark);
         }
         private boolean check(){
@@ -192,18 +188,20 @@ public class MachineBlockDetector  extends BlockContainer implements IMachine{
             return false;
         }
         private void clearMarks(){
-            Iterator<EntityBlockMark> iterator= this.blockMarkers.iterator();
+            Iterator<EntityBlockMarker> iterator= this.blockMarkers.iterator();
             while (iterator.hasNext()){
-                EntityBlockMark entityBlockMark=iterator.next();
-                if(entityBlockMark==null||entityBlockMark.isDead)
+                EntityBlockMarker entityBlockMarker =iterator.next();
+                if(entityBlockMarker ==null|| entityBlockMarker.isDead)
                     continue;
-                entityBlockMark.setDead();
+                entityBlockMarker.setDead();
             }
             this.blockMarkers.clear();
         }
         private boolean shouldMine(Block block){
             return getMineList().contains(block);
         }
-
+        private boolean isRunning() {
+            return world.isBlockPowered(getPos());
+        }
     }
 }

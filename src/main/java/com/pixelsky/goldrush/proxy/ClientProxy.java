@@ -1,5 +1,10 @@
 package com.pixelsky.goldrush.proxy;
 
+import com.pixelsky.goldrush.entity.entityblockmarket.EntityBlockMarker;
+import com.pixelsky.goldrush.entity.entityblockmarket.RenderHandlerMarker;
+import com.pixelsky.goldrush.entity.robotblockdestroyer.RenderHandlerDestoryer;
+import com.pixelsky.goldrush.entity.robotblockdestroyer.RobotDestroyer;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -10,6 +15,8 @@ public class ClientProxy extends CommonProxy {
 
 	private void registerRender(){
 		//Rendering
+		RenderingRegistry.registerEntityRenderingHandler(RobotDestroyer.class, new RenderHandlerDestoryer());
+		RenderingRegistry.registerEntityRenderingHandler(EntityBlockMarker.class, new RenderHandlerMarker());
 
 	}
 

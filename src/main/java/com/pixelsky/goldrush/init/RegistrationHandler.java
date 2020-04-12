@@ -120,8 +120,7 @@ public class RegistrationHandler
         new ModItems();
         new ModBlocks();
      //   new CheeseBiomes();
-        new CheeseEntities();
-        new CheeseRecipes();
+        new ModEntities();
         new ModCapabilitys();
     }
 }

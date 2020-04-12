@@ -1,9 +1,13 @@
 package com.pixelsky.goldrush.init;
 
-import com.pixelsky.goldrush.tabs.TabBlock;
-import com.pixelsky.goldrush.tabs.TabItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class CreativeTabs {
-	public static net.minecraft.creativetab.CreativeTabs CHEESE_ITEMS = new TabItem("cheese_items");
-	public static net.minecraft.creativetab.CreativeTabs CHEESE_BLOCKS = new TabBlock("cheese_blocks");
+	public static net.minecraft.creativetab.CreativeTabs GOLD_RUSH=new net.minecraft.creativetab.CreativeTabs("gold_rush") {
+		@Override
+		public ItemStack createIcon() {
+			return new ItemStack(Item.getItemFromBlock(ModBlocks.MACHINE_MINER));
+		}
+	};
 }
