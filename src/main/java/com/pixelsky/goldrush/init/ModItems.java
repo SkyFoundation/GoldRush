@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 
 public class ModItems implements IRegistery {
 	
-public static final ItemRobotDestroyer ITEM_BLOCK_DESTROYER=new ItemRobotDestroyer();
+public static final ItemRobotDestroyer ITEM_BLOCK_DESTROYER = new ItemRobotDestroyer();
 
 public static final Item ITEM_CHIP = new ItemChip();
 
