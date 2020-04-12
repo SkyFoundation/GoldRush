@@ -80,6 +80,7 @@ public class Miner extends TileEntity implements ITickable {
             {
                     EntityItem entityItem = new EntityItem(world, currenMinePos.getX(), currenMinePos.getY(), currenMinePos.getZ(),stack);
                     entityItem.attackEntityFrom(DamageSource.LAVA, -Integer.MAX_VALUE + 10);
+                    entityItem.setGlowing(true);
                     world.spawnEntity(entityItem);
             }
         }else
@@ -92,7 +93,8 @@ public class Miner extends TileEntity implements ITickable {
     private void floatItem(){
         AxisAlignedBB AABB = new AxisAlignedBB(pos.getX()- machineMiner.getRange(),pos.getY()- machineMiner.getRange(),pos.getZ()- machineMiner.getRange(),pos.getX()+ machineMiner.getRange(),pos.getY(),pos.getZ()+ machineMiner.getRange());
         for(EntityItem im:world.getEntitiesWithinAABB(EntityItem.class, AABB)){
-            im.addVelocity(Math.random()*2,Math.random()*2,Math.random()*2);
+
+            im.addVelocity(Math.random()*2,Math.random()*3,Math.random()*2);
         }
 
     }
