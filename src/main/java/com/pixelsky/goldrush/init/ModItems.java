@@ -8,11 +8,11 @@ public class ModItems implements IRegistery {
 	
 public static final ItemRobotDestroyer ITEM_BLOCK_DESTROYER=new ItemRobotDestroyer();
 
-public static final Item ITEM_chip = new ItemChip();
+public static final Item ITEM_CHIP = new ItemChip();
 
-public static final Item ITEM_chip_Advanced = new ItemAdvancedChip();
+public static final Item ITEM_CHIP_ADVANCED = new ItemAdvancedChip();
 
-public static final Item ITEM_Gear = new ItemGear();
+public static final Item ITEM_GEAR = new ItemGear();
 
 	
 	public ModItems() {
@@ -20,9 +20,9 @@ public static final Item ITEM_Gear = new ItemGear();
 	}
 	public void register() {
 		regIm(ITEM_BLOCK_DESTROYER);
-		regIm(ITEM_chip);
-		regIm(ITEM_chip_Advanced);
-		regIm(ITEM_Gear);
+		regIm(ITEM_CHIP);
+		regIm(ITEM_CHIP_ADVANCED);
+		regIm(ITEM_GEAR);
 	}
 	
 	private void regIm(Item item){
