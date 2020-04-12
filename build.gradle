@@ -19,8 +19,8 @@ apply plugin: 'maven'
 
 //项目基础
 version = "1.0"
-group = "com.pixelsky.goldrush"
-archivesBaseName = "goldrush"
+group = "com.douyan.ucemod"
+archivesBaseName = "ucemod"
 sourceCompatibility = targetCompatibility = '1.8'
 
 compileJava
@@ -49,6 +49,7 @@ repositories
 		url 'http://dvs1.progwml6.com/files/maven'
 	}
 }
+
 
 processResources
 {
