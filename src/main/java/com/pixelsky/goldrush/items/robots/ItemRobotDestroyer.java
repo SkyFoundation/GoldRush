@@ -1,4 +1,4 @@
-package com.pixelsky.goldrush.items.tools;
+package com.pixelsky.goldrush.items.robots;
 
 import com.pixelsky.goldrush.Reference;
 import com.pixelsky.goldrush.entity.robotblockdestroyer.RobotDestroyer;
