@@ -2,6 +2,7 @@ package com.pixelsky.goldrush.init;
 
 import com.pixelsky.goldrush.items.materials.*;
 import com.pixelsky.goldrush.items.robots.ItemRobotDestroyer;
+import com.pixelsky.goldrush.items.robots.ItemRobotTerminator;
 import net.minecraft.item.Item;
 
 public class ModItems implements IRegistery {
@@ -14,6 +15,9 @@ public static final Item ITEM_CHIP_ADVANCED = new ItemAdvancedChip();
 
 public static final Item ITEM_GEAR = new ItemGear();
 
+public static final Item ITEM_MACHINE_FRAME_WORK=new ItemMachineFrameWork();
+
+public static final Item ITEM_ROBOT_TERMINATOR=new ItemRobotTerminator();
 	
 	public ModItems() {
 		register();
@@ -23,6 +27,8 @@ public static final Item ITEM_GEAR = new ItemGear();
 		regIm(ITEM_CHIP);
 		regIm(ITEM_CHIP_ADVANCED);
 		regIm(ITEM_GEAR);
+		regIm(ITEM_MACHINE_FRAME_WORK);
+		regIm(ITEM_ROBOT_TERMINATOR);
 	}
 	
 	private void regIm(Item item){

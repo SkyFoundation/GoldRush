@@ -1,4 +1,18 @@
 package com.pixelsky.goldrush.items.materials;
 
-public class ItemMachineFrameWork {
+import com.pixelsky.goldrush.Reference;
+import com.pixelsky.goldrush.init.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
+
+public class ItemMachineFrameWork extends Item {
+    private final String name="machine_framework";
+
+    public ItemMachineFrameWork()
+    {
+        super();
+        setRegistryName(new ResourceLocation(Reference.MODID, name))
+                .setTranslationKey(name)
+                .setCreativeTab(CreativeTabs.GOLD_RUSH);
+    }
 }
