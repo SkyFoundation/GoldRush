@@ -5,7 +5,9 @@ import com.pixelsky.goldrush.Reference;
 import com.pixelsky.goldrush.blocks.machine.tile.Miner;
 import com.pixelsky.goldrush.handler.GuiHandler;
 import com.pixelsky.goldrush.init.CreativeTabs;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,7 +18,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class MachineMiner extends BlockContainer implements IMachine{
+public class MachineMiner extends Block implements IMachine, ITileEntityProvider {
     private final String name="machine_miner";
     private long speed=1;
     private int range=4;

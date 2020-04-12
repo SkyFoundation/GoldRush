@@ -5,7 +5,9 @@ import com.pixelsky.goldrush.Reference;
 import com.pixelsky.goldrush.blocks.machine.tile.Detector;
 import com.pixelsky.goldrush.handler.GuiHandler;
 import com.pixelsky.goldrush.init.CreativeTabs;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +16,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class MachineDetector extends BlockContainer implements IMachine{
+public class MachineDetector extends Block implements IMachine, ITileEntityProvider {
     private final String name="machine_detector";
     private long speed=5;
     private int range=8;
@@ -61,8 +63,9 @@ public class MachineDetector extends BlockContainer implements IMachine{
         return true;
     }
 
-    @Override
+   // @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
+
         return new Detector(this);
     }
 

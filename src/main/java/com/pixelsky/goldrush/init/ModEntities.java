@@ -4,7 +4,7 @@ import com.pixelsky.goldrush.GoldRush;
 import com.pixelsky.goldrush.Reference;
 import com.pixelsky.goldrush.blocks.machine.tile.Detector;
 import com.pixelsky.goldrush.blocks.machine.tile.Miner;
-import com.pixelsky.goldrush.entity.entityblockmarket.EntityBlockMarker;
+import com.pixelsky.goldrush.entity.entityblockmarker.EntityBlockMarker;
 import com.pixelsky.goldrush.entity.robotTerminator.RobotTerminator;
 import com.pixelsky.goldrush.entity.robotblockdestroyer.RobotDestroyer;
 import net.minecraft.util.ResourceLocation;

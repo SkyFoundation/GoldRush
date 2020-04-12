@@ -1,4 +1,4 @@
-package com.pixelsky.goldrush.entity.entityblockmarket;
+package com.pixelsky.goldrush.entity.entityblockmarker;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;

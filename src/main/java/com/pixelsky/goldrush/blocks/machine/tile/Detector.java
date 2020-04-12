@@ -2,7 +2,7 @@ package com.pixelsky.goldrush.blocks.machine.tile;
 
 import com.pixelsky.goldrush.Debug;
 import com.pixelsky.goldrush.blocks.machine.MachineDetector;
-import com.pixelsky.goldrush.entity.entityblockmarket.EntityBlockMarker;
+import com.pixelsky.goldrush.entity.entityblockmarker.EntityBlockMarker;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
