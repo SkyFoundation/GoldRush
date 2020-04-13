@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
-    private int range_mine =1;
+    private int range_mine =2;
     private int speed_mine =1;
     private float speed_walk=1;
     private long cooldown_mine =100;
@@ -63,6 +63,8 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
 
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
+        if(world.isRemote)
+            return false;
         if (hand!=EnumHand.MAIN_HAND)
             return false;
        ItemStack itemStack= player.getHeldItem(hand);

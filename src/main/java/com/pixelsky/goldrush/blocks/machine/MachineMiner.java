@@ -63,7 +63,7 @@ public class MachineMiner extends Block implements IMachine, ITileEntityProvider
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
-            playerIn.openGui(GoldRush.Instance, GuiHandler.MACHINE_MINER, worldIn, pos.getX(), pos.getY(), pos.getZ());
+          //  playerIn.openGui(GoldRush.Instance, GuiHandler.MACHINE_MINER, worldIn, pos.getX(), pos.getY(), pos.getZ());
         }
         return true;
     }
