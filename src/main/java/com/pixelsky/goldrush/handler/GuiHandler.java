@@ -23,10 +23,10 @@ public static final int MACHINE_DETECTOR =1;
     @Override
     public Container getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
         switch (id){
-            case 0:
+            case MACHINE_MINER:
                 return new ContainerMiner(player.inventory, (Miner) world.getTileEntity(new BlockPos(x,y,z)));
 
-            case 1:
+            case MACHINE_DETECTOR:
               //  return new ContainerMiner(player.inventory, (MachineMiner.Miner) world.getTileEntity(new BlockPos(x,y,z)));
         }
 
@@ -40,7 +40,7 @@ public static final int MACHINE_DETECTOR =1;
     public GuiContainer getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
 
         switch (id){
-            case 0:
+            case MACHINE_MINER:
                 return new GuiMachineMiner(player.inventory,(Miner) world.getTileEntity(new BlockPos(x,y,z)));
         }
         Debug.info("Error Client UI Id "+id);

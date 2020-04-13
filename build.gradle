@@ -19,8 +19,8 @@ apply plugin: 'maven'
 
 //项目基础
 version = "1.0"
-group = "com.douyan.ucemod"
-archivesBaseName = "ucemod"
+group = "com.pixelsky.goldrush"
+archivesBaseName = "goldrush"
 sourceCompatibility = targetCompatibility = '1.8'
 
 compileJava

@@ -17,16 +17,20 @@ public class GuiMachineMiner extends GuiContainer {
         super(new ContainerMiner(playerInventory,tileFurnace));
         this.playerInventory = playerInventory;
         this.tileMiner = tileFurnace;
+        this.xSize = 176;
+        this.ySize = 133;
     }
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
     {
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.color(1.0F, 1.0F, 1.0F);
+
         this.mc.getTextureManager().bindTexture(TEXTURE);
-        int i = (this.width - this.xSize) / 2;
-        int j = (this.height - this.ySize) / 2;
-        this.drawTexturedModalRect(i, j, 0, 0, this.xSize,  18 + 17);
-        this.drawTexturedModalRect(i, j +  18 + 17, 0, 126, this.xSize, 96);
+        int offsetX = (this.width - this.xSize) / 2, offsetY = (this.height - this.ySize) / 2;
+
+        this.drawTexturedModalRect(offsetX, offsetY, 0, 0, this.xSize, this.ySize);
+
+
     }
 }
