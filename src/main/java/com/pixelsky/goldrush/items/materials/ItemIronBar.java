@@ -6,18 +6,16 @@ import com.pixelsky.goldrush.init.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
-
-//轮胎
-public class ItemTyre extends Item
+//铁棍棒
+public class ItemIronBar  extends Item
 {
-	private final String name="tyre";
+	private final String name="iron_bar";
 	
-	public ItemTyre()
+	public ItemIronBar()
 	{
 		super();
 		setRegistryName(new ResourceLocation(Reference.MODID, name))
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH);
     }
-
 }
