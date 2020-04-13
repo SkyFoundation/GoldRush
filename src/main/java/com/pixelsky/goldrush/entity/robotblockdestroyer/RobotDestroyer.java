@@ -26,7 +26,7 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
     private int range_mine =1;
     private int speed_mine =1;
     private float speed_walk=1;
-    private long cooldown_mine =300;
+    private long cooldown_mine =100;
     private EntityPlayer summoner;
     private List<IUpgrade> upgrades;
     private int upgrade_limit=5;
@@ -68,7 +68,7 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
        ItemStack itemStack= player.getHeldItem(hand);
         addUpgrade(itemStack);
         if(player.isSneaking()){
-            this.startRiding(player);
+           player.startRiding(this);
         }
         return super.processInteract(player, hand);
     }
@@ -100,7 +100,7 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
     }
     private boolean checkCooldown(){
         if(cooldown_mine <0){
-            cooldown_mine =400;
+            cooldown_mine =100;
         //    Debug.info("处理冷却中"+cooldown_mine);
             return true;
         }

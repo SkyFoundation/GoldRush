@@ -24,10 +24,18 @@ public class ItemRobotTerminator extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ActionResult pass= new ActionResult<>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
+
+        if(handIn!=EnumHand.MAIN_HAND)
+            return pass;
+
+        if(worldIn.isRemote)
+            return pass;
+
         RobotTerminator destroyer=new RobotTerminator(worldIn);
         destroyer.setPosition(playerIn.posX,playerIn.posY,playerIn.posZ);
         worldIn.spawnEntity(destroyer);
-        return pass;
+        return   new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
+
 
     }
 }

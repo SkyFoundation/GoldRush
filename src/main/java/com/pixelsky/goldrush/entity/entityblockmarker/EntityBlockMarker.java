@@ -19,7 +19,7 @@ public class EntityBlockMarker extends Entity {
     public EntityBlockMarker(World world, BlockPos pos) {
         super(world);
         this.setPosition(pos.getX()+0.5,pos.getY(),pos.getZ()+0.5);
-        this.setSize(0.1f,0.1f);
+        this.setSize(0.2f,0.2f);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class EntityBlockMarker extends Entity {
 
     @Override
     protected void readEntityFromNBT(NBTTagCompound compound) {
-
+    this.setDead();
     }
 
     @Override

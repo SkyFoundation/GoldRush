@@ -31,11 +31,10 @@ public class RenderHandlerTerminator implements IRenderFactory {
             GlStateManager.enableTexture2D();
             GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
             GlStateManager.enableCull();
-            GlStateManager.translate((float)x, (float)y-2, (float)z );
-       //     GlStateManager.scale(1.0F, -1.0F, -1.0F);
-            new ModelTerminator().render(entity,0,0,0,entity.rotationYaw,entity.rotationPitch,0.13f);
+            GlStateManager.translate((float)x, (float)y+2, (float)z );
+            GlStateManager.scale(1, -1.0F, -1);
+            new ModelTerminator().render(entity,0,0,0,entity.rotationYaw,entity.rotationPitch,0.1f);
             GlStateManager.popMatrix();
-            super.doRender(entity, x, y, z, entityYaw, partialTicks);
             super.doRender(entity, x, y, z, entityYaw, partialTicks);
         }
 
