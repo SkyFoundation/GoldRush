@@ -5,14 +5,18 @@ import com.pixelsky.goldrush.entity.IUpgradeHandler;
 import com.pixelsky.goldrush.items.upgrades.IUpgrade;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIFollowOwner;
 import net.minecraft.entity.ai.EntityAIPanic;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -25,7 +29,6 @@ import java.util.List;
 public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
     private int range_mine =2;
     private int speed_mine =1;
-    private float speed_walk=1;
     private long cooldown_mine =100;
     private EntityPlayer summoner;
     private List<IUpgrade> upgrades;
@@ -40,8 +43,21 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
         this(worldIn);
         this.summoner=summoner;
         setOwnerId(summoner.getUniqueID());
-    }
 
+    }
+    @Override
+    public boolean attackEntityAsMob(Entity entityIn)
+    {
+        this.world.setEntityState(this, (byte)4);
+        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)(7 + this.rand.nextInt(15)));
+
+        if (flag)
+        {
+            entityIn.motionY += 0.4000000059604645D;
+            this.applyEnchantments(this, entityIn);
+        }
+         return flag;
+    }
     @Override
     protected void entityInit() {
         super.entityInit();
@@ -55,10 +71,9 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
 
     @Override
     protected void initEntityAI() {
-        super.initEntityAI();
-        this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(1, new EntityAIPanic(this, speed_walk));
-        this.tasks.addTask(2,new EntityAIFollowOwner(this,speed_walk,5,16));
+        this.tasks.addTask(2,new EntityAIFollowOwner(this,1,3,8));
+        this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.5D, true));
+        this.tasks.addTask(1, new EntityAIPanic(this, 2));
     }
 
     @Override
@@ -83,8 +98,6 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
         if(!checkVaild(world))
             return;
         handleUpgrade();
-
-       // Debug.info("已更新升级组建");
         if(!checkCooldown())
             return;
         destroyBlocks();
