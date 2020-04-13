@@ -30,7 +30,7 @@ private final String name="robot_destroyer";
         RobotDestroyer destroyer=new RobotDestroyer(worldIn,playerIn);
         destroyer.setPosition(playerIn.posX,playerIn.posY,playerIn.posZ);
         worldIn.spawnEntity(destroyer);
-
+        playerIn.getHeldItem(handIn).shrink(1);
         return   new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 
 

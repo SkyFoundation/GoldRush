@@ -34,6 +34,7 @@ public class ItemRobotTerminator extends Item {
         RobotTerminator destroyer=new RobotTerminator(worldIn);
         destroyer.setPosition(playerIn.posX,playerIn.posY,playerIn.posZ);
         worldIn.spawnEntity(destroyer);
+        playerIn.getHeldItem(handIn).shrink(1);
         return   new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 
 

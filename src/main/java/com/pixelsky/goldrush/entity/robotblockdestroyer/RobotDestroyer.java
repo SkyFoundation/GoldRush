@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
-    private int range_mine =1;
+    private int range_mine =2;
     private int speed_mine =1;
     private float speed_walk=1;
     private long cooldown_mine =100;
@@ -32,25 +32,21 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
     private int upgrade_limit=5;
     private RobotDestroyer(World world){
         super(world);
-        upgrades=new ArrayList<>();
         setSize(1,1);
+        upgrades=new ArrayList<>();
     }
 
-    @Nullable
-    @Override
-    public EntityLivingBase getOwner() {
-        return summoner;
+    public RobotDestroyer(World worldIn, EntityPlayer summoner) {
+        this(worldIn);
+        this.summoner=summoner;
+        setOwnerId(summoner.getUniqueID());
     }
+
 
     @Nullable
     @Override
     public EntityAgeable createChild(EntityAgeable ageable) {
         return null;
-    }
-
-    public RobotDestroyer(World worldIn, EntityPlayer summoner) {
-        super(worldIn);
-        this.summoner=summoner;
     }
 
     @Override
@@ -63,6 +59,10 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
 
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
+
+        super.processInteract(player, hand);
+        if(world.isRemote)
+            return false;
         if (hand!=EnumHand.MAIN_HAND)
             return false;
        ItemStack itemStack= player.getHeldItem(hand);
@@ -70,7 +70,7 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
         if(player.isSneaking()){
            player.startRiding(this);
         }
-        return super.processInteract(player, hand);
+        return false;
     }
 
     @Override
@@ -137,11 +137,6 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
 
 
 
-    }
-
-    @Override
-    public boolean canPassengerSteer() {
-        return true;
     }
 
     @Override
