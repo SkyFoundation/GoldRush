@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.ResourceLocation;
 
+//机壳
 public class MachineryCasing extends Block
 {
 	private final String name="machinery_casing";
