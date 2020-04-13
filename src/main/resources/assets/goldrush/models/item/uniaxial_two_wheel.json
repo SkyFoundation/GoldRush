@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "goldrush:items/tyre"
+        "layer0": "goldrush:items/uniaxial_two_wheel"
     }
 }

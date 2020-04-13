@@ -14,8 +14,10 @@ public class ModItems implements IRegistery
 	public static final Item GEAR = new ItemGear();
 	public static final Item MACHINE_FRAME_WORK = new ItemMachineFrameWork();
 	public static final Item ROBOT_TERMINATOR = new ItemRobotTerminator();
-	public static final Item TYRE = new ItemTyre();
+	public static final Item WHEEL = new ItemWheel();
 	public static final Item IRON_BAR = new ItemIronBar();
+	
+	public static final Item UNIAXIAL_TWO_WHEEL = new ItemUniaxialTwoWheel();
 	
 	
 	public ModItems()
@@ -31,7 +33,8 @@ public class ModItems implements IRegistery
 		regIm(GEAR);
 		regIm(MACHINE_FRAME_WORK);
 		regIm(ROBOT_TERMINATOR);
-		regIm(TYRE);
+		regIm(WHEEL);
+		regIm(UNIAXIAL_TWO_WHEEL);
 		regIm(IRON_BAR);
 	}
 	

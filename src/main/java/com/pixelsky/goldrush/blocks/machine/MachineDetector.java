@@ -16,7 +16,8 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class MachineDetector extends Block implements IMachine, ITileEntityProvider {
+public class MachineDetector extends Block implements IMachine, ITileEntityProvider
+{
     private final String name="machine_detector";
     private long speed=5;
     private int range=8;

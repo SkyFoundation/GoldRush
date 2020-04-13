@@ -7,12 +7,12 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 
-//轮胎
-public class ItemTyre extends Item
+//单轴双轮
+public class ItemUniaxialTwoWheel extends Item
 {
-	private final String name="tyre";
+	private final String name="uniaxial_two_wheel";
 	
-	public ItemTyre()
+	public ItemUniaxialTwoWheel()
 	{
 		super();
 		setRegistryName(new ResourceLocation(Reference.MODID, name))
