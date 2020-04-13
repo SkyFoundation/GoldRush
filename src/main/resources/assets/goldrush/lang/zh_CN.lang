@@ -1,0 +1,12 @@
+item.robot_destroyer.name=方块破坏机器人
+item.gear.name=齿轮
+item.chip.name=芯片
+item.chip_advance.name=高级芯片
+item.robot_terminator.name=方块终结机器人
+item.machine_framework.name=机器框架
+
+
+tile.machine_miner.name=采矿机
+tile.machine_detector.name=探矿机
+
+itemGroup.gold_rush=淘金热

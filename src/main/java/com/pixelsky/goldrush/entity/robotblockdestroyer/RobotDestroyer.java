@@ -42,6 +42,10 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
         setOwnerId(summoner.getUniqueID());
     }
 
+    @Override
+    protected void entityInit() {
+        super.entityInit();
+    }
 
     @Nullable
     @Override
