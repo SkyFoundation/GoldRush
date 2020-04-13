@@ -1,6 +1,8 @@
 package com.pixelsky.goldrush.fluids;
 
 import com.pixelsky.goldrush.Reference;
+import com.pixelsky.goldrush.init.CreativeTabs;
+
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.util.ResourceLocation;
@@ -17,5 +19,8 @@ public class FluidOil extends Fluid {
         setTemperature(120);
         setFillSound(SoundEvents.ITEM_BUCKET_FILL);
         FluidRegistry.addBucketForFluid(this);
+        
+        
+        
     }
 }
