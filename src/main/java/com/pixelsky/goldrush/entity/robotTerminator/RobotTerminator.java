@@ -83,7 +83,7 @@ public class RobotTerminator extends Entity {
                         {
                             EntityItem entityItem = new EntityItem(world, result_x,result_y,result_z,stack);
                             entityItem.setGlowing(true);
-                            entityItem.addVelocity(Math.random()*2,5,Math.random()*2);
+                            entityItem.addVelocity(Math.random(),3,Math.random());
                             entityItem.attackEntityFrom(DamageSource.LAVA, -Integer.MAX_VALUE + 10);
                             world.spawnEntity(entityItem);
                         }

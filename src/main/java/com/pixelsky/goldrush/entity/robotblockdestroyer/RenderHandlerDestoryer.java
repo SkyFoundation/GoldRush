@@ -19,7 +19,7 @@ public class RenderHandlerDestoryer implements IRenderFactory {
     class RenderDestoryer extends RenderLiving<RobotDestroyer> {
 
         //todo 修改模型
-      private final ResourceLocation TEXTURES = new ResourceLocation(Reference.MODID + ":textures/entity/robot_destoryer.png");
+      private final ResourceLocation TEXTURES = new ResourceLocation(Reference.MODID + ":textures/entitys/robot_destoryer.png");
 
         public RenderDestoryer(RenderManager rendermanagerIn, ModelBase modelbaseIn, float shadowsizeIn) {
             super(rendermanagerIn, modelbaseIn, shadowsizeIn);
