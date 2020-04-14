@@ -19,9 +19,6 @@ import net.minecraft.world.World;
 public class MachineDetector extends Block implements IMachine, ITileEntityProvider
 {
     private final String name="machine_detector";
-    private long speed=5;
-    private int range=8;
-    private int fortune=1;
 
     public MachineDetector() {
         super(Material.ROCK);
@@ -32,34 +29,12 @@ public class MachineDetector extends Block implements IMachine, ITileEntityProvi
 
     //getters
 
-    public long getSpeed() {
-        return speed;
-    }
 
-    public void setSpeed(long speed) {
-        this.speed = speed;
-    }
-
-    public int getRange() {
-        return range;
-    }
-
-    public void setRange(int range) {
-        this.range = range;
-    }
-
-    public int getFortune() {
-        return fortune;
-    }
-
-    public void setFortune(int fortune) {
-        this.fortune = fortune;
-    }
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
-            playerIn.openGui(GoldRush.Instance, GuiHandler.MACHINE_DETECTOR, worldIn, pos.getX(), pos.getY(), pos.getZ());
+        //    playerIn.openGui(GoldRush.Instance, GuiHandler.MACHINE_DETECTOR, worldIn, pos.getX(), pos.getY(), pos.getZ());
         }
         return true;
     }
@@ -67,7 +42,7 @@ public class MachineDetector extends Block implements IMachine, ITileEntityProvi
    // @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
 
-        return new Detector(this);
+        return new Detector();
     }
 
     @Override

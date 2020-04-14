@@ -20,7 +20,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Detector extends TileEntity implements ITickable {
-    private final MachineDetector machineDetector;
     public final long defaultRefleshTime=1000;
     public ItemStackHandler handler;
     //储存用于发光的实体
@@ -28,12 +27,37 @@ public class Detector extends TileEntity implements ITickable {
     //前7个槽用于放置升级
     private NonNullList<ItemStack> containerItems = NonNullList.<ItemStack>withSize(27, ItemStack.EMPTY);
     private long timeToReflesh;
-
-    public Detector(MachineDetector machineDetector){
-        this.machineDetector = machineDetector;
-        this.handler=new ItemStackHandler();
-
+    private long speed=6;
+    private int range=8;
+    private int fortune=1;
+    public long getSpeed() {
+        return speed;
     }
+
+    public void setSpeed(long speed) {
+        this.speed = speed;
+    }
+
+    public int getRange() {
+        return range;
+    }
+
+    public void setRange(int range) {
+        this.range = range;
+    }
+
+    public int getFortune() {
+        return fortune;
+    }
+
+    public void setFortune(int fortune) {
+        this.fortune = fortune;
+    }
+    public Detector(){
+
+        this.handler=new ItemStackHandler();
+    }
+
     //todo 后期设置为Container内设置的矿石
     private List<Block> getMineList(){
     return Arrays.asList(Blocks.COAL_ORE,Blocks.CHEST,Blocks.IRON_ORE,Blocks.DIAMOND_ORE,Blocks.GOLD_ORE);
@@ -45,9 +69,9 @@ public class Detector extends TileEntity implements ITickable {
         int center_y = MathHelper.floor(this.pos.getY());
         int center_x = MathHelper.floor(this.pos.getX());
         int center_z = MathHelper.floor(this.pos.getZ());
-        for (int expand_X = -machineDetector.getRange(); expand_X <= +machineDetector.getRange(); ++expand_X) {
-            for (int expand_z = -machineDetector.getRange(); expand_z <= +machineDetector.getRange(); ++expand_z) {
-                for (int expend_y = -machineDetector.getRange(); expend_y <= +machineDetector.getRange(); ++expend_y) {
+        for (int expand_X = - getRange(); expand_X <= +getRange(); ++expand_X) {
+            for (int expand_z = - getRange(); expand_z <= +getRange(); ++expand_z) {
+                for (int expend_y = - getRange(); expend_y <= + getRange(); ++expend_y) {
                     int result_x = center_x + expand_X;
                     int result_y = center_y + expend_y;
                     int result_z = center_z + expand_z;
@@ -122,7 +146,7 @@ public class Detector extends TileEntity implements ITickable {
             clearMarks();
             return true;
         }
-        timeToReflesh=timeToReflesh- machineDetector.getSpeed();
+        timeToReflesh=timeToReflesh-  getSpeed();
         return false;
     }
     private void clearMarks(){

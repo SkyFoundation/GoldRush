@@ -21,20 +21,44 @@ import net.minecraftforge.items.ItemStackHandler;
 import java.util.List;
 
 //todo 修复restore
-public class Miner extends TileEntity implements ITickable {
-    private final MachineMiner machineMiner;
+public class Miner extends TileEntity implements ITickable { 
     public ItemStackHandler handler;
    //前7个槽用于放置升级
     private NonNullList<ItemStack> containerItems = NonNullList.<ItemStack>withSize(27, ItemStack.EMPTY);
     private BlockPos currenMinePos;
     private long destroyProgress =0;
     private int timeToReflesh=10;
-
-    public Miner(MachineMiner machineMiner){
-        this.machineMiner = machineMiner;
-        this.handler=new ItemStackHandler();
+    private long speed=2;
+    private int range=4;
+    private int fortune=1;
+    public long getSpeed() {
+        return speed;
     }
 
+    public void setSpeed(long speed) {
+        this.speed = speed;
+    }
+
+    public int getRange() {
+        return range;
+    }
+
+    public void setRange(int range) {
+        this.range = range;
+    }
+
+    public int getFortune() {
+        return fortune;
+    }
+
+    public void setFortune(int fortune) {
+        this.fortune = fortune;
+    }
+
+    public Miner(){
+
+        this.handler=new ItemStackHandler();
+    } 
     //挖矿代码
     private void getNextBlock(){
 
@@ -42,15 +66,15 @@ public class Miner extends TileEntity implements ITickable {
         int center_x = MathHelper.floor(this.pos.getX());
         int center_z = MathHelper.floor(this.pos.getZ());
         if(currenMinePos==null){
-            currenMinePos=new BlockPos(-machineMiner.getRange()-center_x,center_y-1,-machineMiner.getRange()-center_z);
+            currenMinePos=new BlockPos(this.getRange()+center_x,center_y-1,this.getRange()+center_z);
         }
       //  Debug.info("获取下一个方块中");
       //  Debug.info("当前方块"+ currenMinePos);
         if(!checkNull(currenMinePos))
             return;
-        for (int expand_X = -machineMiner.getRange(); expand_X <= +machineMiner.getRange(); ++expand_X) {
-            for (int expand_z = -machineMiner.getRange(); expand_z <= +machineMiner.getRange(); ++expand_z) {
-                for (int expend_y = -1; expend_y >=-machineMiner.getRange(); --expend_y) {
+        for (int expand_X = -this.getRange(); expand_X <= +this.getRange(); ++expand_X) {
+            for (int expand_z = -this.getRange(); expand_z <= +this.getRange(); ++expand_z) {
+                for (int expend_y = -1; expend_y >=-this.getRange(); --expend_y) {
                     int result_x = center_x + expand_X;
                     int result_y = center_y + expend_y;
                     int result_z = center_z + expand_z;
@@ -75,7 +99,7 @@ public class Miner extends TileEntity implements ITickable {
             world.sendBlockBreakProgress(getCurrentBlock().hashCode(), currenMinePos,-1);
             world.playEvent(2001, currenMinePos, Block.getStateId(getCurrentBlock()));
 
-            List<ItemStack> itemStackList = getCurrentBlock().getBlock().getDrops(world, currenMinePos,getCurrentBlock(), machineMiner.getFortune());
+            List<ItemStack> itemStackList = getCurrentBlock().getBlock().getDrops(world, currenMinePos,getCurrentBlock(), this.getFortune());
             world.setBlockState(currenMinePos, Blocks.AIR.getDefaultState(),3);
             destroyProgress=0;
             for (ItemStack stack : itemStackList)
@@ -87,13 +111,13 @@ public class Miner extends TileEntity implements ITickable {
             }
         }else
         {
-            destroyProgress=destroyProgress+1000000* machineMiner.getSpeed();
+            destroyProgress=destroyProgress+1000000* this.getSpeed();
             //修改方块的裂痕进程 最后一个参数范围0-9
             world.sendBlockBreakProgress(getCurrentBlock().getBlock().hashCode(), currenMinePos,(int)((destroyProgress*9)/getDestroyTime()));
         }
     }
     private void floatItem(){
-        AxisAlignedBB AABB = new AxisAlignedBB(pos.getX()- machineMiner.getRange(),pos.getY()- machineMiner.getRange(),pos.getZ()- machineMiner.getRange(),pos.getX()+ machineMiner.getRange(),pos.getY(),pos.getZ()+ machineMiner.getRange());
+        AxisAlignedBB AABB = new AxisAlignedBB(pos.getX()- this.getRange(),pos.getY()- this.getRange(),pos.getZ()- this.getRange(),pos.getX()+ this.getRange(),pos.getY(),pos.getZ()+ this.getRange());
         for(EntityItem im:world.getEntitiesWithinAABB(EntityItem.class, AABB)){
 
             im.addVelocity(Math.random()*2,Math.random()*3,Math.random()*2);

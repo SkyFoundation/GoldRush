@@ -20,9 +20,7 @@ import javax.annotation.Nullable;
 
 public class MachineMiner extends Block implements IMachine, ITileEntityProvider {
     private final String name="machine_miner";
-    private long speed=2;
-    private int range=4;
-    private int fortune=1;
+
     public MachineMiner() {
         super(Material.ROCK);
         setRegistryName(new ResourceLocation(Reference.MODID,name))
@@ -34,30 +32,6 @@ public class MachineMiner extends Block implements IMachine, ITileEntityProvider
 
     }
     //getters
-
-    public long getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(long speed) {
-        this.speed = speed;
-    }
-
-    public int getRange() {
-        return range;
-    }
-
-    public void setRange(int range) {
-        this.range = range;
-    }
-
-    public int getFortune() {
-        return fortune;
-    }
-
-    public void setFortune(int fortune) {
-        this.fortune = fortune;
-    }
 
 
     @Override
@@ -71,7 +45,7 @@ public class MachineMiner extends Block implements IMachine, ITileEntityProvider
     @Nullable
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new Miner(this);
+        return new Miner();
     }
 
 
