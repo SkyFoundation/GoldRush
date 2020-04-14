@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 
 public class MachineMiner extends Block implements IMachine, ITileEntityProvider {
     private final String name="machine_miner";
-    private long speed=1;
+    private long speed=2;
     private int range=4;
     private int fortune=1;
     public MachineMiner() {

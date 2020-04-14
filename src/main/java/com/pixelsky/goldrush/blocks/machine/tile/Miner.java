@@ -42,7 +42,7 @@ public class Miner extends TileEntity implements ITickable {
         int center_x = MathHelper.floor(this.pos.getX());
         int center_z = MathHelper.floor(this.pos.getZ());
         if(currenMinePos==null){
-            currenMinePos=new BlockPos(-machineMiner.getRange()+center_x,center_y-1,-machineMiner.getRange()+center_z);
+            currenMinePos=new BlockPos(-machineMiner.getRange()-center_x,center_y-1,-machineMiner.getRange()-center_z);
         }
       //  Debug.info("获取下一个方块中");
       //  Debug.info("当前方块"+ currenMinePos);
