@@ -96,10 +96,10 @@ public class Detector extends TileEntity implements ITickable {
     {
         //检测是否是工作模式
         if (!check())return;
-        Debug.info("工作模式");
+      ///  Debug.info("工作模式");
         if (!reflesh())return;
 
-        Debug.info("刷新与添加标记");
+       // Debug.info("刷新与添加标记");
 
         for(BlockPos pos:getMineBlocks()){
 
@@ -110,7 +110,7 @@ public class Detector extends TileEntity implements ITickable {
         EntityBlockMarker mark=new EntityBlockMarker(world,pos);
         this.blockMarkers.add(mark);
 
-        Debug.info("添加标记于"+mark.getPosition()+"地址"+pos);
+      //  Debug.info("添加标记于"+mark.getPosition()+"地址"+pos);
         world.spawnEntity(mark);
     }
     private boolean check(){

@@ -44,8 +44,8 @@ public class Miner extends TileEntity implements ITickable {
         if(currenMinePos==null){
             currenMinePos=new BlockPos(-machineMiner.getRange()+center_x,center_y-1,-machineMiner.getRange()+center_z);
         }
-        Debug.info("获取下一个方块中");
-        Debug.info("当前方块"+ currenMinePos);
+      //  Debug.info("获取下一个方块中");
+      //  Debug.info("当前方块"+ currenMinePos);
         if(!checkNull(currenMinePos))
             return;
         for (int expand_X = -machineMiner.getRange(); expand_X <= +machineMiner.getRange(); ++expand_X) {
@@ -55,10 +55,10 @@ public class Miner extends TileEntity implements ITickable {
                     int result_y = center_y + expend_y;
                     int result_z = center_z + expand_z;
                     BlockPos blockpos = new BlockPos(result_x, result_y, result_z);
-                    Debug.info("Current pos" +result_x+"|"+result_y+"|"+result_z);
+               //     Debug.info("Current pos" +result_x+"|"+result_y+"|"+result_z);
                     if (!checkNull(new BlockPos(result_x,result_y,result_z)) ){
                         currenMinePos = new BlockPos(result_x,result_y,result_z);
-                        Debug.info("Current Breaking"+ currenMinePos);
+                 //       Debug.info("Current Breaking"+ currenMinePos);
                         break;
                     }
                 }
@@ -77,7 +77,7 @@ public class Miner extends TileEntity implements ITickable {
 
             List<ItemStack> itemStackList = getCurrentBlock().getBlock().getDrops(world, currenMinePos,getCurrentBlock(), machineMiner.getFortune());
             world.setBlockState(currenMinePos, Blocks.AIR.getDefaultState(),3);
-
+            destroyProgress=0;
             for (ItemStack stack : itemStackList)
             {
                     EntityItem entityItem = new EntityItem(world, currenMinePos.getX(), currenMinePos.getY(), currenMinePos.getZ(),stack);
@@ -117,7 +117,7 @@ public class Miner extends TileEntity implements ITickable {
 
         //检测是否是工作模式
     if (!check())return;
-        Debug.info("工作");
+     //   Debug.info("工作");
     //获取下一个破坏的方块
         getNextBlock();
     //破坏方块
