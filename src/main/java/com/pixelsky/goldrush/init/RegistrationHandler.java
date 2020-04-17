@@ -18,7 +18,7 @@ import java.util.List;
 
 public class RegistrationHandler
 {
-    @Mod.EventBusSubscriber(modid = Reference.MODID)
+	@Mod.EventBusSubscriber(modid = Reference.MODID)
     public static class Blocks
     {
         private static final List<Block> BLOCKS = new LinkedList<>();
@@ -117,9 +117,9 @@ public class RegistrationHandler
 
     public static void init()
     {
+    	new ModBlocks();
         new ModItems();
-        new ModBlocks();
-     //   new CheeseBiomes();
+        //new CheeseBiomes();
         new ModEntities();
         new ModCapabilitys();
     }

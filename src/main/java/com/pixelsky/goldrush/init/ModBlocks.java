@@ -2,18 +2,31 @@ package com.pixelsky.goldrush.init;
 
 import com.pixelsky.goldrush.blocks.FluidOilBlock;
 import com.pixelsky.goldrush.blocks.machine.*;
+import com.pixelsky.goldrush.blocks.ore.dirtore.*;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 
 public class ModBlocks implements IRegistery
 {
+	/*--------------------------------------------------------------------------------------------*/
+	
+	public static final Block DIRT_COAL_ORE = new DirtCoalOre();
+	public static final Block DIRT_DIAMOND_ORE = new DirtDiamondOre();
+	public static final Block DIRT_EMERALD_ORE = new DirtEmeraldOre();
+	public static final Block DIRT_GOLD_ORE = new DirtGoldOre();
+	public static final Block DIRT_IRON_ORE = new DirtIronOre();
+	public static final Block DIRT_LAPIS_ORE = new DirtLapisOre();
+	public static final Block DIRT_REDSTONE_ORE = new DirtRedstoneOre();
+	
+	/*--------------------------------------------------------------------------------------------*/
+	
+	
+	
+	
 	public static final MachineMiner MACHINE_MINER = new MachineMiner();
 	public static final MachineDetector MACHINE_BLOCK_DETECTOR = new MachineDetector();
 	public static final FluidOilBlock FLUID_OIL_BLOCK = new FluidOilBlock();
-	
-	
-	
-	
 	public static final Block MACHINERY_CASING = new MachineryCasing();
 	
 	public ModBlocks()
@@ -30,13 +43,25 @@ public class ModBlocks implements IRegistery
 
 	public  void register()
 	{
-		regib(MACHINE_BLOCK_DETECTOR);
-		regib(MACHINE_MINER);
 		
 		
-		regib(MACHINERY_CASING);
+		/*------------------------*/
+		
+		regib(DIRT_COAL_ORE);
+		regib(DIRT_DIAMOND_ORE);
+		regib(DIRT_EMERALD_ORE);
+		regib(DIRT_GOLD_ORE);
+		regib(DIRT_IRON_ORE);
+		regib(DIRT_LAPIS_ORE);
+		regib(DIRT_REDSTONE_ORE);
+		
+		/*------------------------*/
+		
 		
 		RegistrationHandler.Blocks.add(FLUID_OIL_BLOCK);
+		regib(MACHINE_BLOCK_DETECTOR);
+		regib(MACHINE_MINER);
+		regib(MACHINERY_CASING);
 	}
 
 }
