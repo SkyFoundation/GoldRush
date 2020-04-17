@@ -17,7 +17,7 @@ public class FluidOil extends Fluid {
         setDensity(2000);
         setViscosity(1000);
         setTemperature(120);
-        setFillSound(SoundEvents.ITEM_BUCKET_FILL);
+      //  setFillSound(SoundEvents.ITEM_BUCKET_FILL);
         FluidRegistry.addBucketForFluid(this);
         
         
