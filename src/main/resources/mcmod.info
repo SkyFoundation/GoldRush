@@ -1,13 +1,13 @@
 [
 {
-  "modid": "dgm",
-  "name": "cheesemod",
-  "description": "Cheezy Mod",
+  "modid": "goldrush",
+  "name": "淘金热",
+  "description": "挖矿工艺",
   "version": "1.11.2.0",
   "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Egietje","Mr_zhao"],
+  "authorList": ["DouYan","Mr_zhao"],
   "credits": "DeGeweldigeKaas and Ubsje",
   "logoFile": "assets/dgm/textures/logo.png",
   "screenshots": [],
