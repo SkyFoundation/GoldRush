@@ -2,14 +2,14 @@
 {
   "modid": "goldrush",
   "name": "淘金热",
-  "description": "挖矿工艺",
-  "version": "1.11.2.0",
+  "description": "Goldrush Mod",
+  "version": "1.2.0",
   "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",
-  "authorList": ["DouYan","Mr_zhao"],
+  "authorList": ["Egietje","Mr_zhao","DouYan"],
   "credits": "DeGeweldigeKaas and Ubsje",
-  "logoFile": "assets/dgm/textures/logo.png",
+  "logoFile": "assets/goldrush/textures/logo.png",
   "screenshots": [],
   "dependencies": []
 }
