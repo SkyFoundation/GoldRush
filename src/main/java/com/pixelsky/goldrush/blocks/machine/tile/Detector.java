@@ -3,6 +3,7 @@ package com.pixelsky.goldrush.blocks.machine.tile;
 import com.pixelsky.goldrush.Debug;
 import com.pixelsky.goldrush.blocks.machine.MachineDetector;
 import com.pixelsky.goldrush.entity.entityblockmarker.EntityBlockMarker;
+import com.pixelsky.goldrush.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -58,10 +59,7 @@ public class Detector extends TileEntity implements ITickable {
         this.handler=new ItemStackHandler();
     }
 
-    //todo 后期设置为Container内设置的矿石
-    private List<Block> getMineList(){
-    return Arrays.asList(Blocks.COAL_ORE,Blocks.CHEST,Blocks.IRON_ORE,Blocks.DIAMOND_ORE,Blocks.GOLD_ORE);
-    }
+
     //todo 这个会卡服的
     private ArrayList<BlockPos> getMineBlocks(){
 
@@ -160,7 +158,7 @@ public class Detector extends TileEntity implements ITickable {
         this.blockMarkers.clear();
     }
     private boolean shouldMine(Block block){
-        return getMineList().contains(block);
+        return block.getRegistryName().toString().contains("ore");
     }
     private boolean isRunning() {
         return world.isBlockPowered(getPos());
