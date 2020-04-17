@@ -3,6 +3,7 @@ package com.pixelsky.goldrush.init;
 import com.pixelsky.goldrush.blocks.FluidOilBlock;
 import com.pixelsky.goldrush.blocks.machine.*;
 import com.pixelsky.goldrush.blocks.ore.dirtore.*;
+import com.pixelsky.goldrush.blocks.ore.sandore.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -22,6 +23,17 @@ public class ModBlocks implements IRegistery
 	/*--------------------------------------------------------------------------------------------*/
 	
 	
+	/*--------------------------------------------------------------------------------------------*/
+	
+	public static final Block SAND_COAL_ORE = new SandCoalOre();
+	public static final Block SAND_DIAMOND_ORE = new SandDiamondOre();
+	public static final Block SAND_EMERALD_ORE = new SandEmeraldOre();
+	public static final Block SAND_GOLD_ORE = new SandGoldOre();
+	public static final Block SAND_IRON_ORE = new SandIronOre();
+	public static final Block SAND_LAPIS_ORE = new SandLapisOre();
+	public static final Block SAND_REDSTONE_ORE = new SandRedstoneOre();
+	
+	/*--------------------------------------------------------------------------------------------*/
 	
 	
 	public static final MachineMiner MACHINE_MINER = new MachineMiner();
@@ -56,6 +68,28 @@ public class ModBlocks implements IRegistery
 		regib(DIRT_REDSTONE_ORE);
 		
 		/*------------------------*/
+		
+		/*------------------------*/
+		
+		regib(SAND_COAL_ORE);
+		regib(SAND_DIAMOND_ORE);
+		regib(SAND_EMERALD_ORE);
+		regib(SAND_GOLD_ORE);
+		regib(SAND_IRON_ORE);
+		regib(SAND_LAPIS_ORE);
+		regib(SAND_REDSTONE_ORE);
+		
+		/*------------------------*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		RegistrationHandler.Blocks.add(FLUID_OIL_BLOCK);
