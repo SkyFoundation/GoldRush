@@ -1,5 +1,6 @@
 package com.pixelsky.goldrush.items.tools;
 
+import com.pixelsky.goldrush.Debug;
 import com.pixelsky.goldrush.Reference;
 import com.pixelsky.goldrush.entity.robotTerminator.RobotTerminator;
 import com.pixelsky.goldrush.init.CreativeTabs;
@@ -27,21 +28,31 @@ public class ItemGoldBowl extends Item
 		super();
 		setRegistryName(new ResourceLocation(Reference.MODID, name))
 		.setTranslationKey(name)
-		.setCreativeTab(CreativeTabs.GOLD_RUSH);
+		.setCreativeTab(CreativeTabs.GOLD_RUSH)
+				.setMaxDamage(18)
+				.setMaxStackSize(1);
     }
 
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
 	{
+		if(hand!=EnumHand.MAIN_HAND)
+			return EnumActionResult.PASS;
+
+		if(worldIn.isRemote)
+			return EnumActionResult.PASS;
+
 		Block block=worldIn.getBlockState(pos).getBlock();
 		if(!canUse(block))
 		return EnumActionResult.PASS;
-		player.getHeldItem(hand).shrink(1);
+		player.getHeldItem(hand).damageItem(1,player);
 		worldIn.setBlockToAir(pos);
 		//player.playSound();
 		ItemStack im=drop();
 		if (im!=null) {
+			Debug.info(im.getDisplayName());
 			EntityItem item = new EntityItem(worldIn);
 			item.setItem(im);
+			item.setPosition(pos.getX(),pos.getY(),pos.getZ());
 			worldIn.spawnEntity(item);
 		}
 		return EnumActionResult.SUCCESS;
@@ -52,19 +63,21 @@ public class ItemGoldBowl extends Item
 	private ItemStack drop(){
 	double random=Math.random();
 	int ammount = (int) (random+Math.random()*2);
-	if(random>0.5)
+	if(random<0.4)
 		return null;
-	else if (random>0.6)
+	else if(random >0.4&&random<0.8)
+		return new ItemStack(Items.FLINT,ammount);
+	else if (random>0.8&&random<0.9)
 		return new ItemStack(Items.GOLD_NUGGET,ammount);
-	else if(random>0.7)
+	else if(random>0.9&&random<0.93)
 		return new ItemStack(Items.IRON_NUGGET,ammount);
-	else if (random>0.8)
+	else if (random>0.93&&random<0.97)
 		return new ItemStack(Items.GOLD_INGOT,ammount);
-	else if(random>0.9)
+	else if(random>0.97&&random<0.99)
 		return new ItemStack(Items.EMERALD,ammount);
-	else if (random>0.95)
+	else if (random>0.99&&random<0.999)
 		return new ItemStack(Items.DIAMOND,ammount);
-	else if (random>0.99)
+	else if (random>0.999&&random<1)
 		return new ItemStack(Items.NETHER_STAR,ammount);
 	return new ItemStack(Items.DRAGON_BREATH,ammount);
 	}

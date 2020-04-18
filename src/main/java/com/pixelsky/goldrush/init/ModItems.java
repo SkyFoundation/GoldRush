@@ -20,8 +20,15 @@ public class ModItems implements IRegistery
 	public static final Item IRON_BAR = new ItemIronBar();
 	public static final Item UNIAXIAL_TWO_WHEEL = new ItemUniaxialTwoWheel();
 	public static final Item GOLD_BOWL = new ItemGoldBowl();
-	public static final Item MULTIFUNCTIONAL_TOOLS = new ItemMultifunctionalTools();
+	public static final Item MULTIFUNCTIONAL_TOOLS_WOOD = new ItemMultifunctionalTools(Item.ToolMaterial.WOOD,256);
 
+	public static final Item MULTIFUNCTIONAL_TOOLS_STONE = new ItemMultifunctionalTools(Item.ToolMaterial.STONE,512);
+
+	public static final Item MULTIFUNCTIONAL_TOOLS_GOLD = new ItemMultifunctionalTools(Item.ToolMaterial.GOLD,128);
+
+	public static final Item MULTIFUNCTIONAL_TOOLS_IRON = new ItemMultifunctionalTools(Item.ToolMaterial.IRON,1024);
+
+	public static final Item MULTIFUNCTIONAL_TOOLS_DIAMOND = new ItemMultifunctionalTools(Item.ToolMaterial.DIAMOND,2048);
 	
 	public ModItems()
 	{
@@ -40,7 +47,15 @@ public class ModItems implements IRegistery
 		regIm(IRON_BAR);
 		regIm(UNIAXIAL_TWO_WHEEL);
 		regIm(GOLD_BOWL);
-		regIm(MULTIFUNCTIONAL_TOOLS);
+		regIm(MULTIFUNCTIONAL_TOOLS_WOOD);
+
+		regIm(MULTIFUNCTIONAL_TOOLS_IRON);
+
+		regIm(MULTIFUNCTIONAL_TOOLS_GOLD);
+
+		regIm(MULTIFUNCTIONAL_TOOLS_DIAMOND);
+
+		regIm(MULTIFUNCTIONAL_TOOLS_STONE);
 	}
 	
 	
