@@ -1,12 +1,8 @@
 package com.pixelsky.goldrush.blocks.machine.tile;
 
-import com.pixelsky.goldrush.Debug;
-import com.pixelsky.goldrush.blocks.machine.MachineDetector;
 import com.pixelsky.goldrush.entity.entityblockmarker.EntityBlockMarker;
-import com.pixelsky.goldrush.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
@@ -16,9 +12,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
 
 public class Detector extends TileEntity implements ITickable {
     public final long defaultRefleshTime=1000;

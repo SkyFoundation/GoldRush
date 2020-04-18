@@ -1,10 +1,11 @@
 package com.pixelsky.goldrush.init;
 
 import com.pixelsky.goldrush.blocks.FluidOilBlock;
-import com.pixelsky.goldrush.blocks.machine.*;
+import com.pixelsky.goldrush.blocks.machine.MachineDetector;
+import com.pixelsky.goldrush.blocks.machine.MachineMiner;
+import com.pixelsky.goldrush.blocks.machine.MachineryCasing;
 import com.pixelsky.goldrush.blocks.ore.dirtore.*;
 import com.pixelsky.goldrush.blocks.ore.sandore.*;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 

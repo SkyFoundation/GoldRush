@@ -2,18 +2,18 @@ package com.pixelsky.goldrush.items.tools;
 
 import com.pixelsky.goldrush.Debug;
 import com.pixelsky.goldrush.Reference;
-import com.pixelsky.goldrush.entity.robotTerminator.RobotTerminator;
 import com.pixelsky.goldrush.init.CreativeTabs;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 

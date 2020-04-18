@@ -2,7 +2,6 @@ package com.pixelsky.goldrush.blocks.machine;
 
 import com.pixelsky.goldrush.Reference;
 import com.pixelsky.goldrush.init.CreativeTabs;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.ResourceLocation;

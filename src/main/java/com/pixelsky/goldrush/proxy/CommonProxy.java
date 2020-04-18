@@ -2,7 +2,9 @@ package com.pixelsky.goldrush.proxy;
 
 import com.pixelsky.goldrush.GoldRush;
 import com.pixelsky.goldrush.handler.GuiHandler;
-import com.pixelsky.goldrush.init.*;
+import com.pixelsky.goldrush.init.CreativeTabs;
+import com.pixelsky.goldrush.init.ModFluid;
+import com.pixelsky.goldrush.init.RegistrationHandler;
 import com.pixelsky.goldrush.world.WorldGenOres;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

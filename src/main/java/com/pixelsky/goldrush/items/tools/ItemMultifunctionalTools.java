@@ -3,8 +3,6 @@ package com.pixelsky.goldrush.items.tools;
 import com.google.common.collect.Sets;
 import com.pixelsky.goldrush.Reference;
 import com.pixelsky.goldrush.init.CreativeTabs;
-
-import com.pixelsky.goldrush.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

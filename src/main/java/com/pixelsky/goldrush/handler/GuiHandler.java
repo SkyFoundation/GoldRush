@@ -1,7 +1,6 @@
 package com.pixelsky.goldrush.handler;
 
 import com.pixelsky.goldrush.Debug;
-import com.pixelsky.goldrush.blocks.machine.MachineMiner;
 import com.pixelsky.goldrush.blocks.machine.tile.Miner;
 import com.pixelsky.goldrush.containers.ContainerMiner;
 import com.pixelsky.goldrush.gui.GuiMachineMiner;

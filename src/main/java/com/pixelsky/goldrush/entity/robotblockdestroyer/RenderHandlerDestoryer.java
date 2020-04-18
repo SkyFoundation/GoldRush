@@ -2,7 +2,6 @@ package com.pixelsky.goldrush.entity.robotblockdestroyer;
 
 import com.pixelsky.goldrush.Reference;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelBat;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;

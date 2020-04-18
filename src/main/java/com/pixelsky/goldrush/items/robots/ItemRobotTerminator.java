@@ -2,7 +2,6 @@ package com.pixelsky.goldrush.items.robots;
 
 import com.pixelsky.goldrush.Reference;
 import com.pixelsky.goldrush.entity.robotTerminator.RobotTerminator;
-import com.pixelsky.goldrush.entity.robotblockdestroyer.RobotDestroyer;
 import com.pixelsky.goldrush.init.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
