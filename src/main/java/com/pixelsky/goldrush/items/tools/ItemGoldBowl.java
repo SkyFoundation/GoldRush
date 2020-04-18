@@ -49,7 +49,7 @@ public class ItemGoldBowl extends Item
 		//player.playSound();
 		ItemStack im=drop();
 		if (im!=null) {
-			Debug.info(im.getDisplayName());
+		//	Debug.info(im.getDisplayName());
 			EntityItem item = new EntityItem(worldIn);
 			item.setItem(im);
 			item.setPosition(pos.getX(),pos.getY(),pos.getZ());

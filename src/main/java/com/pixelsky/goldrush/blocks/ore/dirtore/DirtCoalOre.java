@@ -12,9 +12,8 @@ public class DirtCoalOre extends Block
 	private final String name="dirt_coal_ore";
 	public DirtCoalOre()
 	{
-		super(Material.ROCK);
-		//super(Material.GLASS);
-		//this.setHardness(blockHardness+1);
+		super(Material.GROUND);
+		this.setHardness(blockHardness+1);
 		setRegistryName(new ResourceLocation(Reference.MODID,name))
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH);
