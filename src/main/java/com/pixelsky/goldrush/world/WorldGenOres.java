@@ -37,7 +37,7 @@ public class WorldGenOres implements IWorldGenerator {
     	generateOre(ModBlocks.SAND_GOLD_ORE, world, rand, x, z, 4, 8, 10, 50, 80, Blocks.SAND);		//ok
     	generateOre(ModBlocks.SAND_DIAMOND_ORE, world, rand, x, z, 2, 6, 6, 50, 80, Blocks.SAND);	//ok
     	generateOre(ModBlocks.SAND_COAL_ORE, world, rand, x, z, 3, 5, 8, 50, 80, Blocks.SAND);	//ok
-    	generateOre(ModBlocks.SAND_EMERALD_ORE, world, rand, x, z, 1, 2, 5, 50, 80, Blocks.SAND);	//ok?
+    	generateOre(ModBlocks.SAND_EMERALD_ORE, world, rand, x, z, 1, 3, 5, 50, 80, Blocks.SAND);	//ok?
         generateOre(ModBlocks.SAND_LAPIS_ORE, world, rand, x, z, 4, 6, 6, 50, 80, Blocks.SAND);	//大海低下 ok？
         generateOre(ModBlocks.SAND_REDSTONE_ORE, world, rand, x, z, 3, 10, 6, 50, 80, Blocks.SAND);
         //dirts

@@ -13,7 +13,7 @@ public class SandCoalOre  extends BlockFalling
 	public SandCoalOre()
 	{
 		super(Material.SAND);
-		this.setHardness(blockHardness+1);
+		this.setHardness(blockHardness+0.5f);
 		setRegistryName(new ResourceLocation(Reference.MODID,name))
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH);
