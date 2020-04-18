@@ -11,8 +11,8 @@ item.wheel.name=轮胎
 item.uniaxial_two_wheel.name=单轴双轮
 item.iron_bar.name=铁杆
 item.machine_framework.name=机器框架
-
 item.gold_bowl.name=淘金碗
+item.tools_core.name=工具核心
 
 item.wood_multifunctional_tools.name=木多功能工具
 item.stone_multifunctional_tools.name=石多功能工具
