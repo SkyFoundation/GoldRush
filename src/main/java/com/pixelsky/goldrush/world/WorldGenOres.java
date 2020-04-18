@@ -32,115 +32,31 @@ public class WorldGenOres implements IWorldGenerator {
     }
     public void generateOverworld(World world, Random rand, int x, int z)
     {
-        //dirt ores
-    	
-        //generateOre(ModBlocks.DIRT_COAL_ORE, world, rand, x, z, 3, 10, 47, 0, 128, Blocks.DIRT);
-
-        //sand ores
-    	
-    	//      										  				                    最低  最高
-    	//													        最少 最多 生成数量
-    	
-    	
-    	//最24嗯
-    	
-    	//最8嗯
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	//generateOre(ModBlocks.SAND_IRON_ORE, world, rand, x, z, 2, 10, 8, 50, 80, Blocks.SAND);		//ok
-    	
-    	//generateOre(ModBlocks.SAND_GOLD_ORE, world, rand, x, z, 4, 8, 10, 50, 80, Blocks.SAND);		//ok
-    	
-    	//generateOre(ModBlocks.SAND_DIAMOND_ORE, world, rand, x, z, 2, 6, 6, 50, 80, Blocks.SAND);	//ok
-    	
-    	//generateOre(ModBlocks.SAND_COAL_ORE, world, rand, x, z, 3, 5, 8, 50, 80, Blocks.SAND);	//ok
-    	
-    	
-    	
+        //sands
+      	generateOre(ModBlocks.SAND_IRON_ORE, world, rand, x, z, 2, 10, 8, 50, 80, Blocks.SAND);		//ok
+    	generateOre(ModBlocks.SAND_GOLD_ORE, world, rand, x, z, 4, 8, 10, 50, 80, Blocks.SAND);		//ok
+    	generateOre(ModBlocks.SAND_DIAMOND_ORE, world, rand, x, z, 2, 6, 6, 50, 80, Blocks.SAND);	//ok
+    	generateOre(ModBlocks.SAND_COAL_ORE, world, rand, x, z, 3, 5, 8, 50, 80, Blocks.SAND);	//ok
     	generateOre(ModBlocks.SAND_EMERALD_ORE, world, rand, x, z, 1, 1, 5, 50, 80, Blocks.SAND);	//ok?
-    	//求要矿物的大小是1
-    	//你修吧
-    	
-    	
-    	//generateOre(ModBlocks.SAND_LAPIS_ORE, world, rand, x, z, 4, 6, 6, 50, 80, Blocks.SAND);	//大海低下 ok？
-    	
-    	//generateOre(ModBlocks.SAND_REDSTONE_ORE, world, rand, x, z, 3, 10, 6, 50, 80, Blocks.SAND);
-       
-        
-        
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-        
-     
-        
-        
-        /*--------------------------------------------------------------------------------------------*/
-        
-        
-        
-        
-        
-        
-        /*--------------------------------------------------------------------------------------------*/
-        /*
+        generateOre(ModBlocks.SAND_LAPIS_ORE, world, rand, x, z, 4, 6, 6, 50, 80, Blocks.SAND);	//大海低下 ok？
+        generateOre(ModBlocks.SAND_REDSTONE_ORE, world, rand, x, z, 3, 10, 6, 50, 80, Blocks.SAND);
+        //dirts
         generateOre(ModBlocks.DIRT_COAL_ORE, world, rand, x, z, 4, 6, 8, 40, 100, Blocks.DIRT);
-        
         generateOre(ModBlocks.DIRT_DIAMOND_ORE, world, rand, x, z, 3, 5, 6, 40, 100, Blocks.DIRT);
-        
         generateOre(ModBlocks.DIRT_EMERALD_ORE, world, rand, x, z, 1, 3, 4, 40, 100, Blocks.DIRT);
-        
         generateOre(ModBlocks.DIRT_GOLD_ORE, world, rand, x, z, 2, 5, 10, 40, 100, Blocks.DIRT);
-        
         generateOre(ModBlocks.DIRT_IRON_ORE, world, rand, x, z, 2, 6, 8, 40, 100, Blocks.DIRT);
-        
         generateOre(ModBlocks.DIRT_LAPIS_ORE, world, rand, x, z, 4, 8, 8, 40, 100, Blocks.DIRT);
-        
         generateOre(ModBlocks.DIRT_REDSTONE_ORE, world, rand, x, z, 4, 6, 8, 40, 100, Blocks.DIRT);
-        */
-        /*--------------------------------------------------------------------------------------------*/
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        //3;minecraft:bedrock,90*minecraft:sand;2;village,biome_1,decoration,stronghold,mineshaft,dungeon
-        
-       //generateOre(ModBlocks.SAND_COAL_ORE, world, rand, x, z, 3, 10, 47, 0, 128, Blocks.SAND);
-        
-        //80/40
-        
-        
-        
-        
-        
-        
-        
-        
+        //fuels
+        generateOre(ModBlocks.FLUID_OIL_BLOCK, world, rand, x, z, 8, 12, 2, 0, 50, Blocks.LAVA);
     }
     public void generateOre(Block block, World world, Random random, int chunkX, int chunkZ, int minVienSize, int maxVienSize, int chance, int minY, int maxY, Block generateIn) {
-        int vienSize = minVienSize + random.nextInt(maxVienSize - minVienSize);
+
+        int vienSize = minVienSize;
+        if(maxVienSize>minVienSize){
+           vienSize=vienSize+ random.nextInt(maxVienSize - minVienSize);
+        }
         int heightRange = maxY - minY;
         WorldGenMinable gen = new WorldGenMinable(block.getDefaultState(), vienSize, BlockMatcher.forBlock(generateIn));
         for(int i = 0; i < chance; i++) {

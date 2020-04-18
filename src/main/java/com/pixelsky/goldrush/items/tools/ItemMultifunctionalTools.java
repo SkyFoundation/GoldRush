@@ -1,4 +1,4 @@
-package com.pixelsky.goldrush.items.materials;
+package com.pixelsky.goldrush.items.tools;
 
 import com.pixelsky.goldrush.Reference;
 import com.pixelsky.goldrush.init.CreativeTabs;
@@ -7,12 +7,12 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 
-//淘金碗
-public class ItemGoldBowl extends Item
+//多功能工具
+public class ItemMultifunctionalTools extends Item
 {
-	private final String name="gold_bowl";
+	private final String name="multifunctional_tools";
 	
-	public ItemGoldBowl()
+	public ItemMultifunctionalTools()
 	{
 		super();
 		setRegistryName(new ResourceLocation(Reference.MODID, name))

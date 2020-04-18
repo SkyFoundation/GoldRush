@@ -3,6 +3,8 @@ package com.pixelsky.goldrush.init;
 import com.pixelsky.goldrush.items.materials.*;
 import com.pixelsky.goldrush.items.robots.ItemRobotDestroyer;
 import com.pixelsky.goldrush.items.robots.ItemRobotTerminator;
+import com.pixelsky.goldrush.items.tools.ItemGoldBowl;
+import com.pixelsky.goldrush.items.tools.ItemMultifunctionalTools;
 import net.minecraft.item.Item;
 
 public class ModItems implements IRegistery
