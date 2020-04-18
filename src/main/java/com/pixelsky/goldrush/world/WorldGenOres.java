@@ -30,12 +30,114 @@ public class WorldGenOres implements IWorldGenerator {
 
         }
     }
-    public void generateOverworld(World world, Random rand, int x, int z) {
+    public void generateOverworld(World world, Random rand, int x, int z)
+    {
         //dirt ores
-        generateOre(ModBlocks.DIRT_COAL_ORE, world, rand, x, z, 3, 10, 47, 0, 128, Blocks.DIRT);
+    	
+        //generateOre(ModBlocks.DIRT_COAL_ORE, world, rand, x, z, 3, 10, 47, 0, 128, Blocks.DIRT);
 
         //sand ores
-        generateOre(ModBlocks.DIRT_COAL_ORE, world, rand, x, z, 3, 10, 47, 0, 128, Blocks.DIRT);
+    	
+    	//      										  				                    最低  最高
+    	//													        最少 最多 生成数量
+    	
+    	
+    	//最24嗯
+    	
+    	//最8嗯
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	//generateOre(ModBlocks.SAND_IRON_ORE, world, rand, x, z, 2, 10, 8, 50, 80, Blocks.SAND);		//ok
+    	
+    	//generateOre(ModBlocks.SAND_GOLD_ORE, world, rand, x, z, 4, 8, 10, 50, 80, Blocks.SAND);		//ok
+    	
+    	//generateOre(ModBlocks.SAND_DIAMOND_ORE, world, rand, x, z, 2, 6, 6, 50, 80, Blocks.SAND);	//ok
+    	
+    	//generateOre(ModBlocks.SAND_COAL_ORE, world, rand, x, z, 3, 5, 8, 50, 80, Blocks.SAND);	//ok
+    	
+    	
+    	
+    	generateOre(ModBlocks.SAND_EMERALD_ORE, world, rand, x, z, 1, 1, 5, 50, 80, Blocks.SAND);	//ok?
+    	//求要矿物的大小是1
+    	//你修吧
+    	
+    	
+    	//generateOre(ModBlocks.SAND_LAPIS_ORE, world, rand, x, z, 4, 6, 6, 50, 80, Blocks.SAND);	//大海低下 ok？
+    	
+    	//generateOre(ModBlocks.SAND_REDSTONE_ORE, world, rand, x, z, 3, 10, 6, 50, 80, Blocks.SAND);
+       
+        
+        
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+        
+     
+        
+        
+        /*--------------------------------------------------------------------------------------------*/
+        
+        
+        
+        
+        
+        
+        /*--------------------------------------------------------------------------------------------*/
+        /*
+        generateOre(ModBlocks.DIRT_COAL_ORE, world, rand, x, z, 4, 6, 8, 40, 100, Blocks.DIRT);
+        
+        generateOre(ModBlocks.DIRT_DIAMOND_ORE, world, rand, x, z, 3, 5, 6, 40, 100, Blocks.DIRT);
+        
+        generateOre(ModBlocks.DIRT_EMERALD_ORE, world, rand, x, z, 1, 3, 4, 40, 100, Blocks.DIRT);
+        
+        generateOre(ModBlocks.DIRT_GOLD_ORE, world, rand, x, z, 2, 5, 10, 40, 100, Blocks.DIRT);
+        
+        generateOre(ModBlocks.DIRT_IRON_ORE, world, rand, x, z, 2, 6, 8, 40, 100, Blocks.DIRT);
+        
+        generateOre(ModBlocks.DIRT_LAPIS_ORE, world, rand, x, z, 4, 8, 8, 40, 100, Blocks.DIRT);
+        
+        generateOre(ModBlocks.DIRT_REDSTONE_ORE, world, rand, x, z, 4, 6, 8, 40, 100, Blocks.DIRT);
+        */
+        /*--------------------------------------------------------------------------------------------*/
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //3;minecraft:bedrock,90*minecraft:sand;2;village,biome_1,decoration,stronghold,mineshaft,dungeon
+        
+       //generateOre(ModBlocks.SAND_COAL_ORE, world, rand, x, z, 3, 10, 47, 0, 128, Blocks.SAND);
+        
+        //80/40
+        
+        
+        
+        
+        
+        
+        
+        
     }
     public void generateOre(Block block, World world, Random random, int chunkX, int chunkZ, int minVienSize, int maxVienSize, int chance, int minY, int maxY, Block generateIn) {
         int vienSize = minVienSize + random.nextInt(maxVienSize - minVienSize);
@@ -49,4 +151,7 @@ public class WorldGenOres implements IWorldGenerator {
             gen.generate(world, random, orePos);
         }
     }
+    
+    
+  
 }
