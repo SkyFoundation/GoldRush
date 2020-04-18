@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "goldrush:items/gold_multifunctional_tools"
+    }
+}

@@ -22,13 +22,7 @@ import java.util.Set;
 //多功能工具
 public class ItemMultifunctionalTools extends ItemTool
 {
-
-
-
-	private final String name="multifunctional_tools";
 	
-
-
 	private static Set<Block> effectiveBlocks = Sets.newHashSet(new Block[] { Blocks.PLANKS, Blocks.BOOKSHELF,
 			Blocks.LOG, Blocks.LOG2, Blocks.CHEST, Blocks.PUMPKIN, Blocks.LIT_PUMPKIN, Blocks.MELON_BLOCK,
 			Blocks.LADDER, Blocks.WOODEN_BUTTON, Blocks.WOODEN_PRESSURE_PLATE, Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE,
@@ -41,15 +35,12 @@ public class ItemMultifunctionalTools extends ItemTool
 			Blocks.GRAVEL, Blocks.MYCELIUM, Blocks.SAND, Blocks.SNOW, Blocks.SNOW_LAYER, Blocks.SOUL_SAND,
 			Blocks.GRASS_PATH });
 
-	public ItemMultifunctionalTools(Item.ToolMaterial materialIn, int maxUses) {
+	public ItemMultifunctionalTools(Item.ToolMaterial materialIn, int maxUses)
+	{
 		super(materialIn,effectiveBlocks);
 		this.attackDamage = 1.0F;
 		this.attackSpeed = -3.0F;
 		this.setMaxDamage(maxUses);
-
-		setRegistryName(new ResourceLocation(Reference.MODID, name))
-				.setTranslationKey(name)
-				.setCreativeTab(CreativeTabs.GOLD_RUSH);
 	}
 	public boolean canHarvestBlock(IBlockState blockIn) {
 		Block block = blockIn.getBlock();
