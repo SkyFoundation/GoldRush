@@ -12,7 +12,8 @@ public class DirtIronOre extends Block
 	private final String name="dirt_iron_ore";
 	public DirtIronOre()
 	{
-		super(Material.ROCK);
+		super(Material.GROUND);
+		this.setHardness(blockHardness+1f);
 		setRegistryName(new ResourceLocation(Reference.MODID,name))
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH);

@@ -13,7 +13,7 @@ public class DirtCoalOre extends Block
 	public DirtCoalOre()
 	{
 		super(Material.GROUND);
-		this.setHardness(blockHardness+1);
+		this.setHardness(blockHardness+0.5f);
 		setRegistryName(new ResourceLocation(Reference.MODID,name))
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH);
