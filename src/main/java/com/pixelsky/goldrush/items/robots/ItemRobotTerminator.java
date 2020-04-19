@@ -19,6 +19,7 @@ public class ItemRobotTerminator extends Item {
         setRegistryName(new ResourceLocation(Reference.MODID,name))
                 .setTranslationKey(name)
                 .setCreativeTab(CreativeTabs.GOLD_RUSH);
+        this.setMaxDamage(3);
     }
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
@@ -33,7 +34,7 @@ public class ItemRobotTerminator extends Item {
         RobotTerminator destroyer=new RobotTerminator(worldIn);
         destroyer.setPosition(playerIn.posX,playerIn.posY,playerIn.posZ);
         worldIn.spawnEntity(destroyer);
-        playerIn.getHeldItem(handIn).shrink(1);
+        playerIn.getHeldItem(handIn).damageItem(1,playerIn);
         return   new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 
 

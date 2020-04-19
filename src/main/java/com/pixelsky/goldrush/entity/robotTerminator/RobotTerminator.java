@@ -40,8 +40,10 @@ public class RobotTerminator extends Entity {
     }
     private void updateMotion(){
         this.move(MoverType.SELF,0,-1,0);
-        if(this.posY<5)
+        if(this.posY<5) {
             this.setDead();
+
+        }
     }
     private boolean checkVaild(World w){
         //   Debug.info("当前世界是否"+w.isRemote);
