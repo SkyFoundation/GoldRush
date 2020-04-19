@@ -11,6 +11,7 @@ import net.minecraft.entity.ai.EntityAIFollowOwner;
 import net.minecraft.entity.ai.EntityAIPanic;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
@@ -29,6 +30,7 @@ public class RobotDestroyer extends EntityTameable implements IUpgradeHandler {
     private EntityPlayer summoner;
     private List<IUpgrade> upgrades;
     private int upgrade_limit=5;
+
     private RobotDestroyer(World world){
         super(world);
         setSize(1,1);

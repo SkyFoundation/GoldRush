@@ -36,26 +36,26 @@ public class WorldGenOres implements IWorldGenerator {
         //sands
     	
     	generateOre(ModBlocks.SAND_COAL_ORE, world, rand, x, z, 3, 5, 4, 50, 80, Blocks.SAND);
-    	generateOre(ModBlocks.SAND_DIAMOND_ORE, world, rand, x, z, 3, 6, 2, 50, 80, Blocks.SAND);
-    	generateOre(ModBlocks.SAND_EMERALD_ORE, world, rand, x, z, 3, 0, 1, 50, 60, Blocks.SAND);
-    	generateOre(ModBlocks.SAND_GOLD_ORE, world, rand, x, z, 4, 8, 10, 50, 80, Blocks.SAND);
-      	generateOre(ModBlocks.SAND_IRON_ORE, world, rand, x, z, 3, 10, 8, 50, 80, Blocks.SAND);
-        generateOre(ModBlocks.SAND_LAPIS_ORE, world, rand, x, z, 4, 8, 6, 50, 60, Blocks.SAND);
-        generateOre(ModBlocks.SAND_REDSTONE_ORE, world, rand, x, z, 3, 10, 6, 50, 60, Blocks.SAND);
+    	generateOre(ModBlocks.SAND_DIAMOND_ORE, world, rand, x, z, 3, 6, 1, 50, 80, Blocks.SAND);
+    	generateOre(ModBlocks.SAND_EMERALD_ORE, world, rand, x, z, 0, 3, 1, 50, 60, Blocks.SAND);
+    	generateOre(ModBlocks.SAND_GOLD_ORE, world, rand, x, z, 4, 8, 2, 50, 80, Blocks.SAND);
+      	generateOre(ModBlocks.SAND_IRON_ORE, world, rand, x, z, 3, 10, 2, 50, 80, Blocks.SAND);
+        generateOre(ModBlocks.SAND_LAPIS_ORE, world, rand, x, z, 4, 8, 2, 50, 60, Blocks.SAND);
+        generateOre(ModBlocks.SAND_REDSTONE_ORE, world, rand, x, z, 3, 10, 2, 50, 60, Blocks.SAND);
         
         
         //dirts
         
         generateOre(ModBlocks.DIRT_COAL_ORE, world, rand, x, z, 4, 6, 4, 50, 70, Blocks.DIRT);
-        generateOre(ModBlocks.DIRT_DIAMOND_ORE, world, rand, x, z, 3, 6, 2, 50, 70, Blocks.DIRT);
+        generateOre(ModBlocks.DIRT_DIAMOND_ORE, world, rand, x, z, 3, 6, 1, 50, 70, Blocks.DIRT);
         
         generateOre(ModBlocks.DIRT_EMERALD_ORE, world, rand, x, z, 3, 0, 1, 50, 60, Blocks.DIRT);
         
-        generateOre(ModBlocks.DIRT_GOLD_ORE, world, rand, x, z, 3, 6, 10, 50, 70, Blocks.DIRT);
-        generateOre(ModBlocks.DIRT_IRON_ORE, world, rand, x, z, 3, 8, 8, 50, 70, Blocks.DIRT);
+        generateOre(ModBlocks.DIRT_GOLD_ORE, world, rand, x, z, 3, 6, 2, 50, 70, Blocks.DIRT);
+        generateOre(ModBlocks.DIRT_IRON_ORE, world, rand, x, z, 3, 8, 2, 50, 70, Blocks.DIRT);
         
-        generateOre(ModBlocks.DIRT_LAPIS_ORE, world, rand, x, z, 4, 8, 8, 50, 60, Blocks.DIRT);
-        generateOre(ModBlocks.DIRT_REDSTONE_ORE, world, rand, x, z, 4, 6, 8, 50, 60, Blocks.DIRT);
+        generateOre(ModBlocks.DIRT_LAPIS_ORE, world, rand, x, z, 4, 8, 2, 50, 60, Blocks.DIRT);
+        generateOre(ModBlocks.DIRT_REDSTONE_ORE, world, rand, x, z, 4, 6, 2, 50, 60, Blocks.DIRT);
 
 
         //fuels
@@ -71,14 +71,15 @@ public class WorldGenOres implements IWorldGenerator {
         int heightRange = maxY - minY;
         
         WorldGenMinable gen = new WorldGenMinable(block.getDefaultState(), vienSize, BlockMatcher.forBlock(generateIn));
-        
-        
+
+
         for(int i = 0; i < chance; i++) {
             int xRand = chunkX * 16 + random.nextInt(16);
             int yRand = random.nextInt(heightRange) + minY;
             int zRand = chunkZ * 16 + random.nextInt(16);
             BlockPos orePos = new BlockPos(xRand, yRand, zRand);
             gen.generate(world, random, orePos);
+
         }
     }
     
