@@ -12,7 +12,8 @@ public class DirtEmeraldOre extends Block
 	private final String name="dirt_emerald_ore";
 	public DirtEmeraldOre()
 	{
-		super(Material.ROCK);
+		super(Material.GROUND);
+		this.setHardness(blockHardness+1.5f);
 		setRegistryName(new ResourceLocation(Reference.MODID,name))
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH);

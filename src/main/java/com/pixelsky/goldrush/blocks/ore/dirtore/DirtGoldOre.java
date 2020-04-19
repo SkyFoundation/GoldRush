@@ -12,7 +12,8 @@ public class DirtGoldOre extends Block
 	private final String name="dirt_gold_ore";
 	public DirtGoldOre()
 	{
-		super(Material.ROCK);
+		super(Material.GROUND);
+		this.setHardness(blockHardness+1.3f);
 		setRegistryName(new ResourceLocation(Reference.MODID,name))
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH);

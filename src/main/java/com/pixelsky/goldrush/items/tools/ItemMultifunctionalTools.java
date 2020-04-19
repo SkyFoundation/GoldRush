@@ -18,6 +18,8 @@ import net.minecraft.world.World;
 
 import java.util.Set;
 
+import org.lwjgl.input.Keyboard;
+
 
 //多功能工具
 public class ItemMultifunctionalTools extends ItemTool
@@ -90,25 +92,77 @@ public class ItemMultifunctionalTools extends ItemTool
 			IBlockState iblockstate = worldIn.getBlockState(pos);
 			Block block = iblockstate.getBlock();
 
-			if (facing != EnumFacing.DOWN && worldIn.getBlockState(pos.up()).getMaterial() == Material.AIR
-					&& block == Blocks.GRASS) {
+			
+			
+			if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
+			{
+				if (facing != EnumFacing.DOWN && worldIn.getBlockState(pos.up()).getMaterial() == Material.AIR && block == Blocks.GRASS_PATH)
+				{
+					IBlockState iblockstate1 = Blocks.DIRT.getDefaultState();
+					worldIn.playSound(player, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+					if (!worldIn.isRemote)
+					{
+						worldIn.setBlockState(pos, iblockstate1, 11);
+						stack.damageItem(1, player);
+					}
+					
+					return EnumActionResult.SUCCESS;
+				}
+				
+				if (facing != EnumFacing.DOWN && worldIn.getBlockState(pos.up()).getMaterial() == Material.AIR && block == Blocks.GRASS)
+				{
+					IBlockState iblockstate1 = Blocks.DIRT.getDefaultState();
+					worldIn.playSound(player, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+					if (!worldIn.isRemote)
+					{
+						worldIn.setBlockState(pos, iblockstate1, 11);
+						stack.damageItem(1, player);
+					}
+					
+					return EnumActionResult.SUCCESS;
+				}
+	        }
+			
+			
+			if (facing != EnumFacing.DOWN && worldIn.getBlockState(pos.up()).getMaterial() == Material.AIR && block == Blocks.DIRT)
+			{
+				IBlockState iblockstate1 = Blocks.FARMLAND.getDefaultState();
+				worldIn.playSound(player, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+				if (!worldIn.isRemote)
+				{
+					worldIn.setBlockState(pos, iblockstate1, 11);
+					stack.damageItem(1, player);
+				}
+				
+				return EnumActionResult.SUCCESS;
+			}
+			
+			if (facing != EnumFacing.DOWN && worldIn.getBlockState(pos.up()).getMaterial() == Material.AIR && block == Blocks.GRASS)
+			{
 				IBlockState iblockstate1 = Blocks.GRASS_PATH.getDefaultState();
 				worldIn.playSound(player, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
-				if (!worldIn.isRemote) {
+				if (!worldIn.isRemote)
+				{
 					worldIn.setBlockState(pos, iblockstate1, 11);
 					stack.damageItem(1, player);
 				}
 
 				return EnumActionResult.SUCCESS;
-			} else {
+			}else
+			{
 				return EnumActionResult.PASS;
 			}
+			
 		}
 	}
 
 	@Override
-	public float getDestroySpeed(ItemStack stack, IBlockState state) {
+	public float getDestroySpeed(ItemStack stack, IBlockState state)
+	{
 		Material material = state.getMaterial();
 		return material != Material.WOOD && material != Material.PLANTS && material != Material.VINE
 				&& material != Material.IRON && material != Material.ANVIL && material != Material.ROCK

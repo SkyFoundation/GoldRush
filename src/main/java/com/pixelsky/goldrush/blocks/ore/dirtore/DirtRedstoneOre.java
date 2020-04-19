@@ -12,7 +12,8 @@ public class DirtRedstoneOre extends Block
 	private final String name="dirt_redstone_ore";
 	public DirtRedstoneOre()
 	{
-		super(Material.ROCK);
+		super(Material.GROUND);
+		this.setHardness(blockHardness+0.4f);
 		setRegistryName(new ResourceLocation(Reference.MODID,name))
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH);

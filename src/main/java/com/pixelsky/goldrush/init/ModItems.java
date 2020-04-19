@@ -22,6 +22,11 @@ public class ModItems implements IRegistery
 	public static final Item IRON_BAR = new ItemIronBar();
 	public static final Item UNIAXIAL_TWO_WHEEL = new ItemUniaxialTwoWheel();
 	public static final Item GOLD_BOWL = new ItemGoldBowl();
+	public static final Item TOOLS_CORE = new ItemToolsCore();
+	
+	
+	
+	
 	
 	/*------------------------------------------------------------------------------------------------------------------*/
 	public static final Item WOOD_MULTIFUNCTIONAL_TOOLS = new ItemMultifunctionalTools(Item.ToolMaterial.WOOD,256)
@@ -73,6 +78,8 @@ public class ModItems implements IRegistery
 		regIm(IRON_BAR);
 		regIm(UNIAXIAL_TWO_WHEEL);
 		regIm(GOLD_BOWL);
+		regIm(TOOLS_CORE);
+		
 		
 		regIm(WOOD_MULTIFUNCTIONAL_TOOLS);
 		regIm(STONE_MULTIFUNCTIONAL_TOOLS);

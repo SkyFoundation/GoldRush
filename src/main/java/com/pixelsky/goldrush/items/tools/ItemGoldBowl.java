@@ -29,7 +29,7 @@ public class ItemGoldBowl extends Item
 		setRegistryName(new ResourceLocation(Reference.MODID, name))
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH)
-				.setMaxDamage(18)
+				.setMaxDamage(38)
 				.setMaxStackSize(1);
     }
 

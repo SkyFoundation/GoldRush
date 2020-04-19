@@ -12,7 +12,8 @@ public class DirtLapisOre extends Block
 	private final String name="dirt_lapis_ore";
 	public DirtLapisOre()
 	{
-		super(Material.ROCK);
+		super(Material.GROUND);
+		this.setHardness(blockHardness+0.4f);
 		setRegistryName(new ResourceLocation(Reference.MODID,name))
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH);
