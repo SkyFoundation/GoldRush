@@ -9,3 +9,4 @@ public class Reference
 	public static final String COMMONPROXY = "com.pixelsky.goldrush.proxy.CommonProxy";
 	
 }
+ 

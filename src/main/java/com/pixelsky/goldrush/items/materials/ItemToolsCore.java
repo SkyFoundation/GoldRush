@@ -18,5 +18,4 @@ public class ItemToolsCore extends Item
 		.setTranslationKey(name)
 		.setCreativeTab(CreativeTabs.GOLD_RUSH);
     }
-
 }
