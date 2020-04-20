@@ -13,12 +13,13 @@ import net.minecraft.util.ResourceLocation;
 import java.util.Random;
 
 //
-public class DirtDiamondOre extends BlockDirt
+public class DirtDiamondOre extends Block
 {
 	private final String name="dirt_diamond_ore";
 	public DirtDiamondOre()
 	{
-		super();
+		super(Material.CLAY);
+		this.setDefaultState(super.getDefaultState());
 		this.setHardness(blockHardness+1.5f);
 		setRegistryName(new ResourceLocation(Reference.MODID,name))
 		.setTranslationKey(name)

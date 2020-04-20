@@ -8,18 +8,19 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.Random;
 
 //
-public class DirtLapisOre extends BlockDirt
+public class DirtLapisOre extends Block
 {
 	private final String name="dirt_lapis_ore";
 	public DirtLapisOre()
-	{
-		super( );
+	{super(Material.CLAY);
+		this.setDefaultState(super.getDefaultState());
 		this.setHardness(blockHardness+0.4f);
 		setRegistryName(new ResourceLocation(Reference.MODID,name))
 		.setTranslationKey(name)
@@ -28,5 +29,9 @@ public class DirtLapisOre extends BlockDirt
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	{
 		return Blocks.LAPIS_ORE.getItemDropped(state,rand,fortune);
+	}
+	public int damageDropped(IBlockState state)
+	{
+	return  EnumDyeColor.BLUE.getDyeDamage();
 	}
 }
